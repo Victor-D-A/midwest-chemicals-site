@@ -1,0 +1,121 @@
+.site-header {
+  background: #ffffff;
+  border-bottom: 1px solid #dce3e7;
+  color: #17324a;
+}
+
+.site-header *,
+.site-header *::before,
+.site-header *::after {
+  box-sizing: border-box;
+}
+
+.site-header__inner {
+  align-items: center;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1200px;
+  min-height: 80px;
+  padding: 0 1.5rem;
+}
+
+.site-header__brand {
+  align-items: center;
+  color: inherit;
+  display: inline-flex;
+  flex-shrink: 0;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+.site-header__brand-mark {
+  align-items: center;
+  background: #173f5f;
+  border-radius: 0.4rem;
+  color: #ffffff;
+  display: inline-flex;
+  font-size: 0.85rem;
+  font-weight: 700;
+  height: 2.5rem;
+  justify-content: center;
+  letter-spacing: 0.04em;
+  width: 2.5rem;
+}
+
+.site-header__brand-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.site-header__nav-list {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-header__nav-link {
+  border-radius: 0.3rem;
+  color: inherit;
+  display: inline-block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.7rem 0.85rem;
+  text-decoration: none;
+}
+
+.site-header__nav-link:hover {
+  background: #edf3f6;
+  color: #0d5b87;
+}
+
+.site-header__brand:focus-visible,
+.site-header__nav-link:focus-visible {
+  outline: 3px solid #1479b8;
+  outline-offset: 3px;
+}
+
+.site-header__menu-button {
+  align-items: center;
+  background: transparent;
+  border: 1px solid #a9bac5;
+  border-radius: 0.4rem;
+  color: inherit;
+  display: none;
+  flex-direction: column;
+  gap: 0.3rem;
+  justify-content: center;
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+  padding: 0.55rem;
+}
+
+.site-header__menu-line {
+  background: currentColor;
+  border-radius: 1px;
+  display: block;
+  height: 2px;
+  width: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .site-header__inner {
+    min-height: 72px;
+    padding: 0 1rem;
+  }
+
+  .site-header__nav {
+    display: none;
+  }
+
+  .site-header__menu-button {
+    display: inline-flex;
+  }
+}
