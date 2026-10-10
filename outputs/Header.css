@@ -2,6 +2,7 @@
   background: #ffffff;
   border-bottom: 1px solid #dce3e7;
   color: #17324a;
+  position: relative;
 }
 
 .site-header *,
@@ -77,7 +78,8 @@
 }
 
 .site-header__brand:focus-visible,
-.site-header__nav-link:focus-visible {
+.site-header__nav-link:focus-visible,
+.site-header__menu-button:focus-visible {
   outline: 3px solid #1479b8;
   outline-offset: 3px;
 }
@@ -112,10 +114,31 @@
   }
 
   .site-header__nav {
+    background: #ffffff;
+    border-bottom: 1px solid #dce3e7;
     display: none;
+    left: 0;
+    padding: 0.5rem 1rem 1rem;
+    position: absolute;
+    right: 0;
+    top: 100%;
+  }
+
+  .site-header__nav--open {
+    display: block;
+  }
+
+  .site-header__nav-list {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .site-header__nav-link {
+    display: block;
   }
 
   .site-header__menu-button {
+    cursor: pointer;
     display: inline-flex;
   }
 }

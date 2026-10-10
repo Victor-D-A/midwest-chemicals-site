@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./Header.css";
 
 const navigationItems = [
@@ -9,6 +10,12 @@ const navigationItems = [
 ];
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  function toggleMenu() {
+    setIsMenuOpen(previousIsMenuOpen => !previousIsMenuOpen);// TODO(human): flip isMenuOpen from true to false (or false to true)
+  }
+
   return (
     <header className="site-header">
       <div className="site-header__inner">
@@ -17,7 +24,11 @@ export default function Header() {
           <span className="site-header__brand-name">Midwest Chemicals</span>
         </a>
 
-        <nav className="site-header__nav" aria-label="Primary navigation">
+        <nav
+          id="primary-navigation"
+          className={`site-header__nav ${isMenuOpen ? "site-header__nav--open" : ""}`}
+          aria-label="Primary navigation"
+        >
           <ul className="site-header__nav-list">
             {navigationItems.map((item) => (
               <li key={item.href}>
@@ -32,8 +43,10 @@ export default function Header() {
         <button
           className="site-header__menu-button"
           type="button"
-          aria-label="Mobile menu, coming soon"
-          disabled
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isMenuOpen}
+          aria-controls="primary-navigation"
+          onClick={toggleMenu}
         >
           <span className="site-header__menu-line" aria-hidden="true" />
           <span className="site-header__menu-line" aria-hidden="true" />
