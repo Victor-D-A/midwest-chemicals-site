@@ -33,9 +33,9 @@
 
 .site-header__brand-mark {
   align-items: center;
-  background: #173f5f;
+  background: #18B7B0;
   border-radius: 0.4rem;
-  color: #ffffff;
+  color: #13191D;
   display: inline-flex;
   font-size: 0.85rem;
   font-weight: 700;
@@ -73,21 +73,21 @@
 }
 
 .site-header__nav-link:hover {
-  background: #edf3f6;
+  background: #D9F3F1;
   color: #0d5b87;
 }
 
 .site-header__brand:focus-visible,
 .site-header__nav-link:focus-visible,
 .site-header__menu-button:focus-visible {
-  outline: 3px solid #1479b8;
+  outline: 3px solid #1F262B;
   outline-offset: 3px;
 }
 
 .site-header__menu-button {
   align-items: center;
   background: transparent;
-  border: 1px solid #a9bac5;
+  border: 1px solid #0E7F7A;
   border-radius: 0.4rem;
   color: inherit;
   display: none;
