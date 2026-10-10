@@ -17,6 +17,10 @@ export default function Header() {
     setIsMenuOpen(previousIsMenuOpen => !previousIsMenuOpen);
   }
 
+  function closeMenu() {
+    setIsMenuOpen(false);
+  }
+
   // While the menu is open, listen for key presses anywhere on the page.
   useEffect(() => {
     if (!isMenuOpen) return;
@@ -48,7 +52,11 @@ export default function Header() {
           <ul className="site-header__nav-list">
             {navigationItems.map((item) => (
               <li key={item.href}>
-                <a className="site-header__nav-link" href={item.href}>
+                <a
+                  className="site-header__nav-link"
+                  href={item.href}
+                  onClick={closeMenu}
+                >
                   {item.label}
                 </a>
               </li>
