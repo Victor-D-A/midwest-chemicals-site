@@ -1,7 +1,7 @@
 .site-header {
-  background: #ffffff;
-  border-bottom: 1px solid #dce3e7;
-  color: #17324a;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
   position: relative;
 }
 
@@ -33,9 +33,9 @@
 
 .site-header__brand-mark {
   align-items: center;
-  background: #18B7B0;
+  background: var(--color-accent);
   border-radius: 0.4rem;
-  color: #13191D;
+  color: var(--color-on-accent);
   display: inline-flex;
   font-size: 0.85rem;
   font-weight: 700;
@@ -73,21 +73,21 @@
 }
 
 .site-header__nav-link:hover {
-  background: #D9F3F1;
-  color: #0d5b87;
+  background: var(--color-accent-tint);
+  color: var(--color-link-hover);
 }
 
 .site-header__brand:focus-visible,
 .site-header__nav-link:focus-visible,
 .site-header__menu-button:focus-visible {
-  outline: 3px solid #1F262B;
+  outline: 3px solid var(--color-focus-ring);
   outline-offset: 3px;
 }
 
 .site-header__menu-button {
   align-items: center;
   background: transparent;
-  border: 1px solid #0E7F7A;
+  border: 1px solid var(--color-accent-strong);
   border-radius: 0.4rem;
   color: inherit;
   display: none;
@@ -135,8 +135,8 @@
   }
 
   .site-header__nav {
-    background: #ffffff;
-    border-bottom: 1px solid #dce3e7;
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
     display: none;
     left: 0;
     padding: 0.5rem 1rem 1rem;
