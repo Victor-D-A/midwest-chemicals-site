@@ -104,7 +104,28 @@
   border-radius: 1px;
   display: block;
   height: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
   width: 1.25rem;
+}
+
+/* Turn the three lines into an "X" while the menu is open.
+   Each line moves by (gap + line height) to meet the middle one. */
+.site-header__menu-button[aria-expanded="true"] .site-header__menu-line:nth-child(1) {
+  transform: translateY(calc(0.3rem + 2px)) rotate(45deg);
+}
+
+.site-header__menu-button[aria-expanded="true"] .site-header__menu-line:nth-child(2) {
+  opacity: 0;
+}
+
+.site-header__menu-button[aria-expanded="true"] .site-header__menu-line:nth-child(3) {
+  transform: translateY(calc(-0.3rem - 2px)) rotate(-45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header__menu-line {
+    transition: none;
+  }
 }
 
 @media (max-width: 768px) {

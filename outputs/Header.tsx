@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Header.css";
 
 const navigationItems = [
@@ -11,10 +11,26 @@ const navigationItems = [
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   function toggleMenu() {
-    setIsMenuOpen(previousIsMenuOpen => !previousIsMenuOpen);// TODO(human): flip isMenuOpen from true to false (or false to true)
+    setIsMenuOpen(previousIsMenuOpen => !previousIsMenuOpen);
   }
+
+  // While the menu is open, listen for key presses anywhere on the page.
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setIsMenuOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [isMenuOpen]);
 
   return (
     <header className="site-header">
@@ -41,6 +57,7 @@ export default function Header() {
         </nav>
 
         <button
+          ref={menuButtonRef}
           className="site-header__menu-button"
           type="button"
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
