@@ -1,6 +1,6 @@
 # Midwest Chemicals
 
-A practice website for a fictional chemicals and refinishing supplier, built to learn React and TypeScript.
+A website for a chemicals and refinishing supplier, built using React and TypeScript.
 
 ## What's built so far
 
