@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Footer.css";
 import { navigationItems } from "./navigation";
 
@@ -11,9 +12,13 @@ export default function Footer() {
 
         <nav className="site-footer__nav" aria-label="Footer navigation">
           <ul className="site-footer__nav-list">
-            {navigationItems.map((item) => <li key={item.href}>
-              <a className="site-footer__nav-link" href=
-                {item.href}>{item.label}</a></li>)}
+            {navigationItems.map((item) => (
+              <li key={item.href}>
+                <Link className="site-footer__nav-link" to={item.href}>
+                  {item.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
 
