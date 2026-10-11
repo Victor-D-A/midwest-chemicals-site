@@ -1,11 +1,12 @@
+import Footer from "../outputs/Footer";
 import Header from "../outputs/Header";
 import Hero from "../outputs/Hero";
 
 export default function App() {
   return (
-    <>
+    <div className="app">
       <Header />
-      <main>
+      <main className="app__main">
         {/* Placeholder copy: replace with the real wording before launch. */}
         <Hero
           title="Placeholder headline goes here"
@@ -14,6 +15,7 @@ export default function App() {
           ctaHref="/contact"
         />
       </main>
-    </>
+      <Footer />
+    </div>
   );
 }
