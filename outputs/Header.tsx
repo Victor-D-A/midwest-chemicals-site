@@ -1,13 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import "./Header.css";
-
-const navigationItems = [
-  { label: "Home", href: "/" },
-  { label: "Products", href: "/products" },
-  { label: "Refinishing", href: "/refinishing" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
-];
+import { navigationItems } from "./navigation";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
