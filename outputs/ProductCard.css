@@ -1,0 +1,28 @@
+.product-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  color: var(--color-text);
+  padding: 1.5rem;
+}
+
+.product-card__category {
+  color: var(--color-accent-strong);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+}
+
+.product-card__name {
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin: 0 0 0.75rem;
+}
+
+.product-card__description {
+  line-height: 1.6;
+  margin: 0;
+}

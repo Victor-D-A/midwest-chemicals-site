@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import "./Header.css";
 import { navigationItems } from "./navigation";
 
@@ -32,10 +33,10 @@ export default function Header() {
   return (
     <header className="site-header">
       <div className="site-header__inner">
-        <a className="site-header__brand" href="/" aria-label="Midwest Chemicals home">
+        <Link className="site-header__brand" to="/" aria-label="Midwest Chemicals home">
           <span className="site-header__brand-mark" aria-hidden="true">MC</span>
           <span className="site-header__brand-name">Midwest Chemicals</span>
-        </a>
+        </Link>
 
         <nav
           id="primary-navigation"
@@ -45,13 +46,13 @@ export default function Header() {
           <ul className="site-header__nav-list">
             {navigationItems.map((item) => (
               <li key={item.href}>
-                <a
+                <Link
                   className="site-header__nav-link"
-                  href={item.href}
+                  to={item.href}
                   onClick={closeMenu}
                 >
                   {item.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

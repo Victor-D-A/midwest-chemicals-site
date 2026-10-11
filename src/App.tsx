@@ -1,19 +1,20 @@
+import { Route, Routes } from "react-router-dom";
 import Footer from "../outputs/Footer";
 import Header from "../outputs/Header";
-import Hero from "../outputs/Hero";
+import HomePage from "../outputs/HomePage";
+import NotFoundPage from "../outputs/NotFoundPage";
+import ProductsPage from "../outputs/ProductsPage";
 
 export default function App() {
   return (
     <div className="app">
       <Header />
       <main className="app__main">
-        {/* Placeholder copy: replace with the real wording before launch. */}
-        <Hero
-          title="Placeholder headline goes here"
-          subtitle="A short placeholder sentence describing what the company does and who it serves."
-          ctaLabel="Placeholder button"
-          ctaHref="/contact"
-        />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/products" element={<ProductsPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
       </main>
       <Footer />
     </div>

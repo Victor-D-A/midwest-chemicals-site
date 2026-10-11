@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Hero.css";
 
 interface HeroProps {
@@ -16,7 +17,7 @@ export default function Hero({ title, subtitle, ctaLabel, ctaHref }: HeroProps) 
         </h1>
         <p className="hero__subtitle">{subtitle}</p>
 
-        <a className="hero__cta" href={ctaHref}>{ctaLabel}</a>
+        <Link className="hero__cta" to={ctaHref}>{ctaLabel}</Link>
       </div>
     </section>
   );
