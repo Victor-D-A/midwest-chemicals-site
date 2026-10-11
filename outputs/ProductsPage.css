@@ -1,0 +1,43 @@
+.products-page {
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.products-page__inner {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 4rem 1.5rem;
+}
+
+.products-page__title {
+  font-size: 2.25rem;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 0.75rem;
+}
+
+.products-page__intro {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0 0 2.5rem;
+  max-width: 55ch;
+}
+
+.products-page__grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .products-page__inner {
+    padding: 2.5rem 1rem;
+  }
+
+  .products-page__title {
+    font-size: 1.85rem;
+  }
+}
