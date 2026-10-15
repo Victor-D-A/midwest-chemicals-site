@@ -1,10 +1,12 @@
 import "./ProductsPage.css";
+import { formatPageTitle } from "./pageTitle";
 import ProductCard from "./ProductCard";
 import { products } from "./products";
 
 export default function ProductsPage() {
   return (
     <section className="products-page" aria-labelledby="products-title">
+      <title>{formatPageTitle("Products")}</title>
       <div className="products-page__inner">
         <h1 className="products-page__title" id="products-title">
           Products
