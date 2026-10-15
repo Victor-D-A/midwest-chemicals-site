@@ -1,8 +1,10 @@
 import Hero from "./Hero";
+import { formatPageTitle } from "./pageTitle";
 
 export default function HomePage() {
   return (
     <>
+      <title>{formatPageTitle()}</title>
       {/* Placeholder copy: replace with the real wording before launch. */}
       <Hero
         title="Placeholder headline goes here"
