@@ -1,0 +1,52 @@
+[
+  {
+    "slug": "top-coats",
+    "name": "Top Coats",
+    "summary": "Placeholder summary for the Top Coats category.",
+    "products": [
+      {
+        "id": "top-coats-1",
+        "name": "Placeholder top coat 1",
+        "sizes": "Placeholder: available sizes go here.",
+        "description": "Short placeholder description. Replace with the real product details before launch."
+      },
+      {
+        "id": "top-coats-2",
+        "name": "Placeholder top coat 2",
+        "sizes": "Placeholder: available sizes go here.",
+        "description": "Short placeholder description. Replace with the real product details before launch."
+      },
+      {
+        "id": "top-coats-3",
+        "name": "Placeholder top coat 3",
+        "sizes": "Placeholder: available sizes go here.",
+        "description": "Short placeholder description. Replace with the real product details before launch."
+      },
+      {
+        "id": "top-coats-4",
+        "name": "Placeholder top coat 4",
+        "sizes": "Placeholder: available sizes go here.",
+        "description": "Short placeholder description. Replace with the real product details before launch."
+      }
+    ]
+  },
+  {
+    "slug": "primers",
+    "name": "Primers",
+    "summary": "Placeholder summary for the Primers category.",
+    "products": [
+      {
+        "id": "primers-1",
+        "name": "Placeholder primer 1",
+        "sizes": "Placeholder: available sizes go here.",
+        "description": "Short placeholder description. Replace with the real product details before launch."
+      },
+      {
+        "id": "primers-2",
+        "name": "Placeholder primer 2",
+        "sizes": "Placeholder: available sizes go here.",
+        "description": "Short placeholder description. Replace with the real product details before launch."
+      }
+    ]
+  }
+]
