@@ -1,7 +1,7 @@
 import "./ProductsPage.css";
+import { categories } from "./catalog";
+import CategoryCard from "./CategoryCard";
 import { formatPageTitle } from "./pageTitle";
-import ProductCard from "./ProductCard";
-import { products } from "./products";
 
 export default function ProductsPage() {
   return (
@@ -17,9 +17,9 @@ export default function ProductsPage() {
         </p>
 
         <ul className="products-page__grid">
-          {products.map((product) => (
-            <li key={product.id}>
-              <ProductCard product={product} />
+          {categories.map((category) => (
+            <li key={category.slug}>
+              <CategoryCard category={category} />
             </li>
           ))}
         </ul>
