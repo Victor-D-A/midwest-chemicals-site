@@ -1,5 +1,5 @@
-import Hero from "./Hero";
-import { formatPageTitle } from "./pageTitle";
+import Hero from "../components/Hero";
+import { formatPageTitle } from "../utils/pageTitle";
 
 export default function HomePage() {
   return (

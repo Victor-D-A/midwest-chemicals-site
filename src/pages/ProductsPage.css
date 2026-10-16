@@ -23,6 +23,15 @@
   max-width: 55ch;
 }
 
+.products-page__back {
+  font-weight: 700;
+  margin: 0 0 1.5rem;
+}
+
+.products-page__back a {
+  color: var(--color-accent-strong);
+}
+
 .products-page__grid {
   display: grid;
   gap: 1.5rem;

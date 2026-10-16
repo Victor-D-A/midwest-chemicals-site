@@ -1,9 +1,10 @@
 import { Route, Routes } from "react-router-dom";
-import Footer from "../outputs/Footer";
-import Header from "../outputs/Header";
-import HomePage from "../outputs/HomePage";
-import NotFoundPage from "../outputs/NotFoundPage";
-import ProductsPage from "../outputs/ProductsPage";
+import CategoryPage from "./pages/CategoryPage";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import HomePage from "./pages/HomePage";
+import NotFoundPage from "./pages/NotFoundPage";
+import ProductsPage from "./pages/ProductsPage";
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<ProductsPage />} />
+          <Route path="/products/:slug" element={<CategoryPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
