@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./ProductsPage.css";
-import { formatPageTitle } from "./pageTitle";
+import { formatPageTitle } from "../utils/pageTitle";
 
 export default function NotFoundPage() {
   return (

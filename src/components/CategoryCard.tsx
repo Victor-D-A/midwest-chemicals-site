@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./CategoryCard.css";
-import type { Category } from "./catalog";
+import type { Category } from "../data/catalog";
 
 interface CategoryCardProps {
   category: Category;

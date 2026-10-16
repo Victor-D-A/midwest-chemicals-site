@@ -1,7 +1,7 @@
 import "./ProductsPage.css";
-import { categories } from "./catalog";
-import CategoryCard from "./CategoryCard";
-import { formatPageTitle } from "./pageTitle";
+import { categories } from "../data/catalog";
+import CategoryCard from "../components/CategoryCard";
+import { formatPageTitle } from "../utils/pageTitle";
 
 export default function ProductsPage() {
   return (

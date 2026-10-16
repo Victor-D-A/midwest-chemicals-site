@@ -1,8 +1,8 @@
 import { Link, useParams } from "react-router-dom";
 import "./ProductsPage.css";
-import CatalogProductCard from "./CatalogProductCard";
-import { findCategory } from "./catalog";
-import { formatPageTitle } from "./pageTitle";
+import CatalogProductCard from "../components/CatalogProductCard";
+import { findCategory } from "../data/catalog";
+import { formatPageTitle } from "../utils/pageTitle";
 
 export default function CategoryPage() {
   // `slug` is the part of the address after /products/ (for example "top-coats").

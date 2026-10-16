@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Footer.css";
-import { navigationItems } from "./navigation";
+import { navigationItems } from "../data/navigation";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();

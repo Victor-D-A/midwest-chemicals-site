@@ -1,5 +1,5 @@
 import "./CatalogProductCard.css";
-import type { CatalogProduct } from "./catalog";
+import type { CatalogProduct } from "../data/catalog";
 
 interface CatalogProductCardProps {
   product: CatalogProduct;
