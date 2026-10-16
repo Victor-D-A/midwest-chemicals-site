@@ -1,4 +1,4 @@
-import "./ProductCard.css";
+import "./CatalogProductCard.css";
 import type { CatalogProduct } from "./catalog";
 
 interface CatalogProductCardProps {
