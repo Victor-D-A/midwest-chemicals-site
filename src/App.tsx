@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import CategoryPage from "../outputs/CategoryPage";
 import Footer from "../outputs/Footer";
 import Header from "../outputs/Header";
 import HomePage from "../outputs/HomePage";
@@ -13,6 +14,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<ProductsPage />} />
+          <Route path="/products/:slug" element={<CategoryPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
