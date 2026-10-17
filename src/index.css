@@ -51,3 +51,9 @@ body {
 .app__main {
   flex: 1;
 }
+
+/* <main> receives focus when the skip link is used, but it isn't a control,
+   so it doesn't need a focus ring. */
+.app__main:focus {
+  outline: none;
+}
