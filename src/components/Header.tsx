@@ -1,7 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Header.css";
 import { navigationItems } from "../data/navigation";
+
+// NavLink calls this function and passes in whether its page is the current one.
+function navLinkClassName({ isActive }: { isActive: boolean }): string {
+  return (isActive ? "site-header__nav-link site-header__nav-link--active" : "site-header__nav-link");
+}
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -46,13 +51,14 @@ export default function Header() {
           <ul className="site-header__nav-list">
             {navigationItems.map((item) => (
               <li key={item.href}>
-                <Link
-                  className="site-header__nav-link"
+                <NavLink
+                  className={navLinkClassName}
                   to={item.href}
+                  end={item.href === "/"}
                   onClick={closeMenu}
                 >
                   {item.label}
-                </Link>
+                </NavLink>
               </li>
             ))}
           </ul>
