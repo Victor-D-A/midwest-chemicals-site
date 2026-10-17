@@ -18,10 +18,10 @@ export default function App() {
   // When the visitor moves to a different page, move keyboard focus to the
   // new content, so keyboard and screen reader users know the page changed.
   useEffect(() => {
-    if (previousPathname.current !== location.pathname) {
-      previousPathname.current = location.pathname;
-      mainRef.current?.focus();
-    }
+    if (previousPathname.current === location.pathname) return;
+
+    previousPathname.current = location.pathname;
+    mainRef.current?.focus();
   }, [location.pathname]);
 
   return (
