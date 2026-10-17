@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import "./Header.css";
 import { navigationItems } from "../data/navigation";
 
@@ -11,6 +11,17 @@ function navLinkClassName({ isActive }: { isActive: boolean }): string {
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const location = useLocation();
+  const previousPathname = useRef(location.pathname);
+
+  // Close the menu whenever the page changes, including when the visitor uses
+  // the browser's Back or Forward buttons (the link onClick below only covers
+  // clicks on the menu's own links).
+  useEffect(() => {
+    if (previousPathname.current === location.pathname) return;
+    previousPathname.current = location.pathname;
+    setIsMenuOpen(false);
+  }, [location.pathname]);
 
   function toggleMenu() {
     setIsMenuOpen(previousIsMenuOpen => !previousIsMenuOpen);
