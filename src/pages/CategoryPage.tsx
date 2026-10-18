@@ -39,13 +39,29 @@ export default function CategoryPage() {
         </h1>
         <p className="page__intro">{category.summary}</p>
 
-        <ul className="card-grid">
-          {category.products.map((product) => (
-            <li key={product.id}>
-              <CatalogProductCard product={product} />
-            </li>
-          ))}
-        </ul>
+        {category.externalUrl && (
+          <p className="page__text">
+            <a href={category.externalUrl}>
+              Visit {new URL(category.externalUrl).hostname.replace(/^www\./, "")}
+            </a>
+          </p>
+        )}
+
+        {category.products.length > 0 ? (
+          <ul className="card-grid">
+            {category.products.map((product) => (
+              <li key={product.id}>
+                <CatalogProductCard product={product} />
+              </li>
+            ))}
+          </ul>
+        ) : (
+          !category.externalUrl && (
+            <p className="page__text">
+              For details, colors, or samples, <Link to="/contact">contact us</Link>.
+            </p>
+          )
+        )}
       </div>
     </section>
   );

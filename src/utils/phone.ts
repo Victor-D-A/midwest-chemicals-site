@@ -4,7 +4,7 @@
 export function toPhoneLinkNumber(display: string): string {
   const digits = display.replace(/\D/g, "");
 
-  if(digits.length < 10) {
+  if (digits.length < 10) {
     return "";
   }
   if (digits.length === 11 && digits.startsWith("1")) {
