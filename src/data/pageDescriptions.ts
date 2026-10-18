@@ -7,3 +7,13 @@ export const HOME_DESCRIPTION =
 
 export const PRODUCTS_DESCRIPTION =
   "Top coats, primers, reducers, cleaners, and more from Midwest Chemicals. Find the right products for your next bathtub, tile, or countertop job.";
+
+// Drafts for the pages below; edit freely.
+export const ABOUT_DESCRIPTION =
+  "Midwest Chemicals has supplied coatings and refinishing products to licensed refinishing professionals from Orlando, Florida, since 1991.";
+
+export const REFINISHING_DESCRIPTION =
+  "Coatings and supplies for refinishing bathtubs, countertops, tile, concrete, cabinets, and more, from Midwest Chemicals in Orlando, Florida.";
+
+export const CONTACT_DESCRIPTION =
+  "Call, text, or email Midwest Chemicals to place an order or set up an account. Open Monday to Friday, 8 a.m. to 4:30 p.m. Eastern. Se habla español.";

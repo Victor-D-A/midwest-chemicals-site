@@ -1,6 +1,9 @@
 import { useEffect, useRef } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
+import AboutPage from "./pages/AboutPage";
 import CategoryPage from "./pages/CategoryPage";
+import ContactPage from "./pages/ContactPage";
+import RefinishingPage from "./pages/RefinishingPage";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import SkipLink from "./components/SkipLink";
@@ -33,6 +36,9 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/products/:slug" element={<CategoryPage />} />
+          <Route path="/refinishing" element={<RefinishingPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
