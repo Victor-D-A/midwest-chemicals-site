@@ -6,6 +6,7 @@ export default function NotFoundPage() {
   return (
     <section className="products-page" aria-labelledby="not-found-title">
       <title>{formatPageTitle("Page not found")}</title>
+      <meta name="robots" content="noindex" />
       <div className="products-page__inner">
         <h1 className="products-page__title" id="not-found-title">
           Page not found

@@ -13,6 +13,7 @@ export default function CategoryPage() {
     return(
       <section className="products-page" aria-labelledby="category-not-found-title">
       <title>{formatPageTitle("Category not found")}</title>
+      <meta name="robots" content="noindex" />
       <div className="products-page__inner">
         <h1 className="products-page__title" id="category-not-found-title">
           Category not found
@@ -28,6 +29,7 @@ export default function CategoryPage() {
   return (
     <section className="products-page" aria-labelledby="category-title">
       <title>{formatPageTitle(category.name)}</title>
+      <meta name="description" content={category.summary} />
       <div className="products-page__inner">
         <p className="products-page__back">
           <Link to="/products">&larr; All products</Link>
