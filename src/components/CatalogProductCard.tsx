@@ -9,8 +9,10 @@ export default function CatalogProductCard({ product }: CatalogProductCardProps)
   return (
     <article className="product-card">
       <h2 className="product-card__name">{product.name}</h2>
-      <p className="product-card__sizes">{product.sizes}</p>
-      <p className="product-card__description">{product.description}</p>
+      {product.sizes && <p className="product-card__sizes">{product.sizes}</p>}
+      {product.description && (
+        <p className="product-card__description">{product.description}</p>
+      )}
     </article>
   );
 }

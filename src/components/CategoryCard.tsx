@@ -9,12 +9,24 @@ interface CategoryCardProps {
 export default function CategoryCard({ category }: CategoryCardProps) {
   return (
     <article className="category-card">
-      <h2 className="category-card__name">
-        <Link className="category-card__link" to=
-          {`/products/${category.slug}`}>
-          {category.name}</Link>
-      </h2>
+      {/* h3: the Products page uses h2 for its section headings. */}
+      <h3 className="category-card__name">
+        {category.externalUrl ? (
+          <a className="category-card__link" href={category.externalUrl}>
+            {category.name}
+          </a>
+        ) : (
+          <Link className="category-card__link" to=
+            {`/products/${category.slug}`}>
+            {category.name}</Link>
+        )}
+      </h3>
       <p className="category-card__summary">{category.summary}</p>
+      {category.externalUrl && (
+        <p className="category-card__external">
+          Opens {new URL(category.externalUrl).hostname.replace(/^www\./, "")}
+        </p>
+      )}
     </article>
   );
 }
