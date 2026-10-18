@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import "./Header.css";
+import Logo from "./Logo";
 import { navigationItems } from "../data/navigation";
 
 // NavLink calls this function and passes in whether its page is the current one.
@@ -50,8 +51,7 @@ export default function Header() {
     <header className="site-header">
       <div className="site-header__inner">
         <Link className="site-header__brand" to="/" aria-label="Midwest Chemicals home">
-          <span className="site-header__brand-mark" aria-hidden="true">MC</span>
-          <span className="site-header__brand-name">Midwest Chemicals</span>
+          <Logo />
         </Link>
 
         <nav

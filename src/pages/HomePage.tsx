@@ -1,15 +1,17 @@
 import Hero from "../components/Hero";
+import { HOME_DESCRIPTION } from "../data/pageDescriptions";
 import { formatPageTitle } from "../utils/pageTitle";
 
 export default function HomePage() {
   return (
     <>
       <title>{formatPageTitle()}</title>
-      {/* Placeholder copy: replace with the real wording before launch. */}
+      <meta name="description" content={HOME_DESCRIPTION} />
+      {/* Draft Copy: Pending Owner Review. */}
       <Hero
-        title="Placeholder headline goes here"
-        subtitle="A short placeholder sentence describing what the company does and who it serves."
-        ctaLabel="Placeholder button"
+        title="The Products Behind Every Great Transformation."
+        subtitle="Professional coatings and refinishing supplies for bathtubs, countertops, tile, cabinets, and more. Supplying refinishing professionals since 1991."
+        ctaLabel="Explore Our Products"
         ctaHref="/products"
       />
     </>

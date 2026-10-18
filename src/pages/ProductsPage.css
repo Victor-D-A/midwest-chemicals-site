@@ -23,6 +23,11 @@
   max-width: 55ch;
 }
 
+/* Links inside intro text use the same teal as the "back" link. */
+.products-page__intro a {
+  color: var(--color-accent-strong);
+}
+
 .products-page__back {
   font-weight: 700;
   margin: 0 0 1.5rem;
