@@ -1,3 +1,58 @@
+.product-search {
+  margin: 0 0 0.75rem;
+  max-width: 34rem;
+}
+
+.product-search__label {
+  display: block;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+.product-search__row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* The border is the strong teal so the box's edge passes 3:1 contrast;
+   the light gray border used on cards would not (about 1.3:1).
+   16px text keeps phones from zooming in when the box is tapped. */
+.product-search__input {
+  border: 2px solid var(--color-accent-strong);
+  border-radius: 0.4rem;
+  color: var(--color-text);
+  flex: 1;
+  font: inherit;
+  font-size: 1rem;
+  min-height: 2.75rem;
+  min-width: 0;
+  padding: 0.6rem 0.85rem;
+}
+
+.product-search__clear {
+  background: var(--color-surface);
+  border: 2px solid var(--color-accent-strong);
+  border-radius: 0.4rem;
+  color: var(--color-text);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  min-height: 2.75rem;
+  padding: 0 1rem;
+}
+
+.product-search__input:focus-visible,
+.product-search__clear:focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+.product-search__status {
+  font-weight: 700;
+  margin: 0 0 1.5rem;
+  min-height: 1.5em;
+}
+
 /* One headed section per group of categories on the Products page. */
 .catalog-group + .catalog-group {
   margin-top: 3rem;
