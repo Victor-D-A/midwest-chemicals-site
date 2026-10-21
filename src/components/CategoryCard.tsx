@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./CategoryCard.css";
 import type { Category } from "../data/catalog";
+import { siteName } from "../utils/url";
 
 interface CategoryCardProps {
   category: Category;
@@ -24,7 +25,7 @@ export default function CategoryCard({ category }: CategoryCardProps) {
       <p className="category-card__summary">{category.summary}</p>
       {category.externalUrl && (
         <p className="category-card__external">
-          Opens {new URL(category.externalUrl).hostname.replace(/^www\./, "")}
+          Opens {siteName(category.externalUrl)}
         </p>
       )}
     </article>

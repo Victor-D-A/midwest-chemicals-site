@@ -1,0 +1,97 @@
+/* The main call to action: white text on the strong teal (4.84:1). */
+.floor-cta {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin: 0 0 3rem;
+}
+
+.floor-cta__button {
+  background: var(--color-accent-strong);
+  border-radius: 0.4rem;
+  color: var(--color-text-inverse);
+  display: inline-block;
+  font-weight: 700;
+  padding: 0.85rem 1.5rem;
+  text-decoration: none;
+}
+
+.floor-cta__button:hover {
+  background: var(--color-surface-inverse);
+}
+
+.floor-cta__button:focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 3px;
+}
+
+.floor-cta__note {
+  font-size: 0.95rem;
+}
+
+.floor-section + .floor-section {
+  margin-top: 3rem;
+}
+
+.floor-section__title {
+  border-bottom: 1px solid var(--color-border);
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.5rem;
+}
+
+.floor-point {
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  height: 100%;
+  padding: 1.5rem;
+}
+
+.floor-point__title {
+  font-size: 1.15rem;
+  margin: 0 0 0.5rem;
+}
+
+.floor-point__text {
+  line-height: 1.6;
+  margin: 0;
+}
+
+.floor-steps {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.8;
+  margin: 0 0 1rem;
+  padding-left: 1.5rem;
+}
+
+.floor-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.floor-links a {
+  border: 2px solid var(--color-accent-strong);
+  border-radius: 0.4rem;
+  color: var(--color-accent-strong);
+  display: inline-block;
+  font-weight: 700;
+  padding: 0.6rem 1rem;
+  text-decoration: none;
+}
+
+.floor-links a:hover {
+  background: var(--color-accent-tint);
+  color: var(--color-text);
+}
+
+.floor-links a:focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
