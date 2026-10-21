@@ -21,7 +21,11 @@ export function matchesQuery(text: string, query: string): boolean {
   if (words.length === 0) {
     return false;
   }
-  return words.every(word => normalizedText.includes(word));
+
+  const compactText = normalizedText.replace(/[\s-]+/g, "");
+  const compactQuery = words.join("");
+  
+  return words.every(word => normalizedText.includes(word)) || compactText.includes(compactQuery);
 }
 
 // Searches category names and summaries, and product names and descriptions.

@@ -15,5 +15,8 @@ export const ABOUT_DESCRIPTION =
 export const REFINISHING_DESCRIPTION =
   "Coatings and supplies for refinishing bathtubs, countertops, tile, concrete, cabinets, and more, from Midwest Chemicals in Orlando, Florida.";
 
+export const FLOOR_COATINGS_DESCRIPTION =
+  "StoneLuxe500 roll-on floor coatings from Midwest Chemicals: UV-stable and pre-tinted, for garages, workshops, patios, and commercial spaces.";
+
 export const CONTACT_DESCRIPTION =
   "Call, text, or email Midwest Chemicals to place an order or set up an account. Open Monday to Friday, 8 a.m. to 4:30 p.m. Eastern. Se habla español.";

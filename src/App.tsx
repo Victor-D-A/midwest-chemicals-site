@@ -3,6 +3,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import AboutPage from "./pages/AboutPage";
 import CategoryPage from "./pages/CategoryPage";
 import ContactPage from "./pages/ContactPage";
+import FloorCoatingsPage from "./pages/FloorCoatingsPage";
 import RefinishingPage from "./pages/RefinishingPage";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -35,6 +36,9 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/products" element={<ProductsPage />} />
+          {/* An exact path wins over /products/:slug, so this one category
+              gets its own custom page. */}
+          <Route path="/products/floor-coatings" element={<FloorCoatingsPage />} />
           <Route path="/products/:slug" element={<CategoryPage />} />
           <Route path="/refinishing" element={<RefinishingPage />} />
           <Route path="/about" element={<AboutPage />} />

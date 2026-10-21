@@ -3,6 +3,7 @@ import "./Page.css";
 import CatalogProductCard from "../components/CatalogProductCard";
 import { findCategory } from "../data/catalog";
 import { formatPageTitle } from "../utils/pageTitle";
+import { siteName } from "../utils/url";
 
 export default function CategoryPage() {
   // `slug` is the part of the address after /products/ (for example "top-coats").
@@ -42,7 +43,7 @@ export default function CategoryPage() {
         {category.externalUrl && (
           <p className="page__text">
             <a href={category.externalUrl}>
-              Visit {new URL(category.externalUrl).hostname.replace(/^www\./, "")}
+              Visit {siteName(category.externalUrl)}
             </a>
           </p>
         )}
