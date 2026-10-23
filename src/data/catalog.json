@@ -9,31 +9,36 @@
         "id": "hsld-5000",
         "name": "HSLD Resin / HSLD Catalyst",
         "sizes": "Available in gallons, quarts, and pints.",
-        "description": "HSLD 5000 Resin is a 1 part resin, 1 part catalyst aliphatic acrylic polyurethane that carries a high solid resin. This coating is suggested for the bathtub and tile industry but is also used in the automotive, marine, and aircraft industries. Cure times are available in 48hr, 36hr, 24hr, 10hr, and 4hr. Available in any color."
+        "description": "HSLD 5000 Resin is a 1 part resin, 1 part catalyst aliphatic acrylic polyurethane that carries a high solid resin. This coating is suggested for the bathtub and tile industry but is also used in the automotive, marine, and aircraft industries. Cure times are available in 48hr, 36hr, 24hr, 10hr, and 4hr. Available in any color.",
+        "image": "/images/products/hsld-5000.jpg"
       },
       {
         "id": "protecthane",
         "name": "Protecthane Resin / Protecthane Catalyst",
         "sizes": "Available in gallons, quarts, and pints.",
-        "description": "Protecthane Resin is a 2 part resin, 1 part catalyst iso-free resin used in the bathtub and tile industry. Cure times are available in 48hr, 36hr, 24hr, 10hr, and 4hr. Available in any color. Protecthane Catalyst is a 2 part resin, 1 part catalyst aliphatic acrylic polyurethane that has a very low percentage (under one half of 1 percent) of isocyanides."
+        "description": "Protecthane Resin is a 2 part resin, 1 part catalyst iso-free resin used in the bathtub and tile industry. Cure times are available in 48hr, 36hr, 24hr, 10hr, and 4hr. Available in any color. Protecthane Catalyst is a 2 part resin, 1 part catalyst aliphatic acrylic polyurethane that has a very low percentage (under one half of 1 percent) of isocyanides.",
+        "image": "/images/products/protecthane.jpg"
       },
       {
         "id": "kemron",
         "name": "Kemron Resin / Kemron Catalyst",
         "sizes": "Available in gallons, quarts, and pints.",
-        "description": "Kemron Resin is a 3 part resin, 1 part catalyst aliphatic acrylic polyurethane that is interchangeable with some automotive coatings and is used in the automotive, marine, and aircraft industries. Cure times are available in 48hr, 36hr, 24hr, 10hr, and 4hr. Available in any color."
+        "description": "Kemron Resin is a 3 part resin, 1 part catalyst aliphatic acrylic polyurethane that is interchangeable with some automotive coatings and is used in the automotive, marine, and aircraft industries. Cure times are available in 48hr, 36hr, 24hr, 10hr, and 4hr. Available in any color.",
+        "image": "/images/products/kemron.jpg"
       },
       {
         "id": "fya-3500",
         "name": "FYA 3500 Resin / FYA 3500 Catalyst",
         "sizes": "Available in gallons, quarts, and pints.",
-        "description": "A high solids, sprayable, 2 component aliphatic acrylic urethane used as a finishing coat for porcelain, fiberglass, and ceramic. This resin is interchangeable with other companies' top coats and catalysts; call for information."
+        "description": "A high solids, sprayable, 2 component aliphatic acrylic urethane used as a finishing coat for porcelain, fiberglass, and ceramic. This resin is interchangeable with other companies' top coats and catalysts; call for information.",
+        "image": "/images/products/fya-3500.jpg"
       },
       {
         "id": "porcelain-enamel-1000",
         "name": "Porcelain Enamel 1000 Resin / Porcelain Enamel 1000 Catalyst",
         "sizes": "Available in gallons, quarts, and pints.",
-        "description": "Porcelain Enamel 1000 Resin is a 2 part resin, 1 part catalyst aliphatic acrylic polyurethane used in the bathtub and tile industry and also in the automotive, marine, and aircraft industries. Cure times are available in 48hr, 36hr, 24hr, 10hr, and 4hr. Available in any color."
+        "description": "Porcelain Enamel 1000 Resin is a 2 part resin, 1 part catalyst aliphatic acrylic polyurethane used in the bathtub and tile industry and also in the automotive, marine, and aircraft industries. Cure times are available in 48hr, 36hr, 24hr, 10hr, and 4hr. Available in any color.",
+        "image": "/images/products/porcelain-enamel-1000.jpg"
       }
     ]
   },
@@ -47,13 +52,15 @@
         "id": "low-odor-urethane",
         "name": "Low Odor Urethane",
         "sizes": "",
-        "description": "We have reformulated our 1:1 ratio urethane top coat to reduce the odor by 60 to 70 percent. We have not changed the raw materials, only the solvents, so durability is not compromised. Comes in all colors with a gloss, satin, or eggshell finish and cure times of 36hr, 24hr, and 10hr. Use it as an everyday coating or for customers concerned about the smell of standard urethane coatings, such as apartment complexes and hotels. This coating comes with its own reducer."
+        "description": "We have reformulated our 1:1 ratio urethane top coat to reduce the odor by 60 to 70 percent. We have not changed the raw materials, only the solvents, so durability is not compromised. Comes in all colors with a gloss, satin, or eggshell finish and cure times of 36hr, 24hr, and 10hr. Use it as an everyday coating or for customers concerned about the smell of standard urethane coatings, such as apartment complexes and hotels. This coating comes with its own reducer.",
+        "image": "/images/products/low-odor-urethane.jpg"
       },
       {
         "id": "low-odor-reducer",
         "name": "Low Odor Reducer",
         "sizes": "",
-        "description": "Since reducers have strong smells, we formulated a reducer with a very low odor, so you do not lose the benefit of the low-odor top coat. Use our low odor reducer with our low odor top coats."
+        "description": "Since reducers have strong smells, we formulated a reducer with a very low odor, so you do not lose the benefit of the low-odor top coat. Use our low odor reducer with our low odor top coats.",
+        "image": "/images/products/low-odor-reducer.jpg"
       }
     ]
   },
@@ -67,13 +74,15 @@
         "id": "ultra-link-primer",
         "name": "Ultra Link Wipe On Primer",
         "sizes": "",
-        "description": "Our newly formulated one-component low-VOC wipe-on or spray-on primer for all surfaces, featuring enhanced silane technology for superior surface bonding and long-lasting adhesion."
+        "description": "Our newly formulated one-component low-VOC wipe-on or spray-on primer for all surfaces, featuring enhanced silane technology for superior surface bonding and long-lasting adhesion.",
+        "image": "/images/products/ultra-link-primer.jpg"
       },
       {
         "id": "eco-flex-250",
         "name": "Eco Flex LOW VOC 250 Top Coat",
         "sizes": "",
-        "description": "Our new low-VOC top coat system, designed to deliver high performance with environmental responsibility. This 4:1 top coat system is formulated to meet stringent VOC regulations without sacrificing quality."
+        "description": "Our new low-VOC top coat system, designed to deliver high performance with environmental responsibility. This 4:1 top coat system is formulated to meet stringent VOC regulations without sacrificing quality.",
+        "image": "/images/products/eco-flex-250.jpg"
       }
     ]
   },
@@ -87,13 +96,15 @@
         "id": "commercial-grade-topcoat",
         "name": "Commercial Grade Topcoat Resin / Catalyst",
         "sizes": "",
-        "description": "A 2 part resin, 1 part catalyst top coat used in the commercial bathtub and tile industry. Cure times are available in 24hr or 36hr. Available in any color."
+        "description": "A 2 part resin, 1 part catalyst top coat used in the commercial bathtub and tile industry. Cure times are available in 24hr or 36hr. Available in any color.",
+        "image": "/images/products/commercial-grade-topcoat.jpg"
       },
       {
         "id": "commercial-grade-epoxy-primer",
         "name": "Commercial Grade Epoxy Primer Resin / Catalyst",
         "sizes": "",
-        "description": "A 2 part resin, 1 part catalyst epoxy primer used in the commercial bathtub and tile industry. Can be top coated in 20 minutes. Available in any color."
+        "description": "A 2 part resin, 1 part catalyst epoxy primer used in the commercial bathtub and tile industry. Can be top coated in 20 minutes. Available in any color.",
+        "image": "/images/products/commercial-grade-epoxy-primer.jpg"
       }
     ]
   },
@@ -107,13 +118,15 @@
         "id": "xl-aerospace",
         "name": "XL Aerospace Resin / XL Aerospace Catalyst",
         "sizes": "Available in gallons, quarts, and pints.",
-        "description": "Aerospace Primer Resin is a 1 part resin, 1 part catalyst epoxy primer used in the bathtub and tile industry. Can be top coated in 15 minutes and is available in any color. The catalyst has three different silanes blended in for increased adhesion to glass surfaces. Also sold to the automotive, marine, and aircraft industries."
+        "description": "Aerospace Primer Resin is a 1 part resin, 1 part catalyst epoxy primer used in the bathtub and tile industry. Can be top coated in 15 minutes and is available in any color. The catalyst has three different silanes blended in for increased adhesion to glass surfaces. Also sold to the automotive, marine, and aircraft industries.",
+        "image": "/images/products/xl-aerospace.jpg"
       },
       {
         "id": "nu-tech-wipe-on",
         "name": "Nu-Tech Wipe-On Primer",
         "sizes": "Available in pints only.",
-        "description": "A silane wipe-on primer with new silane technology adhesion promoters blended in, for glass surfaces such as porcelain, ceramic tile, and china. No epoxy primer is needed. Can be top coated 20 to 30 minutes after applying, with any of our top coat brands. Can be tinted blue, green, white, yellow, or red, and also comes in clear."
+        "description": "A silane wipe-on primer with new silane technology adhesion promoters blended in, for glass surfaces such as porcelain, ceramic tile, and china. No epoxy primer is needed. Can be top coated 20 to 30 minutes after applying, with any of our top coat brands. Can be tinted blue, green, white, yellow, or red, and also comes in clear.",
+        "image": "/images/products/nu-tech-wipe-on.jpg"
       }
     ]
   },
@@ -134,19 +147,22 @@
         "id": "multi-spec-color",
         "name": "Multi-Spec Color",
         "sizes": "Available in gallons, quarts, and pints.",
-        "description": "A water-based product that looks and feels like a stone finish when sprayed. A one-stage product that can be sprayed with an HVLP gun with a turbine system. Comes in a wide variety of colors and can be used on countertops, bathtubs, tile, ceramic, cabinets, and walls."
+        "description": "A water-based product that looks and feels like a stone finish when sprayed. A one-stage product that can be sprayed with an HVLP gun with a turbine system. Comes in a wide variety of colors and can be used on countertops, bathtubs, tile, ceramic, cabinets, and walls.",
+        "image": "/images/products/multi-spec-color.jpg"
       },
       {
         "id": "multistone-quick-cure-clear",
         "name": "Multistone Quick Cure Clear Resin / Catalyst",
         "sizes": "Gloss or satin. Available in 5 gallons, gallons, quarts, and pints.",
-        "description": ""
+        "description": "",
+        "image": "/images/products/multistone-quick-cure-clear.jpg"
       },
       {
         "id": "crosslink-stone-finish",
         "name": "Crosslink Resin / Crosslink Catalyst Stone Finish",
         "sizes": "Available in 5 gallons, gallons, quarts, and pints.",
-        "description": ""
+        "description": "",
+        "image": "/images/products/crosslink-stone-finish.jpg"
       }
     ]
   },
@@ -212,19 +228,22 @@
         "id": "reducer-slow",
         "name": "Reducer, Slow",
         "sizes": "Available in gallons, quarts, and pints.",
-        "description": "A blend of solvents that thins the viscosity of your top coats and primers and helps their sprayability. Use a slow reducer for temperatures between 79 and 90 degrees."
+        "description": "A blend of solvents that thins the viscosity of your top coats and primers and helps their sprayability. Use a slow reducer for temperatures between 79 and 90 degrees.",
+        "image": "/images/products/reducer-slow.jpg"
       },
       {
         "id": "reducer-medium",
         "name": "Reducer, Medium",
         "sizes": "Available in gallons, quarts, and pints.",
-        "description": "A blend of solvents that thins the viscosity of your top coats and primers and helps their sprayability. Use a medium reducer for temperatures between 69 and 78 degrees."
+        "description": "A blend of solvents that thins the viscosity of your top coats and primers and helps their sprayability. Use a medium reducer for temperatures between 69 and 78 degrees.",
+        "image": "/images/products/reducer-medium.jpg"
       },
       {
         "id": "reducer-fast",
         "name": "Reducer, Fast",
         "sizes": "Available in gallons, quarts, and pints.",
-        "description": "A blend of solvents that thins the viscosity of your top coats and primers and helps their sprayability. Use a fast reducer for temperatures between 60 and 68 degrees."
+        "description": "A blend of solvents that thins the viscosity of your top coats and primers and helps their sprayability. Use a fast reducer for temperatures between 60 and 68 degrees.",
+        "image": "/images/products/reducer-fast.jpg"
       }
     ]
   },
@@ -238,19 +257,22 @@
         "id": "industrial-cleaner",
         "name": "Industrial Cleaner",
         "sizes": "",
-        "description": "Used to clean glass surfaces before priming. This cleaner contains mild acids and can give a mild etch to porcelain and ceramic."
+        "description": "Used to clean glass surfaces before priming. This cleaner contains mild acids and can give a mild etch to porcelain and ceramic.",
+        "image": "/images/products/industrial-cleaner.jpg"
       },
       {
         "id": "premiere-cleaner",
         "name": "Premiere Cleaner",
         "sizes": "",
-        "description": "A strong alcohol solvent that is a great cleaner and excellent for a final wipe-down before priming your surface."
+        "description": "A strong alcohol solvent that is a great cleaner and excellent for a final wipe-down before priming your surface.",
+        "image": "/images/products/premiere-cleaner.jpg"
       },
       {
         "id": "glass-etch",
         "name": "Glass Etch",
         "sizes": "",
-        "description": "A strong acid that makes glass surfaces very porous."
+        "description": "A strong acid that makes glass surfaces very porous.",
+        "image": "/images/products/glass-etch.jpg"
       }
     ]
   },
@@ -348,12 +370,42 @@
     "group": "additives-extras",
     "summary": "Six fragrances: Sea Mist, Orchid, Cinnamon Buns, French Vanilla, Lemon Zest, and Mango Papaya.",
     "products": [
-      { "id": "fragrance-sea-mist", "name": "Sea Mist (Most Popular)", "sizes": "", "description": "" },
-      { "id": "fragrance-orchid", "name": "Orchid", "sizes": "", "description": "" },
-      { "id": "fragrance-cinnamon-buns", "name": "Cinnamon Buns", "sizes": "", "description": "" },
-      { "id": "fragrance-french-vanilla", "name": "French Vanilla", "sizes": "", "description": "" },
-      { "id": "fragrance-lemon-zest", "name": "Lemon Zest", "sizes": "", "description": "" },
-      { "id": "fragrance-mango-papaya", "name": "Mango Papaya", "sizes": "", "description": "" }
+      {
+        "id": "fragrance-sea-mist",
+        "name": "Sea Mist (Most Popular)",
+        "sizes": "",
+        "description": ""
+      },
+      {
+        "id": "fragrance-orchid",
+        "name": "Orchid",
+        "sizes": "",
+        "description": ""
+      },
+      {
+        "id": "fragrance-cinnamon-buns",
+        "name": "Cinnamon Buns",
+        "sizes": "",
+        "description": ""
+      },
+      {
+        "id": "fragrance-french-vanilla",
+        "name": "French Vanilla",
+        "sizes": "",
+        "description": ""
+      },
+      {
+        "id": "fragrance-lemon-zest",
+        "name": "Lemon Zest",
+        "sizes": "",
+        "description": ""
+      },
+      {
+        "id": "fragrance-mango-papaya",
+        "name": "Mango Papaya",
+        "sizes": "",
+        "description": ""
+      }
     ]
   },
   {
@@ -362,9 +414,27 @@
     "group": "additives-extras",
     "summary": "Brochures for your customers on why high-quality industrial coatings give a long-lasting finish, available in bundles.",
     "products": [
-      { "id": "brochure-bathtub", "name": "Bathtub Brochure", "sizes": "", "description": "" },
-      { "id": "brochure-cabinets", "name": "Cabinets Brochure", "sizes": "", "description": "" },
-      { "id": "brochure-concrete", "name": "Concrete Brochure", "sizes": "", "description": "" }
+      {
+        "id": "brochure-bathtub",
+        "name": "Bathtub Brochure",
+        "sizes": "",
+        "description": "",
+        "image": "/images/products/brochure-bathtub.jpg"
+      },
+      {
+        "id": "brochure-cabinets",
+        "name": "Cabinets Brochure",
+        "sizes": "",
+        "description": "",
+        "image": "/images/products/brochure-cabinets.jpg"
+      },
+      {
+        "id": "brochure-concrete",
+        "name": "Concrete Brochure",
+        "sizes": "",
+        "description": "",
+        "image": "/images/products/brochure-concrete.jpg"
+      }
     ]
   }
 ]

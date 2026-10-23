@@ -6,6 +6,8 @@ export interface CatalogProduct {
   // Either may be an empty string when the company lists none.
   sizes: string;
   description: string;
+  // Path to the product photo in public/images/products, when there is one.
+  image?: string;
 }
 
 export interface Category {
