@@ -13,8 +13,10 @@ export default function CatalogProductCard({ product }: CatalogProductCardProps)
           <img
             className="product-card__image"
             src={product.image}
-            // Empty on purpose: the product name is the heading right below, so screen readers would otherwise hear it twice.
-            alt=""
+            // Read the photo's own description when it has one. Otherwise stay
+            // empty on purpose: the product name is the heading right below,
+            // so screen readers would otherwise hear it twice.
+            alt={product.imageAlt ?? ""}
             loading="lazy"
             decoding="async"
           />

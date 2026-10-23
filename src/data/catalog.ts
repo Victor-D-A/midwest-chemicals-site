@@ -8,6 +8,9 @@ export interface CatalogProduct {
   description: string;
   // Path to the product photo in public/images/products, when there is one.
   image?: string;
+  // Only for photos that show something the product name doesn't (like the
+  // inside of a brochure). Without it, the photo is skipped by screen readers.
+  imageAlt?: string;
 }
 
 export interface Category {

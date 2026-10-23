@@ -419,21 +419,24 @@
         "name": "Bathtub Brochure",
         "sizes": "",
         "description": "",
-        "image": "/images/products/brochure-bathtub.jpg"
+        "image": "/images/products/brochure-bathtub.jpg",
+        "imageAlt": "Open tri-fold brochure on bathtub and tile resurfacing, with before-and-after bathroom photos, a color wheel, and the five-step resurfacing process."
       },
       {
         "id": "brochure-cabinets",
         "name": "Cabinets Brochure",
         "sizes": "",
         "description": "",
-        "image": "/images/products/brochure-cabinets.jpg"
+        "image": "/images/products/brochure-cabinets.jpg",
+        "imageAlt": "Open tri-fold brochure on countertop and cabinet refinishing, with before-and-after kitchen photos, stone-finish countertop samples, and custom color options."
       },
       {
         "id": "brochure-concrete",
         "name": "Concrete Brochure",
         "sizes": "",
         "description": "",
-        "image": "/images/products/brochure-concrete.jpg"
+        "image": "/images/products/brochure-concrete.jpg",
+        "imageAlt": "Open tri-fold brochure on concrete floor coatings and paver sealer, with photos of coated garage and basement floors and sealed versus unsealed pavers."
       }
     ]
   }
