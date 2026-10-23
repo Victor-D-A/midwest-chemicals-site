@@ -3,16 +3,32 @@
   border: 1px solid var(--color-border);
   border-radius: 0.5rem;
   color: var(--color-text);
-  padding: 1.5rem;
+  overflow: hidden;
+  padding: 0 1.5rem 1.5rem;
 }
 
-.product-card__category {
-  color: var(--color-accent-strong);
-  font-size: 0.8rem;
+/* A fixed 4:3 frame, so cards line up whether or not they have a photo
+   and the page doesn't jump while photos load. The product photos are shot
+   on black, so the frame is charcoal and the photo is fitted inside it. */
+.product-card__media {
+  align-items: center;
+  aspect-ratio: 4 / 3;
+  background: var(--color-surface-inverse);
+  display: flex;
+  justify-content: center;
+  margin: 0 -1.5rem 1.25rem;
+}
+
+.product-card__image {
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+.product-card__placeholder {
+  color: var(--color-text-inverse-muted);
+  font-size: 0.95rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  margin: 0 0 0.5rem;
-  text-transform: uppercase;
 }
 
 .product-card__name {
