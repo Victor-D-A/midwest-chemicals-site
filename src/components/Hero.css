@@ -1,6 +1,32 @@
 .hero {
   background: var(--color-surface-inverse);
   color: var(--color-text-inverse);
+  overflow: hidden;
+  position: relative;
+}
+
+/* The photo fills the hero behind everything else. */
+.hero__image {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+}
+
+/* A charcoal layer over the photo. At 80% it guarantees the white headline
+   stays above 9:1 contrast even over the brightest part of the photo. */
+.hero:has(.hero__image)::before {
+  background: rgba(19, 25, 29, 0.8);
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 2;
 }
 
 .hero *,
