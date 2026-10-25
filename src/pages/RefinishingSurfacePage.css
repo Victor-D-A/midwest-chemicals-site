@@ -1,0 +1,97 @@
+/* Who can buy these products: a small teal tag under the title. */
+.surface__audience {
+  color: var(--color-accent-strong);
+  font-weight: 700;
+  margin: 0 0 1.5rem;
+}
+
+.surface__section {
+  margin: 2.5rem 0 0;
+  max-width: 65ch;
+}
+
+.surface__heading {
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+  margin: 0 0 1rem;
+}
+
+/* Numbered steps with a teal number badge. */
+.surface__steps {
+  counter-reset: step;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.surface__steps li {
+  counter-increment: step;
+  line-height: 1.6;
+  margin: 0 0 1rem;
+  min-height: 2rem;
+  padding-left: 3rem;
+  position: relative;
+}
+
+.surface__steps li::before {
+  align-items: center;
+  background: var(--color-accent);
+  border-radius: 50%;
+  color: var(--color-on-accent);
+  content: counter(step);
+  display: flex;
+  font-weight: 700;
+  height: 2rem;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: -0.1rem;
+  width: 2rem;
+}
+
+/* Safety and must-know notes stand out on the tint. */
+.surface__notes {
+  background: var(--color-accent-tint);
+  border-left: 4px solid var(--color-accent-strong);
+  border-radius: 0.4rem;
+  margin: 2.5rem 0 0;
+  max-width: 65ch;
+  padding: 1.25rem 1.5rem;
+}
+
+.surface__notes-title {
+  font-size: 1.15rem;
+  margin: 0 0 0.5rem;
+}
+
+.surface__notes ul {
+  line-height: 1.6;
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.surface__products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.surface__products a {
+  border: 1px solid var(--color-border);
+  border-radius: 0.4rem;
+  color: var(--color-text);
+  display: inline-block;
+  font-weight: 700;
+  padding: 0.6rem 1rem;
+}
+
+.surface__products a:hover {
+  border-color: var(--color-accent-strong);
+}
+
+.surface__contact {
+  margin-top: 2.5rem;
+}
