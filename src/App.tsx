@@ -5,6 +5,7 @@ import CategoryPage from "./pages/CategoryPage";
 import ContactPage from "./pages/ContactPage";
 import FloorCoatingsPage from "./pages/FloorCoatingsPage";
 import RefinishingPage from "./pages/RefinishingPage";
+import RefinishingSurfacePage from "./pages/RefinishingSurfacePage";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import SkipLink from "./components/SkipLink";
@@ -41,6 +42,7 @@ export default function App() {
           <Route path="/products/floor-coatings" element={<FloorCoatingsPage />} />
           <Route path="/products/:slug" element={<CategoryPage />} />
           <Route path="/refinishing" element={<RefinishingPage />} />
+          <Route path="/refinishing/:slug" element={<RefinishingSurfacePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<NotFoundPage />} />

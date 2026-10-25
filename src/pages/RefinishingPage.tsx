@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import "./Page.css";
-import { refinishingApplications } from "../data/refinishing";
+import SurfaceCard from "../components/SurfaceCard";
+import { refinishingSurfaces } from "../data/refinishing";
 import { REFINISHING_DESCRIPTION } from "../data/pageDescriptions";
 import { formatPageTitle } from "../utils/pageTitle";
 
@@ -13,20 +13,18 @@ export default function RefinishingPage() {
         <h1 className="page__title" id="refinishing-title">
           Refinishing
         </h1>
-        {/* Placeholder copy: pending owner review. */}
+        {/* Draft copy: pending owner review. */}
         <p className="page__intro">
-          Placeholder: how Midwest Chemicals products are used for each surface.
+          Pick a surface to see which products to use and how they go on.
         </p>
 
-        <ul className="page__list">
-          {refinishingApplications.map((application) => (
-            <li key={application}>{application}</li>
+        <ul className="card-grid">
+          {refinishingSurfaces.map((surface) => (
+            <li key={surface.slug}>
+              <SurfaceCard surface={surface} />
+            </li>
           ))}
         </ul>
-
-        <p className="page__text">
-          <Link to="/products">See all products</Link>
-        </p>
       </div>
     </section>
   );
