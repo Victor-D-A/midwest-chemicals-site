@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import "./Page.css";
 import "./RefinishingSurfacePage.css";
+import ColorGallery from "../components/ColorGallery";
 import TroubleshootingGuide from "../components/TroubleshootingGuide";
 import { audienceLabels, findSurface } from "../data/refinishing";
 import { formatPageTitle } from "../utils/pageTitle";
@@ -48,6 +49,10 @@ export default function RefinishingSurfacePage() {
             {paragraph}
           </p>
         ))}
+
+        {surface.colors && (
+          <ColorGallery colors={surface.colors} note={surface.colorNote} />
+        )}
 
         {surface.processes?.map((process) => (
           <section className="surface__section" key={process.title}>
