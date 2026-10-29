@@ -1,0 +1,99 @@
+.troubleshooting {
+  margin: 3rem 0 0;
+  max-width: 65ch;
+}
+
+.troubleshooting__title {
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.75rem;
+}
+
+.troubleshooting__intro {
+  line-height: 1.6;
+  margin: 0 0 1.25rem;
+}
+
+.troubleshooting__list {
+  border-top: 1px solid var(--color-border);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.troubleshooting__item {
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* The clickable row. Replaces the browser's triangle with a +/− sign. */
+.troubleshooting__problem {
+  cursor: pointer;
+  display: flex;
+  font-size: 1.1rem;
+  font-weight: 700;
+  justify-content: space-between;
+  list-style: none;
+  padding: 1rem 0.25rem;
+}
+
+/* Safari still draws its own marker unless this is hidden too. */
+.troubleshooting__problem::-webkit-details-marker {
+  display: none;
+}
+
+.troubleshooting__problem::after {
+  color: var(--color-accent-strong);
+  content: "+";
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.troubleshooting__item[open] .troubleshooting__problem::after {
+  content: "\2212";
+}
+
+.troubleshooting__problem:hover {
+  color: var(--color-accent-strong);
+}
+
+.troubleshooting__problem:focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+.troubleshooting__body {
+  line-height: 1.6;
+  padding: 0 0.25rem 1.25rem;
+}
+
+.troubleshooting__description {
+  margin: 0 0 1rem;
+}
+
+.troubleshooting__fixes {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+/* With only one cause, a "1." adds nothing, so drop the number. */
+.troubleshooting__fixes:has(> .troubleshooting__fix:only-child) {
+  list-style: none;
+  padding-left: 0;
+}
+
+.troubleshooting__fix {
+  margin: 0 0 1rem;
+}
+
+.troubleshooting__fix:last-child {
+  margin-bottom: 0;
+}
+
+.troubleshooting__fix p {
+  margin: 0 0 0.25rem;
+}
+
+.troubleshooting__fix::marker {
+  color: var(--color-accent-strong);
+  font-weight: 700;
+}

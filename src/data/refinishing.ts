@@ -1,6 +1,8 @@
 // Refinishing content for each surface, adapted from the company's current
 // Refinishing pages (typos fixed, wording kept). Draft copy: pending owner review.
 
+import { bathtubTroubleshooting, type TroubleshootingIssue } from "./bathtubTroubleshooting";
+
 // Who can buy the products for a surface. Left out when not yet confirmed.
 export type Audience = "pro" | "everyone";
 
@@ -26,6 +28,8 @@ export interface RefinishingSurface {
   // Short warnings shown after the steps.
   notes?: string[];
   relatedProducts?: RelatedProduct[];
+  // Common problems, their causes, and how to fix them.
+  troubleshooting?: TroubleshootingIssue[];
 }
 
 export const audienceLabels: Record<Audience, string> = {
@@ -48,6 +52,7 @@ export const refinishingSurfaces: RefinishingSurface[] = [
       { label: "Primers", to: "/products/primers" },
       { label: "Cleaners", to: "/products/cleaners" },
     ],
+    troubleshooting: bathtubTroubleshooting,
   },
   {
     slug: "countertops",
