@@ -2,6 +2,7 @@
 // Refinishing pages (typos fixed, wording kept). Draft copy: pending owner review.
 
 import { bathtubTroubleshooting, type TroubleshootingIssue } from "./bathtubTroubleshooting";
+import { customMultistoneColors, type ColorSwatch } from "./customColors";
 
 // Who can buy the products for a surface. Left out when not yet confirmed.
 export type Audience = "pro" | "everyone";
@@ -30,6 +31,10 @@ export interface RefinishingSurface {
   relatedProducts?: RelatedProduct[];
   // Common problems, their causes, and how to fix them.
   troubleshooting?: TroubleshootingIssue[];
+  // Color swatches shown as a gallery.
+  colors?: ColorSwatch[];
+  // A highlighted warning shown at the top of the color gallery.
+  colorNote?: string;
 }
 
 export const audienceLabels: Record<Audience, string> = {
@@ -208,8 +213,9 @@ export const refinishingSurfaces: RefinishingSurface[] = [
     audience: "pro",
     paragraphs: [
       "These multistone colors are made by Midwest Chemicals from Rust-Oleum's paint selection, handcrafted using a specific formula. They apply with the same process as our other multistone colors; we suggest using the matching primer colors.",
-      "Colors may look up to 10% different on screen.",
     ],
+    colors: customMultistoneColors,
+    colorNote: "Colors may look up to 10% different on screen than in person.",
     relatedProducts: [
       { label: "Multi-Spec", to: "/products/multi-spec" },
       { label: "Metal Flake Primer Colors", to: "/products/metal-flake-primer-colors" },
