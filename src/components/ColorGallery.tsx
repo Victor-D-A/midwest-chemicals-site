@@ -1,4 +1,4 @@
-import { useId, useRef, useState } from "react";
+import { useId, useRef, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import "./ColorGallery.css";
 import type { ColorSwatch } from "../data/customColors";
@@ -6,8 +6,9 @@ import type { ColorSwatch } from "../data/customColors";
 interface ColorGalleryProps {
   title: string;
   colors: ColorSwatch[];
-  // A plain sentence under the heading that describes these colors.
-  intro?: string;
+  // A sentence under the heading that describes these colors. ReactNode
+  // accepts plain text or JSX, so a key phrase can be wrapped in <strong>.
+  intro?: ReactNode;
   // A highlighted warning above the colors, where people compare them.
   note?: string;
 }
