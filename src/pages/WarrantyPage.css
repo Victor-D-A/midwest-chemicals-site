@@ -1,0 +1,38 @@
+.warranty__section {
+  margin: 2.5rem 0 0;
+  max-width: 65ch;
+}
+
+.warranty__heading {
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.75rem;
+}
+
+.warranty__list {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.warranty__list li {
+  margin: 0 0 0.5rem;
+}
+
+.warranty__contact {
+  margin-top: 2.5rem;
+}
+
+.warranty__signature-image {
+  display: block;
+  height: auto;
+  margin: 1.5rem 0 0;
+  max-width: 100%;
+}
+
+.warranty__signature {
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0.25rem 0 0;
+}

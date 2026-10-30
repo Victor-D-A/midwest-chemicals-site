@@ -17,8 +17,10 @@ export default function AboutPage() {
         </p>
         {/* Placeholder copy: pending owner review. */}
         <p className="page__text">
-          Placeholder: the company&apos;s story, what sets its products apart, and its
-          warranty.
+          Placeholder: the company&apos;s story and what sets its products apart.
+        </p>
+        <p className="page__text">
+          Read our <Link to="/about/warranty">warranty and return policy</Link>.
         </p>
         <p className="page__text">
           Questions? <Link to="/contact">Contact us</Link>.
