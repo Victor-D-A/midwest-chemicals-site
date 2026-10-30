@@ -12,6 +12,9 @@ export const PRODUCTS_DESCRIPTION =
 export const ABOUT_DESCRIPTION =
   "Midwest Chemicals has supplied coatings and refinishing products to licensed refinishing professionals from Orlando, Florida, since 1991.";
 
+export const WARRANTY_DESCRIPTION =
+  "Midwest Chemicals warranty terms, returns within 30 days, and how to protect water-based coatings from freezing during shipping.";
+
 export const REFINISHING_DESCRIPTION =
   "Coatings and supplies for refinishing bathtubs, countertops, tile, concrete, cabinets, and more, from Midwest Chemicals in Orlando, Florida.";
 
