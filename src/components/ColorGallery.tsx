@@ -1,18 +1,24 @@
-import { useRef, useState } from "react";
+import { useId, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./ColorGallery.css";
 import type { ColorSwatch } from "../data/customColors";
 
 interface ColorGalleryProps {
+  title: string;
   colors: ColorSwatch[];
-  // Shown in a highlighted box above the colors, where people compare them.
+  // A plain sentence under the heading that describes these colors.
+  intro?: string;
+  // A highlighted warning above the colors, where people compare them.
   note?: string;
 }
 
 // A large preview of the selected color above (or beside) a grid of tiles.
-export default function ColorGallery({ colors, note }: ColorGalleryProps) {
+export default function ColorGallery({ title, colors, intro, note }: ColorGalleryProps) {
   const [selected, setSelected] = useState<ColorSwatch | undefined>(colors[0]);
   const previewRef = useRef<HTMLDivElement>(null);
+  // A unique id for this gallery, so two galleries on one page don't share
+  // a heading id or a radio group (which would let only one color be picked).
+  const id = useId();
 
   if (!selected) return null;
 
@@ -29,10 +35,12 @@ export default function ColorGallery({ colors, note }: ColorGalleryProps) {
   }
 
   return (
-    <section className="color-gallery" aria-labelledby="color-gallery-title">
-      <h2 className="color-gallery__title" id="color-gallery-title">
-        Color selection
+    <section className="color-gallery" aria-labelledby={`${id}-title`}>
+      <h2 className="color-gallery__title" id={`${id}-title`}>
+        {title}
       </h2>
+
+      {intro && <p className="color-gallery__intro">{intro}</p>}
 
       {note && (
         <p className="color-gallery__note">
@@ -71,7 +79,7 @@ export default function ColorGallery({ colors, note }: ColorGalleryProps) {
                   <input
                     className="color-gallery__radio"
                     type="radio"
-                    name="multistone-color"
+                    name={`${id}-color`}
                     value={color.name}
                     checked={color.name === selected.name}
                     onChange={() => choose(color)}

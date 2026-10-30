@@ -51,7 +51,11 @@ export default function RefinishingSurfacePage() {
         ))}
 
         {surface.colors && (
-          <ColorGallery colors={surface.colors} note={surface.colorNote} />
+          <ColorGallery
+            title="Color selection"
+            colors={surface.colors}
+            note={surface.colorNote}
+          />
         )}
 
         {surface.processes?.map((process) => (
