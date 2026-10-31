@@ -1,0 +1,223 @@
+.about__heading {
+  font-size: 1.75rem;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin: 0 0 1rem;
+}
+
+/* Quick links: whole-card links with a teal bar and an arrow, so they read
+   as "these go somewhere" next to the plain "What sets us apart" boxes. */
+.about__quick-links {
+  margin: 0 0 3.5rem;
+}
+
+.about__quick-list {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.about__quick-card {
+  border: 1px solid var(--color-border);
+  border-left: 6px solid var(--color-accent-strong);
+  border-radius: 0.75rem;
+  /* Count padding and borders inside the 100% height, so the card fills
+     its row without spilling into the next one when the cards stack. */
+  box-sizing: border-box;
+  color: var(--color-text);
+  display: block;
+  height: 100%;
+  padding: 1.25rem 1.5rem;
+  text-decoration: none;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.about__quick-card:hover {
+  box-shadow: 0 8px 20px rgb(0 0 0 / 0.08);
+  transform: translateY(-2px);
+}
+
+.about__quick-card:focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 3px;
+}
+
+.about__quick-title {
+  color: var(--color-accent-strong);
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 0.35rem;
+}
+
+.about__quick-title::after {
+  content: " \2192";
+}
+
+.about__quick-text {
+  display: block;
+  line-height: 1.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about__quick-card {
+    transition: none;
+  }
+
+  .about__quick-card:hover {
+    transform: none;
+  }
+}
+
+/* Who we are: two columns on wide screens, stacked on phones. */
+.about__who {
+  align-items: start;
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+/* Industries as small pills. Linked ones get the teal outline and an arrow. */
+.about__industries {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+}
+
+.about__industries li {
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-weight: 700;
+  padding: 0.4rem 0.9rem;
+}
+
+/* A link fills its pill, so the whole pill is clickable. */
+.about__industries li:has(.about__industry-link) {
+  border-color: var(--color-accent-strong);
+  padding: 0;
+}
+
+.about__industry-link {
+  border-radius: 999px;
+  color: var(--color-accent-strong);
+  display: block;
+  padding: 0.4rem 0.9rem;
+  text-decoration: none;
+}
+
+.about__industry-link::after {
+  content: " \2192";
+}
+
+.about__industry-link:hover {
+  background: var(--color-accent-tint);
+  color: var(--color-text);
+}
+
+/* Photos in two columns, each at its own shape so nothing is cropped
+   (the paver photo has BEFORE and AFTER printed in its corners). */
+.about__photos {
+  align-items: start;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.about__photos img {
+  border-radius: 0.5rem;
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+.about__section {
+  margin-top: 4rem;
+}
+
+.about__strengths {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.about__strength {
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  padding: 1.75rem;
+}
+
+.about__strength-title {
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem;
+}
+
+.about__strength-text {
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* The letter sits on the tint, like a sheet of paper set on the page.
+   Text stays dark there: teal on the tint is only 4.2:1. */
+.about__letter {
+  background: var(--color-accent-tint);
+  border-radius: 0.75rem;
+  margin-top: 4rem;
+  max-width: calc(65ch + 5rem);
+  padding: 2.5rem;
+}
+
+.about__letter-greeting {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+}
+
+.about__signature-image {
+  display: block;
+  height: auto;
+  margin: 0.5rem 0 0;
+  max-width: 100%;
+}
+
+.about__signature {
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 0.25rem 0 0;
+}
+
+.about__more {
+  margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+  .about__who {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .about__section,
+  .about__letter {
+    margin-top: 3rem;
+  }
+
+  .about__letter {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .about__heading {
+    font-size: 1.5rem;
+  }
+}
