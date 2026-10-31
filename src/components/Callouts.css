@@ -1,0 +1,44 @@
+.callouts {
+  margin: 1.5rem 0 2rem;
+  max-width: 65ch;
+}
+
+.callouts__list {
+  display: grid;
+  gap: 0.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* A slim tinted strip: noticeable, but quieter than the page's own content.
+   Text stays dark on the tint (teal there is only 4.2:1). */
+.callout {
+  align-items: baseline;
+  background: var(--color-accent-tint);
+  border-radius: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.75rem;
+  padding: 0.9rem 1.25rem;
+}
+
+.callout__text {
+  font-weight: 700;
+  margin: 0;
+}
+
+.callout__link {
+  color: var(--color-text);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.callout__link::after {
+  content: " \2192";
+}
+
+.callout__link:hover {
+  color: var(--color-link-hover);
+}

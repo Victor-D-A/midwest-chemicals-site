@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import "./Page.css";
 import "./RefinishingSurfacePage.css";
+import Callouts from "../components/Callouts";
 import ColorGallery from "../components/ColorGallery";
 import TroubleshootingGuide from "../components/TroubleshootingGuide";
 import { audienceLabels, findSurface } from "../data/refinishing";
@@ -49,6 +50,8 @@ export default function RefinishingSurfacePage() {
             {paragraph}
           </p>
         ))}
+
+        <Callouts />
 
         {surface.colors && (
           <ColorGallery

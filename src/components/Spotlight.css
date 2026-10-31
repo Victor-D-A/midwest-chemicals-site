@@ -1,0 +1,116 @@
+/* A dark band right under the hero, so it reads as different from the
+   white and tinted sections around it. */
+.spotlight {
+  background: var(--color-surface-inverse);
+  color: var(--color-text-inverse);
+}
+
+.spotlight__inner {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 3rem 1.5rem;
+}
+
+/* Big, bright teal capitals with a short bar beneath, so the band reads as
+   important at a glance. Teal on the dark band is about 8:1. */
+.spotlight__title {
+  color: var(--color-accent);
+  font-size: 1.6rem;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  margin: 0 0 1.75rem;
+  text-transform: uppercase;
+}
+
+.spotlight__title::after {
+  background: var(--color-accent);
+  border-radius: 2px;
+  content: "";
+  display: block;
+  height: 4px;
+  margin-top: 0.6rem;
+  width: 3rem;
+}
+
+.spotlight__list {
+  display: grid;
+  gap: 2.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.spotlight__item {
+  align-items: center;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 220px minmax(0, 1fr);
+}
+
+/* Same square frame for every photo. The black background matches the
+   product photos, which are shot on black. */
+.spotlight__image {
+  aspect-ratio: 1;
+  background: #000;
+  border-radius: 0.75rem;
+  display: block;
+  object-fit: contain;
+  width: 100%;
+}
+
+.spotlight__name {
+  font-size: 1.85rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+}
+
+.spotlight__pitch {
+  color: var(--color-text-inverse-muted);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+  max-width: 55ch;
+}
+
+.spotlight__link {
+  background: var(--color-accent);
+  border-radius: 999px;
+  color: var(--color-on-accent);
+  display: inline-block;
+  font-weight: 700;
+  padding: 0.75rem 1.4rem;
+  text-decoration: none;
+}
+
+.spotlight__link::after {
+  content: " \2192";
+}
+
+.spotlight__link:hover {
+  background: var(--color-text-inverse);
+}
+
+.spotlight__link:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+  .spotlight__item {
+    gap: 1.25rem;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .spotlight__image {
+    max-width: 200px;
+  }
+
+  .spotlight__title {
+    font-size: 1.3rem;
+  }
+
+  .spotlight__name {
+    font-size: 1.5rem;
+  }
+}

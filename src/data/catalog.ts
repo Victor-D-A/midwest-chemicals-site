@@ -22,6 +22,14 @@ export interface Category {
   products: CatalogProduct[];
   // Set when the category lives on another website instead of its own page.
   externalUrl?: string;
+  // Promotion: the last day (YYYY-MM-DD) the category appears in the home
+  // page's spotlight and shows its badge.
+  promoteUntil?: string;
+  // Promotion: the word on the tag, like "New" or "Latest". Leave it out to
+  // keep the spotlight without a tag.
+  badge?: string;
+  // Promotion: one or two sentences for the spotlight.
+  pitch?: string;
 }
 
 // The sections of the Products page, in the order they appear.
@@ -43,6 +51,27 @@ export const categories: Category[] = catalogData;
 // Returns undefined when no category matches.
 export function findCategory(slug: string | undefined): Category | undefined {
   return categories.find(category => category.slug === slug);
+}
+
+// Whether a category should still be promoted on `today`.
+// `today` is a parameter (instead of reading the clock inside) so it's easy
+// to check what the site will show on any date.
+export function isPromoted(category: Category, today: Date = new Date()): boolean {
+  if (!category.promoteUntil) {
+    return false;
+  }
+
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const day = String(today.getDate()).padStart(2, "0");
+
+  const todayString = `${today.getFullYear()}-${month}-${day}`;
+
+  return todayString <= category.promoteUntil;
+}
+
+// Categories to promote right now, in catalog order.
+export function promotedCategories(today: Date = new Date()): Category[] {
+  return categories.filter((category) => isPromoted(category, today));
 }
 
 // Returns every category in one section of the Products page, in catalog order.
