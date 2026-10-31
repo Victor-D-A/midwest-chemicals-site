@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./CategoryCard.css";
+import PromoTag from "./PromoTag";
 import type { Category } from "../data/catalog";
 import { siteName } from "../utils/url";
 
@@ -21,6 +22,7 @@ export default function CategoryCard({ category }: CategoryCardProps) {
             {`/products/${category.slug}`}>
             {category.name}</Link>
         )}
+        <PromoTag category={category} />
       </h3>
       <p className="category-card__summary">{category.summary}</p>
       {category.externalUrl && (

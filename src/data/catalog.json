@@ -69,6 +69,9 @@
     "name": "Low VOC Coating System",
     "group": "topcoats-systems",
     "summary": "A low-VOC wipe-on primer and a 4:1 top coat formulated to meet strict VOC regulations.",
+    "promoteUntil": "2027-01-31",
+    "badge": "New",
+    "pitch": "Meet strict VOC regulations without giving up performance. A one-component wipe-on primer with enhanced silane bonding, and a 4:1 top coat built for professional results.",
     "products": [
       {
         "id": "ultra-link-primer",

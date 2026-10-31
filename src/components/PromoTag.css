@@ -1,0 +1,22 @@
+/* Bright teal with dark text (about 8:1), so it catches the eye on white
+   cards and on the dark spotlight band. */
+.promo-tag {
+  background: var(--color-accent);
+  border-radius: 999px;
+  color: var(--color-on-accent);
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  margin-left: 0.6rem;
+  padding: 0.35rem 0.6rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+/* Teal on the light teal tint would wash out, so it turns dark there. */
+.home-section--tinted .promo-tag {
+  background: var(--color-surface-inverse);
+  color: var(--color-text-inverse);
+}

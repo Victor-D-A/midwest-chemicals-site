@@ -1,6 +1,8 @@
 import { Link, useParams } from "react-router-dom";
 import "./Page.css";
+import Callouts from "../components/Callouts";
 import CatalogProductCard from "../components/CatalogProductCard";
+import PromoTag from "../components/PromoTag";
 import { findCategory } from "../data/catalog";
 import { formatPageTitle } from "../utils/pageTitle";
 import { siteName } from "../utils/url";
@@ -37,8 +39,11 @@ export default function CategoryPage() {
         </p>
         <h1 className="page__title" id="category-title">
           {category.name}
+          <PromoTag category={category} />
         </h1>
         <p className="page__intro">{category.summary}</p>
+
+        <Callouts />
 
         {category.externalUrl && (
           <p className="page__text">

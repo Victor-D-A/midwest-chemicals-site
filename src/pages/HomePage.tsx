@@ -3,6 +3,7 @@ import "./Page.css";
 import "./HomePage.css";
 import CategoryCard from "../components/CategoryCard";
 import Hero from "../components/Hero";
+import Spotlight from "../components/Spotlight";
 import { findCategory } from "../data/catalog";
 import { contact } from "../data/contact";
 import { featuredCategorySlugs, whyPoints } from "../data/home";
@@ -28,6 +29,8 @@ export default function HomePage() {
         ctaHref="/products"
         backgroundImage="/images/home/hero-placeholder.jpg"
       />
+
+      <Spotlight />
 
       <section className="home-section" aria-labelledby="home-why">
         <div className="home-section__inner">
