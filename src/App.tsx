@@ -13,6 +13,7 @@ import SkipLink from "./components/SkipLink";
 import HomePage from "./pages/HomePage";
 import NotFoundPage from "./pages/NotFoundPage";
 import ProductsPage from "./pages/ProductsPage";
+import TestimonialsPage from "./pages/TestimonialsPage";
 import WarrantyPage from "./pages/WarrantyPage";
 
 export default function App() {
@@ -48,6 +49,7 @@ export default function App() {
           <Route path="/refinishing/:slug" element={<RefinishingSurfacePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/about/warranty" element={<WarrantyPage />} />
+          <Route path="/about/testimonials" element={<TestimonialsPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

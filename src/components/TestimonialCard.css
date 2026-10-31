@@ -1,0 +1,142 @@
+.story {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  padding: 2rem;
+}
+
+/* The featured story sits on the tint, with a bigger quote. */
+.story--featured {
+  background: var(--color-accent-tint);
+  border-color: var(--color-accent-tint);
+}
+
+/* Business name as a small label above the quote. */
+.story__business {
+  color: var(--color-accent-strong);
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+}
+
+/* Dark text on the tint: teal there is only 4.2:1. */
+.story--featured .story__business {
+  color: var(--color-text);
+}
+
+/* The pull quote is the star: large type stays sharp at any size,
+   unlike the small photos. */
+.story__quote {
+  margin: 0 0 1rem;
+  position: relative;
+}
+
+.story__quote p {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  margin: 0;
+  max-width: 40ch;
+}
+
+/* The oversized quote mark is decoration, so it's drawn with CSS
+   instead of being part of the text a screen reader reads. */
+.story__quote::before {
+  color: var(--color-accent);
+  content: "\201C";
+  display: block;
+  font-size: 4rem;
+  font-weight: 700;
+  height: 2.25rem;
+  line-height: 1;
+}
+
+.story--featured .story__quote p {
+  font-size: 2rem;
+}
+
+.story--featured .story__quote::before {
+  color: var(--color-accent-strong);
+}
+
+.story__byline {
+  font-weight: 700;
+  margin: 0 0 1rem;
+}
+
+.story__text {
+  line-height: 1.7;
+  margin: 0 0 1rem;
+  max-width: 65ch;
+}
+
+.story__contact {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 0 1rem;
+}
+
+.story__contact a {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
+/* Photos sit side by side at their real size, so before-and-after pairs
+   line up, and wrap onto new rows on narrow screens. */
+.story__photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+}
+
+.story__photo {
+  margin: 0;
+  max-width: 100%;
+}
+
+.story__photo img {
+  border-radius: 0.4rem;
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+.story__caption {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-top: 0.5rem;
+  max-width: 300px;
+}
+
+/* A small dark tag for Before and After. */
+.story__label {
+  background: var(--color-surface-inverse);
+  border-radius: 0.25rem;
+  color: var(--color-text-inverse);
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-right: 0.4rem;
+  padding: 0.15rem 0.5rem;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .story {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .story__quote p {
+    font-size: 1.25rem;
+  }
+
+  .story--featured .story__quote p {
+    font-size: 1.5rem;
+  }
+}
