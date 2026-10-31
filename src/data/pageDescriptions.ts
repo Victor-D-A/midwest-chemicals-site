@@ -15,6 +15,9 @@ export const ABOUT_DESCRIPTION =
 export const WARRANTY_DESCRIPTION =
   "Midwest Chemicals warranty terms, returns within 30 days, and how to protect water-based coatings from freezing during shipping.";
 
+export const TESTIMONIALS_DESCRIPTION =
+  "Refinishing professionals share their bathtub, countertop, and cabinet work done with Midwest Chemicals coatings, in their own words.";
+
 export const REFINISHING_DESCRIPTION =
   "Coatings and supplies for refinishing bathtubs, countertops, tile, concrete, cabinets, and more, from Midwest Chemicals in Orlando, Florida.";
 

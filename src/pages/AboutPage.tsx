@@ -20,7 +20,8 @@ export default function AboutPage() {
           Placeholder: the company&apos;s story and what sets its products apart.
         </p>
         <p className="page__text">
-          Read our <Link to="/about/warranty">warranty and return policy</Link>.
+          Read our <Link to="/about/warranty">warranty and return policy</Link>, or see{" "}
+          <Link to="/about/testimonials">what refinishers say about our products</Link>.
         </p>
         <p className="page__text">
           Questions? <Link to="/contact">Contact us</Link>.
