@@ -29,12 +29,6 @@
   z-index: 2;
 }
 
-.hero *,
-.hero *::before,
-.hero *::after {
-  box-sizing: border-box;
-}
-
 .hero__inner {
   margin: 0 auto;
   max-width: 1200px;

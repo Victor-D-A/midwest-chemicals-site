@@ -3,12 +3,6 @@
   color: var(--color-text-inverse);
 }
 
-.site-footer *,
-.site-footer *::before,
-.site-footer *::after {
-  box-sizing: border-box;
-}
-
 .site-footer__inner {
   display: flex;
   flex-direction: column;

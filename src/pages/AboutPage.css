@@ -24,9 +24,6 @@
   border: 1px solid var(--color-border);
   border-left: 6px solid var(--color-accent-strong);
   border-radius: 0.75rem;
-  /* Count padding and borders inside the 100% height, so the card fills
-     its row without spilling into the next one when the cards stack. */
-  box-sizing: border-box;
   color: var(--color-text);
   display: block;
   height: 100%;

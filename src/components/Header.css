@@ -5,12 +5,6 @@
   position: relative;
 }
 
-.site-header *,
-.site-header *::before,
-.site-header *::after {
-  box-sizing: border-box;
-}
-
 .site-header__inner {
   align-items: center;
   display: flex;
