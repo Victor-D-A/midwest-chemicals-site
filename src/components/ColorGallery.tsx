@@ -23,6 +23,23 @@ export default function ColorGallery({ title, colors, intro, note }: ColorGaller
 
   if (!selected) return null;
 
+  // Where the selected color sits in the list (0 for the first), for the
+  // "6 of 13" counter and the Previous and Next buttons.
+  const selectedIndex = colors.findIndex((color) => color.name === selected.name);
+
+  // Moves to the next color (direction 1) or the previous one (direction -1).
+  function step(direction: 1 | -1) {
+    const nextIndex = (selectedIndex + direction + colors.length) % colors.length;
+
+    const nextColor = colors[nextIndex];
+
+    if (!nextColor) {
+      return;
+    }
+
+    choose(nextColor);
+  }
+
   function choose(color: ColorSwatch) {
     setSelected(color);
 
@@ -64,6 +81,22 @@ export default function ColorGallery({ title, colors, intro, note }: ColorGaller
           <p className="color-gallery__preview-name" aria-live="polite">
             {selected.name}
           </p>
+
+          {/* Step through the colors without hunting for tiles: handy on
+              phones, where the tiles are below the preview. */}
+          <div className="color-gallery__stepper">
+            {/* The arrows are decoration, so screen readers just say
+                "Previous" and "Next". */}
+            <button className="color-gallery__step" type="button" onClick={() => step(-1)}>
+              <span aria-hidden="true">&larr; </span>Previous
+            </button>
+            <span className="color-gallery__position">
+              {selectedIndex + 1} of {colors.length}
+            </span>
+            <button className="color-gallery__step" type="button" onClick={() => step(1)}>
+              Next<span aria-hidden="true"> &rarr;</span>
+            </button>
+          </div>
         </div>
 
         {/* Radio buttons, because the visitor picks exactly one color. The
