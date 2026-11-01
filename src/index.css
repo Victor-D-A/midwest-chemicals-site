@@ -36,6 +36,13 @@
   --color-border: var(--gray-200);
 }
 
+/* Add border-box to every element, before and after pseudo elements. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   min-width: 320px;
