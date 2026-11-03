@@ -5,7 +5,19 @@ export interface CatalogProduct {
   name: string;
   // Either may be an empty string when the company lists none.
   sizes: string;
+  // What's left after the specs below are pulled out: what it is and what
+  // makes it different. May be empty when the specs say it all.
   description: string;
+  // Specs shown as labeled rows on the card. Each is left out when the
+  // company lists none, and the card skips that row.
+  // Parts of resin to parts of catalyst, like "2 to 1".
+  mixRatio?: string;
+  cureTimes?: string;
+  // For primers: how soon the top coat can go on.
+  topCoatAfter?: string;
+  colors?: string;
+  // Industries or jobs it's used for, shown as a bulleted list.
+  uses?: string[];
   // Path to the product photo in public/images/products, when there is one.
   image?: string;
   // Only for photos that show something the product name doesn't (like the

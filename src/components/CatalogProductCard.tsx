@@ -6,6 +6,15 @@ interface CatalogProductCardProps {
 }
 
 export default function CatalogProductCard({ product }: CatalogProductCardProps) {
+  // Each spec row the product has, in a fixed order. Rows without a value
+  // are dropped, so a product with no specs shows no list at all.
+  const specs = [
+    { label: "Resin to catalyst", value: product.mixRatio },
+    { label: "Cure times", value: product.cureTimes },
+    { label: "Top coat after", value: product.topCoatAfter },
+    { label: "Colors", value: product.colors },
+  ].filter((spec) => spec.value);
+
   return (
     <article className="product-card">
       <div className="product-card__media">
@@ -31,6 +40,30 @@ export default function CatalogProductCard({ product }: CatalogProductCardProps)
       {product.sizes && <p className="product-card__sizes">{product.sizes}</p>}
       {product.description && (
         <p className="product-card__description">{product.description}</p>
+      )}
+
+      {/* A description list: each label (dt) paired with its value (dd), so
+          screen readers read them as pairs. */}
+      {specs.length > 0 && (
+        <dl className="product-card__specs">
+          {specs.map((spec) => (
+            <div className="product-card__spec" key={spec.label}>
+              <dt>{spec.label}</dt>
+              <dd>{spec.value}</dd>
+            </div>
+          ))}
+        </dl>
+      )}
+
+      {product.uses && product.uses.length > 0 && (
+        <>
+          <p className="product-card__uses-title">Used for</p>
+          <ul className="product-card__uses">
+            {product.uses.map((use) => (
+              <li key={use}>{use}</li>
+            ))}
+          </ul>
+        </>
       )}
     </article>
   );

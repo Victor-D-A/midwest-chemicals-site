@@ -28,7 +28,23 @@ export function matchesQuery(text: string, query: string): boolean {
   return words.every(word => normalizedText.includes(word)) || compactText.includes(compactQuery);
 }
 
-// Searches category names and summaries, and product names and descriptions.
+// All the words on a product card, so a search for "aircraft" or "4 hours"
+// still finds products whose specs moved out of the description.
+function productSearchText(product: CatalogProduct): string {
+  return [
+    product.name,
+    product.description,
+    product.mixRatio,
+    product.cureTimes,
+    product.topCoatAfter,
+    product.colors,
+    ...(product.uses ?? []),
+  ]
+    .filter(Boolean)
+    .join(" ");
+}
+
+// Searches category names and summaries, and everything on each product card.
 // Returns null when the search box is empty, meaning "show the normal page".
 export function searchCatalog(query: string): CatalogSearchResults | null {
   const trimmed = query.trim();
@@ -40,7 +56,7 @@ export function searchCatalog(query: string): CatalogSearchResults | null {
     ),
     products: categories.flatMap((category) =>
       category.products
-        .filter((product) => matchesQuery(`${product.name} ${product.description}`, trimmed))
+        .filter((product) => matchesQuery(productSearchText(product), trimmed))
         .map((product) => ({ product, category })),
     ),
   };

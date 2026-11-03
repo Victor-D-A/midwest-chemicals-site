@@ -49,3 +49,43 @@
   line-height: 1.6;
   margin: 0;
 }
+
+/* Spec rows: label on the left, value on the right, with a thin line
+   between rows so the eye can scan down the card. */
+.product-card__specs {
+  margin: 1rem 0 0;
+}
+
+.product-card__spec {
+  border-top: 1px solid var(--color-border);
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: 6.5rem 1fr;
+  padding: 0.55rem 0;
+}
+
+.product-card__spec dt {
+  font-weight: 700;
+}
+
+.product-card__spec dd {
+  margin: 0;
+}
+
+/* "Used for": same label style as the spec rows, then a short list. */
+.product-card__uses-title {
+  border-top: 1px solid var(--color-border);
+  font-weight: 700;
+  margin: 0;
+  padding-top: 0.55rem;
+}
+
+.product-card__uses {
+  line-height: 1.5;
+  margin: 0.35rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.product-card__uses li {
+  margin: 0 0 0.2rem;
+}

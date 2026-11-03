@@ -9,21 +9,44 @@
         "id": "hsld-5000",
         "name": "HSLD Resin / HSLD Catalyst",
         "sizes": "Available in gallons, quarts, and pints.",
-        "description": "HSLD 5000 Resin is a 1 part resin, 1 part catalyst aliphatic acrylic polyurethane that carries a high solid resin. This coating is suggested for the bathtub and tile industry but is also used in the automotive, marine, and aircraft industries. Cure times are available in 48hr, 36hr, 24hr, 10hr, and 4hr. Available in any color.",
+        "description": "An aliphatic acrylic polyurethane that carries a high solid resin.",
+        "mixRatio": "1 to 1",
+        "cureTimes": "4, 10, 24, 36, or 48 hours",
+        "colors": "Any color",
+        "uses": [
+          "Bathtubs and tile (suggested)",
+          "Automotive",
+          "Marine",
+          "Aircraft"
+        ],
         "image": "/images/products/hsld-5000.jpg"
       },
       {
         "id": "protecthane",
         "name": "Protecthane Resin / Protecthane Catalyst",
         "sizes": "Available in gallons, quarts, and pints.",
-        "description": "Protecthane Resin is a 2 part resin, 1 part catalyst iso-free resin used in the bathtub and tile industry. Cure times are available in 48hr, 36hr, 24hr, 10hr, and 4hr. Available in any color. Protecthane Catalyst is a 2 part resin, 1 part catalyst aliphatic acrylic polyurethane that has a very low percentage (under one half of 1 percent) of isocyanides.",
+        "description": "An iso-free resin. The catalyst is an aliphatic acrylic polyurethane with a very low percentage (under one half of 1 percent) of isocyanides.",
+        "mixRatio": "2 to 1",
+        "cureTimes": "4, 10, 24, 36, or 48 hours",
+        "colors": "Any color",
+        "uses": [
+          "Bathtubs and tile"
+        ],
         "image": "/images/products/protecthane.jpg"
       },
       {
         "id": "kemron",
         "name": "Kemron Resin / Kemron Catalyst",
         "sizes": "Available in gallons, quarts, and pints.",
-        "description": "Kemron Resin is a 3 part resin, 1 part catalyst aliphatic acrylic polyurethane that is interchangeable with some automotive coatings and is used in the automotive, marine, and aircraft industries. Cure times are available in 48hr, 36hr, 24hr, 10hr, and 4hr. Available in any color.",
+        "description": "An aliphatic acrylic polyurethane that is interchangeable with some automotive coatings.",
+        "mixRatio": "3 to 1",
+        "cureTimes": "4, 10, 24, 36, or 48 hours",
+        "colors": "Any color",
+        "uses": [
+          "Automotive",
+          "Marine",
+          "Aircraft"
+        ],
         "image": "/images/products/kemron.jpg"
       },
       {
@@ -37,7 +60,16 @@
         "id": "porcelain-enamel-1000",
         "name": "Porcelain Enamel 1000 Resin / Porcelain Enamel 1000 Catalyst",
         "sizes": "Available in gallons, quarts, and pints.",
-        "description": "Porcelain Enamel 1000 Resin is a 2 part resin, 1 part catalyst aliphatic acrylic polyurethane used in the bathtub and tile industry and also in the automotive, marine, and aircraft industries. Cure times are available in 48hr, 36hr, 24hr, 10hr, and 4hr. Available in any color.",
+        "description": "An aliphatic acrylic polyurethane.",
+        "mixRatio": "2 to 1",
+        "cureTimes": "4, 10, 24, 36, or 48 hours",
+        "colors": "Any color",
+        "uses": [
+          "Bathtubs and tile",
+          "Automotive",
+          "Marine",
+          "Aircraft"
+        ],
         "image": "/images/products/porcelain-enamel-1000.jpg"
       }
     ]
@@ -52,7 +84,14 @@
         "id": "low-odor-urethane",
         "name": "Low Odor Urethane",
         "sizes": "",
-        "description": "We have reformulated our 1:1 ratio urethane top coat to reduce the odor by 60 to 70 percent. We have not changed the raw materials, only the solvents, so durability is not compromised. Comes in all colors with a gloss, satin, or eggshell finish and cure times of 36hr, 24hr, and 10hr. Use it as an everyday coating or for customers concerned about the smell of standard urethane coatings, such as apartment complexes and hotels. This coating comes with its own reducer.",
+        "description": "Our urethane top coat, reformulated to reduce the odor by 60 to 70 percent. We changed only the solvents, not the raw materials, so durability is not compromised. Comes with its own reducer.",
+        "mixRatio": "1 to 1",
+        "cureTimes": "10, 24, or 36 hours",
+        "colors": "All colors, in gloss, satin, or eggshell",
+        "uses": [
+          "Everyday coating",
+          "Customers concerned about smell, such as apartment complexes and hotels"
+        ],
         "image": "/images/products/low-odor-urethane.jpg"
       },
       {
@@ -99,14 +138,26 @@
         "id": "commercial-grade-topcoat",
         "name": "Commercial Grade Topcoat Resin / Catalyst",
         "sizes": "",
-        "description": "A 2 part resin, 1 part catalyst top coat used in the commercial bathtub and tile industry. Cure times are available in 24hr or 36hr. Available in any color.",
+        "description": "",
+        "mixRatio": "2 to 1",
+        "cureTimes": "24 or 36 hours",
+        "colors": "Any color",
+        "uses": [
+          "Commercial bathtubs and tile"
+        ],
         "image": "/images/products/commercial-grade-topcoat.jpg"
       },
       {
         "id": "commercial-grade-epoxy-primer",
         "name": "Commercial Grade Epoxy Primer Resin / Catalyst",
         "sizes": "",
-        "description": "A 2 part resin, 1 part catalyst epoxy primer used in the commercial bathtub and tile industry. Can be top coated in 20 minutes. Available in any color.",
+        "description": "An epoxy primer.",
+        "mixRatio": "2 to 1",
+        "topCoatAfter": "20 minutes",
+        "colors": "Any color",
+        "uses": [
+          "Commercial bathtubs and tile"
+        ],
         "image": "/images/products/commercial-grade-epoxy-primer.jpg"
       }
     ]
@@ -121,7 +172,16 @@
         "id": "xl-aerospace",
         "name": "XL Aerospace Resin / XL Aerospace Catalyst",
         "sizes": "Available in gallons, quarts, and pints.",
-        "description": "Aerospace Primer Resin is a 1 part resin, 1 part catalyst epoxy primer used in the bathtub and tile industry. Can be top coated in 15 minutes and is available in any color. The catalyst has three different silanes blended in for increased adhesion to glass surfaces. Also sold to the automotive, marine, and aircraft industries.",
+        "description": "An epoxy primer. The catalyst has three different silanes blended in for increased adhesion to glass surfaces.",
+        "mixRatio": "1 to 1",
+        "topCoatAfter": "15 minutes",
+        "colors": "Any color",
+        "uses": [
+          "Bathtubs and tile",
+          "Automotive",
+          "Marine",
+          "Aircraft"
+        ],
         "image": "/images/products/xl-aerospace.jpg"
       },
       {
