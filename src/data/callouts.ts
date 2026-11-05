@@ -18,6 +18,12 @@ export const callouts: Callout[] = [
     to: "/products/low-voc-coating-system",
   },
   {
+    pages: ["/products/multi-spec", "/refinishing/countertops", "/refinishing/custom-multistone-colors"],
+    text: "Choosing a Multi-Spec color?",
+    linkLabel: "Browse all 53 colors",
+    to: "/products/multi-spec-colors",
+  },
+  {
     pages: ["/products/top-coats"],
     text: "Coating a boat deck or a non-slip floor?",
     linkLabel: "Try Grizzly Grip",
