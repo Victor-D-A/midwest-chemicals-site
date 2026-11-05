@@ -1,0 +1,24 @@
+/* The case photo beside a few lines of text on wide screens, stacked on
+   phones. */
+.multi-spec__intro {
+  align-items: center;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
+  margin: 0 0 1rem;
+}
+
+/* Shown no wider than its real 800px (it sits at about 420px here). */
+.multi-spec__case {
+  border-radius: 0.75rem;
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .multi-spec__intro {
+    gap: 1.25rem;
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

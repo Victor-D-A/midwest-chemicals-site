@@ -18,4 +18,9 @@ export const whyPoints = [
 
 // Category slugs shown in "Featured"; their names and summaries come from
 // catalog.json, so they stay in sync with the Products page.
-export const featuredCategorySlugs = ["multi-spec", "floor-coatings", "marketing-brochures"];
+export const featuredCategorySlugs = [
+  "multi-spec-colors",
+  "multi-spec",
+  "floor-coatings",
+  "marketing-brochures",
+];

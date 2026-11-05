@@ -5,6 +5,7 @@ import CategoryPage from "./pages/CategoryPage";
 import ContactPage from "./pages/ContactPage";
 import FloorCoatingsPage from "./pages/FloorCoatingsPage";
 import MetalFlakePage from "./pages/MetalFlakePage";
+import MultiSpecColorsPage from "./pages/MultiSpecColorsPage";
 import RefinishingPage from "./pages/RefinishingPage";
 import RefinishingSurfacePage from "./pages/RefinishingSurfacePage";
 import Footer from "./components/Footer";
@@ -44,6 +45,7 @@ export default function App() {
               their own custom pages. */}
           <Route path="/products/floor-coatings" element={<FloorCoatingsPage />} />
           <Route path="/products/metal-flake-primer-colors" element={<MetalFlakePage />} />
+          <Route path="/products/multi-spec-colors" element={<MultiSpecColorsPage />} />
           <Route path="/products/:slug" element={<CategoryPage />} />
           <Route path="/refinishing" element={<RefinishingPage />} />
           <Route path="/refinishing/:slug" element={<RefinishingSurfacePage />} />

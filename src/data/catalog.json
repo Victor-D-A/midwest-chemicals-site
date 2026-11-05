@@ -230,6 +230,13 @@
     ]
   },
   {
+    "slug": "multi-spec-colors",
+    "name": "Multi-Spec Colors",
+    "group": "color-finishes",
+    "summary": "All 53 colors in our Multi-Spec sample case, from whites and tans to granites, blues, and greens. Pick one to see it larger.",
+    "products": []
+  },
+  {
     "slug": "createastain",
     "name": "Createastain",
     "group": "color-finishes",
