@@ -1,0 +1,52 @@
+.photo-gallery {
+  margin: 3rem 0 0;
+}
+
+.photo-gallery__title {
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.5rem;
+}
+
+.photo-gallery__group {
+  margin: 1.5rem 0 0;
+}
+
+.photo-gallery__group-title {
+  font-size: 1.15rem;
+  margin: 0 0 0.35rem;
+}
+
+.photo-gallery__intro {
+  line-height: 1.6;
+  margin: 0 0 1rem;
+  max-width: 65ch;
+}
+
+/* A responsive grid: as many columns as fit, never narrower than 240px.
+   Photos fill their column but never grow past their real size. */
+.photo-gallery__list {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.photo-gallery__figure {
+  margin: 0;
+}
+
+.photo-gallery__image {
+  border-radius: 0.5rem;
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+.photo-gallery__caption {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-top: 0.5rem;
+}

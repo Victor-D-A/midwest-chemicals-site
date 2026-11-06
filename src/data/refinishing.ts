@@ -35,7 +35,33 @@ export interface RefinishingSurface {
   colors?: ColorSwatch[];
   // A highlighted warning shown at the top of the color gallery.
   colorNote?: string;
+  // Photos of real jobs, in titled groups.
+  gallery?: PhotoGroup[];
 }
+
+export interface GalleryPhoto {
+  src: string;
+  // The photo's real size. It's shown no larger than this, so it stays sharp.
+  width: number;
+  height: number;
+  alt: string;
+  caption: string;
+}
+
+export interface PhotoGroup {
+  title: string;
+  intro?: string;
+  photos: GalleryPhoto[];
+}
+
+// Builds one tile photo entry; every tile photo lives in /images/tile.
+const tilePhoto = (
+  file: string,
+  width: number,
+  height: number,
+  alt: string,
+  caption: string,
+): GalleryPhoto => ({ src: `/images/tile/${file}.jpg`, width, height, alt, caption });
 
 export const audienceLabels: Record<Audience, string> = {
   pro: "For licensed professionals",
@@ -103,6 +129,32 @@ export const refinishingSurfaces: RefinishingSurface[] = [
       { label: "Createastain", to: "/products/createastain" },
       { label: "Cleaners", to: "/products/cleaners" },
       { label: "Primers", to: "/products/primers" },
+    ],
+    // In-house photos from the current site. Captions are drafts pending
+    // owner review.
+    gallery: [
+      {
+        title: "One floor, start to finish",
+        photos: [
+          tilePhoto("before-floor", 533, 400, "Cream ceramic floor tile with a light stone texture and dark grout lines.", "Before: plain cream ceramic tile."),
+          tilePhoto("before-closeup", 533, 400, "Close-up of one cream tile showing its pitted stone texture.", "Before, up close: the tile's texture stays visible through the stain."),
+          tilePhoto("after-cleaning", 533, 400, "The cream tile floor, clean and dry, ready for primer.", "Cleaned with Industrial Cleaner and ready for primer."),
+          tilePhoto("original-next-to-stained", 533, 400, "Two rows of tile side by side: plain cream on the left, rich brown and black stain on the right.", "Original tile next to stained tile."),
+          tilePhoto("stained-closeup", 533, 400, "Stained tiles in mottled copper, dark brown, and black, with white highlights.", "Stained with Createastain in several colors."),
+          tilePhoto("stained-finished", 533, 400, "A square of stained brown and black tile framed by the original cream tile.", "Finished: a stained section framed by the original tile."),
+        ],
+      },
+      {
+        title: "Stain samples",
+        intro: "Createastain can be layered and brushed into many looks, from stone to bold color.",
+        photos: [
+          tilePhoto("sample-brown-marble", 400, 400, "Tile stained in swirls of dark brown and black, like marble.", "Brown and black marble look."),
+          tilePhoto("sample-dark-copper", 400, 400, "Tile stained nearly black with copper and rust streaks.", "Dark stone with copper streaks."),
+          tilePhoto("sample-green-swirl", 400, 400, "Tile brushed in bright green with swirling strokes.", "Bright green with brushed swirls."),
+          tilePhoto("sample-purple-veins", 400, 400, "Purple tile with white branching veins.", "Purple with white veining."),
+          tilePhoto("sample-lettering", 400, 400, "Red and orange tile hand-lettered in black with the words Midwest Chemicals.", "Hand lettering over red and orange."),
+        ],
+      },
     ],
   },
   {
