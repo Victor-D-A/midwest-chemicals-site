@@ -11,11 +11,24 @@ interface ColorGalleryProps {
   intro?: ReactNode;
   // A highlighted warning above the colors, where people compare them.
   note?: string;
+  // The name of the color to show first, for example from a link like
+  // ?color=Bellagio. Falls back to the first color.
+  initialColorName?: string | null;
 }
 
 // A large preview of the selected color above (or beside) a grid of tiles.
-export default function ColorGallery({ title, colors, intro, note }: ColorGalleryProps) {
-  const [selected, setSelected] = useState<ColorSwatch | undefined>(colors[0]);
+export default function ColorGallery({
+  title,
+  colors,
+  intro,
+  note,
+  initialColorName,
+}: ColorGalleryProps) {
+  const matchingColor = colors.find((color) => color.name === initialColorName);
+
+  const startColor = matchingColor ?? colors[0];
+
+  const [selected, setSelected] = useState<ColorSwatch | undefined>(startColor);
   const previewRef = useRef<HTMLDivElement>(null);
   // A unique id for this gallery, so two galleries on one page don't share
   // a heading id or a radio group (which would let only one color be picked).

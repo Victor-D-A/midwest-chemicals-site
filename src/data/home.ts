@@ -16,6 +16,20 @@ export const whyPoints = [
   },
 ];
 
+// Multi-Spec colors shown in the "Find your color" band, picked for a range
+// of looks: light, dark, warm, cool, and bold. Names must match
+// multiSpecColors exactly; any that don't are skipped.
+export const showcaseColorNames = [
+  "Bellagio",
+  "Baltic Brown",
+  "Bisque",
+  "Blackstone",
+  "Celestial Blue",
+  "Galaxy",
+  "Ruby Granite",
+  "Camouflage Green",
+];
+
 // Category slugs shown in "Featured"; their names and summaries come from
 // catalog.json, so they stay in sync with the Products page.
 export const featuredCategorySlugs = [

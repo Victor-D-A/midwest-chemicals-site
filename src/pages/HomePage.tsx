@@ -3,6 +3,7 @@ import "./Page.css";
 import "./HomePage.css";
 import CategoryCard from "../components/CategoryCard";
 import Hero from "../components/Hero";
+import ColorShowcase from "../components/ColorShowcase";
 import Spotlight from "../components/Spotlight";
 import { findCategory } from "../data/catalog";
 import { contact } from "../data/contact";
@@ -31,6 +32,8 @@ export default function HomePage() {
       />
 
       <Spotlight />
+
+      <ColorShowcase />
 
       <section className="home-section" aria-labelledby="home-why">
         <div className="home-section__inner">

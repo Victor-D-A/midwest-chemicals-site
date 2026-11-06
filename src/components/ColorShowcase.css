@@ -1,0 +1,141 @@
+/* A light teal band, between the dark spotlight and the white sections. */
+.showcase {
+  background: var(--color-accent-tint);
+  color: var(--color-text);
+}
+
+.showcase__inner {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 3.5rem 1.5rem;
+  text-align: center;
+}
+
+.showcase__title {
+  font-size: 1.85rem;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem;
+}
+
+.showcase__intro {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0 0 2rem;
+}
+
+/* One row of swatches. On wide screens they spread across the band; on
+   narrow ones the row scrolls sideways and snaps to each swatch. */
+.showcase__list {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  overflow-x: auto;
+  padding: 0.5rem 0.25rem 1rem;
+  scroll-snap-type: x mandatory;
+}
+
+.showcase__item {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+}
+
+.showcase__link {
+  align-items: center;
+  border-radius: 1rem;
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 0.25rem;
+  text-decoration: none;
+}
+
+/* Round swatches with a white ring, so each reads as a sample chip. They
+   show at 112px, well under the photos' real 300px, so they stay sharp. */
+.showcase__swatch {
+  aspect-ratio: 1;
+  border: 4px solid var(--color-surface);
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.12);
+  display: block;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+  width: 112px;
+}
+
+.showcase__link:hover .showcase__swatch {
+  transform: scale(1.06);
+}
+
+.showcase__link:focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 3px;
+}
+
+/* Dark text on the tint: teal there is only 4.2:1. */
+.showcase__name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  max-width: 8rem;
+}
+
+.showcase__more {
+  margin: 1.5rem 0 0;
+}
+
+.showcase__button {
+  background: var(--color-surface-inverse);
+  border-radius: 999px;
+  color: var(--color-text-inverse);
+  display: inline-block;
+  font-weight: 700;
+  padding: 0.8rem 1.5rem;
+  text-decoration: none;
+}
+
+.showcase__button::after {
+  content: " \2192";
+}
+
+.showcase__button:hover {
+  background: var(--color-text);
+}
+
+.showcase__button:focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 3px;
+}
+
+@media (max-width: 1100px) {
+  /* When the row no longer fits, start it at the left edge so the first
+     swatch isn't cut off, and let it scroll. */
+  .showcase__list {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .showcase__inner {
+    padding: 2.5rem 1rem;
+  }
+
+  .showcase__title {
+    font-size: 1.5rem;
+  }
+
+  .showcase__swatch {
+    width: 96px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .showcase__swatch {
+    transition: none;
+  }
+
+  .showcase__link:hover .showcase__swatch {
+    transform: none;
+  }
+}

@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import "./Page.css";
 import "./MultiSpecColorsPage.css";
 import ColorGallery from "../components/ColorGallery";
@@ -11,6 +12,24 @@ const category = findCategory("multi-spec-colors");
 // A custom page for the full Multi-Spec color case, like the Metal Flake page:
 // this category is all about seeing the colors.
 export default function MultiSpecColorsPage() {
+  // A link like /products/multi-spec-colors?color=Bellagio opens the page with
+  // that color selected. Null when the address has no ?color= part.
+  const [searchParams] = useSearchParams();
+  const colorName = searchParams.get("color");
+  const galleryRef = useRef<HTMLDivElement>(null);
+
+  // When a color was chosen from a link, jump down to the gallery so the
+  // visitor sees it right away instead of the page intro. Waits one frame so
+  // it runs after the app moves focus to the new page.
+  useEffect(() => {
+    if (!colorName) return;
+    const frame = requestAnimationFrame(() => {
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      galleryRef.current?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [colorName]);
+
   return (
     <section className="page" aria-labelledby="multi-spec-colors-title">
       <title>{formatPageTitle("Multi-Spec Colors")}</title>
@@ -54,11 +73,17 @@ export default function MultiSpecColorsPage() {
           </div>
         </div>
 
-        <ColorGallery
-          title="All colors"
-          colors={multiSpecColors}
-          note="Colors may look up to 10% different on screen than in person."
-        />
+        {/* `key` restarts the gallery when the color in the address changes,
+            so its starting color follows the new link. */}
+        <div ref={galleryRef}>
+          <ColorGallery
+            key={colorName ?? "default"}
+            title="All colors"
+            colors={multiSpecColors}
+            note="Colors may look up to 10% different on screen than in person."
+            initialColorName={colorName}
+          />
+        </div>
       </div>
     </section>
   );
