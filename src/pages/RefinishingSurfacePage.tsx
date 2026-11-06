@@ -3,6 +3,7 @@ import "./Page.css";
 import "./RefinishingSurfacePage.css";
 import Callouts from "../components/Callouts";
 import ColorGallery from "../components/ColorGallery";
+import PhotoGallery from "../components/PhotoGallery";
 import TroubleshootingGuide from "../components/TroubleshootingGuide";
 import { audienceLabels, findSurface } from "../data/refinishing";
 import { formatPageTitle } from "../utils/pageTitle";
@@ -84,6 +85,8 @@ export default function RefinishingSurfacePage() {
             </ul>
           </aside>
         )}
+
+        {surface.gallery && <PhotoGallery groups={surface.gallery} />}
 
         {surface.troubleshooting && (
           <TroubleshootingGuide issues={surface.troubleshooting} />
