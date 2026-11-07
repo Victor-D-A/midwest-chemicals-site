@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigationType, type NavigationType } from "react-router-dom";
 import AboutPage from "./pages/AboutPage";
 import CategoryPage from "./pages/CategoryPage";
 import ContactPage from "./pages/ContactPage";
@@ -17,21 +17,44 @@ import ProductsPage from "./pages/ProductsPage";
 import TestimonialsPage from "./pages/TestimonialsPage";
 import WarrantyPage from "./pages/WarrantyPage";
 
+// Whether a page change should start the new page at the top, like a normal
+// website does on a full page load.
+// - navigationType is "POP" for the browser's Back and Forward buttons,
+//   "PUSH" for clicked links, and "REPLACE" for redirects.
+// - hash is the "#order" part of the address, or "" when there isn't one.
+function shouldStartAtTop(navigationType: NavigationType, hash: string): boolean {
+  if (navigationType === "POP") {
+    return false;
+  }
+
+  if (hash) {
+    return false;
+  }
+  
+  return true;
+}
+
 export default function App() {
   const location = useLocation();
+  const navigationType = useNavigationType();
   const mainRef = useRef<HTMLElement>(null);
   // Remembers the last page we were on, so we can tell a real page change
   // from the very first render.
   const previousPathname = useRef(location.pathname);
 
-  // When the visitor moves to a different page, move keyboard focus to the
-  // new content, so keyboard and screen reader users know the page changed.
+  // When the visitor moves to a different page, start at the top (unless
+  // shouldStartAtTop says not to), and move keyboard focus to the new content
+  // so keyboard and screen reader users know the page changed.
   useEffect(() => {
     if (previousPathname.current === location.pathname) return;
 
     previousPathname.current = location.pathname;
-    mainRef.current?.focus();
-  }, [location.pathname]);
+    if (shouldStartAtTop(navigationType, location.hash)) {
+      window.scrollTo(0, 0);
+    }
+    // preventScroll: focus shouldn't move the page; the line above decides that.
+    mainRef.current?.focus({ preventScroll: true });
+  }, [location.pathname, location.hash, navigationType]);
 
   return (
     <div className="app">
