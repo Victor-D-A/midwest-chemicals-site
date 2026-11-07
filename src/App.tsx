@@ -30,7 +30,7 @@ function shouldStartAtTop(navigationType: NavigationType, hash: string): boolean
   if (hash) {
     return false;
   }
-  
+
   return true;
 }
 
