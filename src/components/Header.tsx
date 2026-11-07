@@ -75,6 +75,13 @@ export default function Header() {
           </ul>
         </nav>
 
+        {/* The main action, styled as a button so it stands apart from the
+            menu. It sits outside the menu, so it's one tap away on phones
+            and never gets the "current page" highlight. */}
+        <Link className="site-header__order" to="/contact#order" onClick={closeMenu}>
+          Order
+        </Link>
+
         <button
           ref={menuButtonRef}
           className="site-header__menu-button"

@@ -1,3 +1,5 @@
+import { useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import "./Page.css";
 import "./ContactPage.css";
 import { contact } from "../data/contact";
@@ -7,6 +9,32 @@ import { callHref, textHref } from "../utils/phone";
 
 export default function ContactPage() {
   const { address } = contact;
+  const location = useLocation();
+  const orderRef = useRef<HTMLElement>(null);
+
+  // When the address ends in #order (from the header's Order button), scroll to
+  // "How to order" and move keyboard focus there. location.key is new on every
+  // click, so pressing Order again while already on this page still works.
+  useEffect(() => {
+    if (location.hash !== "#order") {
+      return;
+    }
+
+    const frameId = requestAnimationFrame(() => {
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      orderRef.current?.scrollIntoView({
+        behavior: reduceMotion ? "auto" : "smooth",
+        block: "start"
+      });
+
+      orderRef.current?.focus({
+        preventScroll: true
+      });
+    });
+
+    return () => cancelAnimationFrame(frameId);
+  }, [location.hash, location.key]);
 
   return (
     <section className="page" aria-labelledby="contact-title">
@@ -94,7 +122,14 @@ export default function ContactPage() {
           </li>
         </ul>
 
-        <section className="contact-order" id="order" aria-labelledby="order-title">
+        {/* tabIndex={-1} lets code move focus here without adding a Tab stop. */}
+        <section
+          className="contact-order"
+          id="order"
+          aria-labelledby="order-title"
+          ref={orderRef}
+          tabIndex={-1}
+        >
           <h2 className="contact-order__title" id="order-title">
             How to order
           </h2>
