@@ -12,12 +12,32 @@ export interface TroubleshootingIssue {
   problem: string;
   description: string;
   fixes: TroubleshootingFix[];
+  // A picture of the problem, so refinishers can match it to what they see.
+  image?: TroubleshootingImage;
+}
+
+export interface TroubleshootingImage {
+  src: string;
+  // The image's real size; it's shown no larger than this.
+  width: number;
+  height: number;
+  alt: string;
+  // True for drawings and AI-generated pictures, so the page labels them
+  // "Illustration" instead of passing them off as photos of real jobs.
+  illustration: boolean;
 }
 
 export const bathtubTroubleshooting: TroubleshootingIssue[] = [
   {
     problem: "Alligatoring",
     description: "A cross-hatch pattern of surface imperfections.",
+    image: {
+      src: "/images/troubleshooting/alligatoring.jpg",
+      width: 800,
+      height: 462,
+      alt: "White bathtub whose glossy coating has wrinkled into a web of raised, irregular cells, like alligator skin, across the bottom and back wall.",
+      illustration: true,
+    },
     fixes: [
       {
         cause: "Coating over a soft film, or a topcoat that isn't compatible with the undercoat.",
@@ -39,6 +59,13 @@ export const bathtubTroubleshooting: TroubleshootingIssue[] = [
   {
     problem: "Cracking",
     description: "The finish splits, with breaks through the film.",
+    image: {
+      src: "/images/troubleshooting/cracking.jpg",
+      width: 800,
+      height: 533,
+      alt: "Close-up of a glossy white bathtub floor split by long, branching cracks that run through the coating and divide it into large irregular sections.",
+      illustration: true,
+    },
     fixes: [
       {
         cause: "Too many coats applied.",
@@ -61,6 +88,13 @@ export const bathtubTroubleshooting: TroubleshootingIssue[] = [
   {
     problem: "Cratering",
     description: "Holes or deep depressions.",
+    image: {
+      src: "/images/troubleshooting/cratering.jpg",
+      width: 800,
+      height: 533,
+      alt: "Glossy white bathtub floor dotted with dozens of small round craters and pits in the coating, some clustered together, near the drain.",
+      illustration: true,
+    },
     fixes: [
       {
         cause: "Bubbles breaking.",
@@ -76,6 +110,13 @@ export const bathtubTroubleshooting: TroubleshootingIssue[] = [
   {
     problem: "Crazing",
     description: "Fine cracking in an overall pattern.",
+    image: {
+      src: "/images/troubleshooting/crazing.jpg",
+      width: 800,
+      height: 533,
+      alt: "Glossy white bathtub floor covered edge to edge in a fine web of tiny hairline cracks, like a shattered windshield, while the surface stays smooth.",
+      illustration: true,
+    },
     fixes: [
       {
         cause: "Stress or cracking in the rigid surface underneath.",
