@@ -1,6 +1,76 @@
 .troubleshooting {
   margin: 3rem 0 0;
+}
+
+.troubleshooting__title,
+.troubleshooting__intro {
   max-width: 65ch;
+}
+
+/* Phones: just the list. The picture shows inside the open row. */
+.troubleshooting__layout {
+  display: grid;
+}
+
+.troubleshooting__panel {
+  display: none;
+}
+
+.troubleshooting__figure {
+  margin: 0;
+}
+
+.troubleshooting__image {
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+.troubleshooting__caption {
+  color: var(--color-text);
+  font-size: 0.9rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+.troubleshooting__inline-picture {
+  margin: 0 0 1rem;
+}
+
+/* Wide screens: list on the left, the picture panel on the right, pinned
+   while the visitor scrolls through the list. */
+@media (min-width: 900px) {
+  .troubleshooting__layout {
+    align-items: start;
+    gap: 2.5rem;
+    grid-template-columns: minmax(0, 65ch) minmax(0, 1fr);
+  }
+
+  .troubleshooting__panel {
+    display: block;
+    position: sticky;
+    top: 1.5rem;
+  }
+
+  .troubleshooting__inline-picture {
+    display: none;
+  }
+}
+
+/* Shown in the panel before anything is picked, or when the open problem
+   has no picture yet. */
+.troubleshooting__panel-empty {
+  align-items: center;
+  aspect-ratio: 800 / 462;
+  background: var(--color-accent-tint);
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 1.5rem;
+  text-align: center;
 }
 
 .troubleshooting__title {
