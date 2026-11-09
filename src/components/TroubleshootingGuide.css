@@ -7,6 +7,37 @@
   max-width: 65ch;
 }
 
+/* "About these pictures": the same tinted note style as the color
+   galleries' warning, so it reads as something to know before looking. */
+.troubleshooting__notice {
+  background: var(--color-accent-tint);
+  border-left: 4px solid var(--color-accent-strong);
+  border-radius: 0.4rem;
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+  max-width: 65ch;
+  padding: 1rem 1.25rem;
+}
+
+.troubleshooting__notice-title {
+  font-size: 1rem;
+  margin: 0 0 0.35rem;
+}
+
+.troubleshooting__notice p {
+  margin: 0 0 0.5rem;
+}
+
+.troubleshooting__notice p:last-child {
+  margin: 0;
+}
+
+/* Dark text on the tint: the teal link color is too faint there (4.2:1). */
+.troubleshooting__notice a {
+  color: var(--color-text);
+  font-weight: 700;
+}
+
 /* Phones: just the list. The picture shows inside the open row. */
 .troubleshooting__layout {
   display: grid;
@@ -18,6 +49,11 @@
 
 .troubleshooting__figure {
   margin: 0;
+}
+
+/* Space between pictures when a problem has more than one. */
+.troubleshooting__figure + .troubleshooting__figure {
+  margin-top: 1.25rem;
 }
 
 .troubleshooting__image {
@@ -37,6 +73,130 @@
 
 .troubleshooting__inline-picture {
   margin: 0 0 1rem;
+}
+
+/* The picture is a button that opens the enlarged view. The magnifier
+   cursor hints that clicking zooms in. */
+.troubleshooting__zoom {
+  background: none;
+  border: 0;
+  border-radius: 0.5rem;
+  cursor: zoom-in;
+  display: block;
+  padding: 0;
+  width: 100%;
+}
+
+.troubleshooting__zoom:focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 3px;
+}
+
+/* The enlarged view: centered over a dimmed page, as large as fits. */
+.troubleshooting__viewer {
+  background: var(--color-surface);
+  border: 0;
+  border-radius: 0.75rem;
+  color: var(--color-text);
+  max-height: 92vh;
+  max-width: min(900px, 94vw);
+  padding: 0;
+  width: 100%;
+}
+
+.troubleshooting__viewer::backdrop {
+  background: rgb(19 25 29 / 0.8);
+}
+
+.troubleshooting__viewer-content {
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.troubleshooting__viewer-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 0.75rem;
+}
+
+.troubleshooting__viewer-title {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.troubleshooting__viewer-close {
+  background: none;
+  border: 2px solid var(--color-border);
+  border-radius: 999px;
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 1.5rem;
+  height: 2.75rem;
+  line-height: 1;
+  width: 2.75rem;
+}
+
+.troubleshooting__viewer-figure {
+  margin: 0;
+}
+
+/* One fixed 3:2 frame for every picture, so the window keeps the same size
+   and the buttons below never move. Short enough to leave room for them. */
+.troubleshooting__viewer-frame {
+  aspect-ratio: 3 / 2;
+  margin: 0 auto;
+  width: min(100%, calc(60vh * 1.5));
+}
+
+/* Each picture is fitted inside the frame, never cropped. */
+.troubleshooting__viewer-image {
+  border-radius: 0.5rem;
+  display: block;
+  height: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+/* Room for two lines, so a longer description doesn't push the buttons down. */
+.troubleshooting__viewer-caption {
+  line-height: 1.5;
+  min-height: 3em;
+}
+
+.troubleshooting__viewer-nav {
+  align-items: center;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.troubleshooting__viewer-step {
+  background: var(--color-surface);
+  border: 2px solid var(--color-accent-strong);
+  border-radius: 999px;
+  color: var(--color-accent-strong);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  min-height: 2.75rem;
+  padding: 0.4rem 1rem;
+}
+
+.troubleshooting__viewer-step:hover,
+.troubleshooting__viewer-close:hover {
+  background: var(--color-accent-tint);
+}
+
+.troubleshooting__viewer-step:focus-visible,
+.troubleshooting__viewer-close:focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 3px;
+}
+
+.troubleshooting__viewer-count {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
 }
 
 /* Wide screens: list on the left, the picture panel on the right, pinned
