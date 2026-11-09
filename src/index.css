@@ -8,14 +8,14 @@
 /* Layer 1: the palette. Raw colors, named by what they look like. */
 :root {
   --white: #ffffff;
-  --charcoal-900: #13191d;
-  --charcoal-700: #1f262b;
-  --teal-500: #18b7b0;
-  --teal-700: #0e7f7a;
-  --teal-100: #d9f3f1;
-  --navy-800: #17324a;
-  --blue-700: #0d5b87;
-  --ice-200: #d6e4ee;
+  /* Preview palette: Marshmallow White, Galactic Violet, and Bubblegum Pink
+     (the reel listed the pink as #FE8500, which is orange, so this matches
+     the swatch instead), plus a deep ink for text and dark bands. */
+  --marshmallow-100: #f0f0f0;
+  --violet-600: #105bff;
+  --violet-700: #0b46cc;
+  --bubblegum-400: #f45bd0;
+  --ink-900: #15122e;
   --gray-200: #dce3e7;
 }
 
@@ -23,16 +23,27 @@
    The CSS files only use these names, never the palette directly. */
 :root {
   --color-surface: var(--white);
-  --color-surface-inverse: var(--charcoal-900);
-  --color-text: var(--navy-800);
+  /* Dark bands: spotlight, footer, hero overlay. White text is 18:1. */
+  --color-surface-inverse: var(--ink-900);
+  /* 18:1 on white, 15.9:1 on Marshmallow. */
+  --color-text: var(--ink-900);
   --color-text-inverse: var(--white);
-  --color-text-inverse-muted: var(--ice-200);
-  --color-accent: var(--teal-500);
-  --color-accent-strong: var(--teal-700);
-  --color-accent-tint: var(--teal-100);
-  --color-on-accent: var(--charcoal-900);
-  --color-link-hover: var(--blue-700);
-  --color-focus-ring: var(--charcoal-700);
+  --color-text-inverse-muted: var(--marshmallow-100);
+  /* Buttons and badges, with white text on top (5.3:1). Too dark for text
+     on the ink bands (3.4:1); the highlight pink does that job there. */
+  --color-accent: var(--violet-600);
+  /* Links, borders, bars, label text, and button hovers: 7.6:1 on white,
+     6.7:1 on Marshmallow; white text on it is 7.6:1. */
+  --color-accent-strong: var(--violet-700);
+  --color-accent-tint: var(--marshmallow-100);
+  --color-on-accent: var(--white);
+  /* Small highlights: the New tag, the spotlight heading, quote marks, and
+     links on the ink bands (6.3:1). Ink text on it is 6.3:1; white text on
+     it is too faint (2.9:1). */
+  --color-highlight: var(--bubblegum-400);
+  --color-on-highlight: var(--ink-900);
+  --color-link-hover: var(--ink-900);
+  --color-focus-ring: var(--ink-900);
   --color-border: var(--gray-200);
 }
 

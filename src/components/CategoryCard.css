@@ -11,7 +11,7 @@
 
 .category-card:hover {
   border-color: var(--color-accent-strong);
-  box-shadow: 0 2px 10px rgba(19, 25, 29, 0.12);
+  box-shadow: 0 2px 10px rgba(21, 18, 46, 0.12);
 }
 
 .category-card__name {

@@ -1,9 +1,9 @@
 /* Bright teal with dark text (about 8:1), so it catches the eye on white
    cards and on the dark spotlight band. */
 .promo-tag {
-  background: var(--color-accent);
+  background: var(--color-highlight);
   border-radius: 999px;
-  color: var(--color-on-accent);
+  color: var(--color-on-highlight);
   display: inline-block;
   font-size: 0.75rem;
   font-weight: 700;

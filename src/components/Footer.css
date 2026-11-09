@@ -35,7 +35,7 @@
 }
 
 .site-footer__nav-link:hover {
-  color: var(--color-accent);
+  color: var(--color-highlight);
   text-decoration: underline;
 }
 

@@ -17,7 +17,7 @@
 /* A charcoal layer over the photo. At 80% it guarantees the white headline
    stays above 9:1 contrast even over the brightest part of the photo. */
 .hero:has(.hero__image)::before {
-  background: rgba(19, 25, 29, 0.8);
+  background: rgba(21, 18, 46, 0.8);
   content: "";
   inset: 0;
   position: absolute;

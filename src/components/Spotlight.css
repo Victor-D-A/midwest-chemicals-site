@@ -14,7 +14,7 @@
 /* Big, bright teal capitals with a short bar beneath, so the band reads as
    important at a glance. Teal on the dark band is about 8:1. */
 .spotlight__title {
-  color: var(--color-accent);
+  color: var(--color-highlight);
   font-size: 1.6rem;
   letter-spacing: 0.06em;
   line-height: 1.2;
@@ -23,7 +23,7 @@
 }
 
 .spotlight__title::after {
-  background: var(--color-accent);
+  background: var(--color-highlight);
   border-radius: 2px;
   content: "";
   display: block;
@@ -89,10 +89,11 @@
 
 .spotlight__link:hover {
   background: var(--color-text-inverse);
+  color: var(--color-surface-inverse);
 }
 
 .spotlight__link:focus-visible {
-  outline: 3px solid var(--color-accent);
+  outline: 3px solid var(--color-highlight);
   outline-offset: 3px;
 }
 

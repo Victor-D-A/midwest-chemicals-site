@@ -103,7 +103,7 @@
 
 /* The bright teal reads well on charcoal (7.1:1). */
 .home-contact__text a {
-  color: var(--color-accent);
+  color: var(--color-highlight);
   font-weight: 700;
 }
 
