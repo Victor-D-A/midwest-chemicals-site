@@ -8,6 +8,7 @@ import Spotlight from "../components/Spotlight";
 import { findCategory } from "../data/catalog";
 import { contact } from "../data/contact";
 import { featuredCategorySlugs, whyPoints } from "../data/home";
+import { heroGalleryImages, heroStats } from "../data/heroGallery";
 import { HOME_DESCRIPTION } from "../data/pageDescriptions";
 import { formatPageTitle } from "../utils/pageTitle";
 import { callHref, textHref } from "../utils/phone";
@@ -22,13 +23,16 @@ export default function HomePage() {
     <>
       <title>{formatPageTitle()}</title>
       <meta name="description" content={HOME_DESCRIPTION} />
-      {/* Draft Copy: Pending Owner Review. Hero photo is an AI-generated placeholder. */}
+      {/* Draft Copy: Pending Owner Review. */}
       <Hero
-        title="The Products Behind Every Great Transformation."
-        subtitle="Professional coatings and refinishing supplies for bathtubs, countertops, tile, cabinets, and more. Supplying refinishing professionals since 1991."
-        ctaLabel="Explore Our Products"
-        ctaHref="/products"
-        backgroundImage="/images/home/hero-placeholder.jpg"
+        eyebrow="Professional refinishing coatings"
+        title="Every surface,"
+        titleHighlight="reborn."
+        subtitle="Coatings and refinishing supplies for bathtubs, showers, countertops, tile, and floors, in 53 Multi-Spec colors and every classic finish."
+        primaryCta={{ label: "Explore products", href: "/products" }}
+        secondaryCta={{ label: "Find your color", href: "/products/multi-spec-colors" }}
+        stats={heroStats}
+        galleryImages={heroGalleryImages}
       />
 
       <Spotlight />

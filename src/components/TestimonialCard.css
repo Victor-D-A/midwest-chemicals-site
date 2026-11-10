@@ -20,7 +20,7 @@
   text-transform: uppercase;
 }
 
-/* Dark text on the tint: teal there is only 4.2:1. */
+/* Dark text on the tint (15.9:1), like the rest of the featured story. */
 .story--featured .story__business {
   color: var(--color-text);
 }
@@ -44,7 +44,7 @@
 /* The oversized quote mark is decoration, so it's drawn with CSS
    instead of being part of the text a screen reader reads. */
 .story__quote::before {
-  color: var(--color-accent);
+  color: var(--color-highlight);
   content: "\201C";
   display: block;
   font-size: 4rem;

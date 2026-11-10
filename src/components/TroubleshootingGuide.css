@@ -32,7 +32,7 @@
   margin: 0;
 }
 
-/* Dark text on the tint: the teal link color is too faint there (4.2:1). */
+/* Bold dark text on the tint, matching the other notes on the site. */
 .troubleshooting__notice a {
   color: var(--color-text);
   font-weight: 700;
@@ -105,7 +105,7 @@
 }
 
 .troubleshooting__viewer::backdrop {
-  background: rgb(19 25 29 / 0.8);
+  background: rgb(21 18 46 / 0.8);
 }
 
 .troubleshooting__viewer-content {

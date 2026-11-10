@@ -12,7 +12,7 @@
 }
 
 /* A slim tinted strip: noticeable, but quieter than the page's own content.
-   Text stays dark on the tint (teal there is only 4.2:1). */
+   Text stays dark on the tint (15.9:1). */
 .callout {
   align-items: baseline;
   background: var(--color-accent-tint);

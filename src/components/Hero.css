@@ -1,46 +1,81 @@
+/* A dark, nearly full-screen hero with the animated galaxy behind it. */
 .hero {
+  align-items: center;
   background: var(--color-surface-inverse);
   color: var(--color-text-inverse);
+  display: flex;
+  min-height: max(560px, 85svh);
   overflow: hidden;
   position: relative;
 }
 
-/* The photo fills the hero behind everything else. */
-.hero__image {
+.galaxy {
   height: 100%;
   inset: 0;
-  object-fit: cover;
   position: absolute;
   width: 100%;
 }
 
-/* A charcoal layer over the photo. At 80% it guarantees the white headline
-   stays above 9:1 contrast even over the brightest part of the photo. */
-.hero:has(.hero__image)::before {
-  background: rgba(19, 25, 29, 0.8);
+/* A dark fade on the headline's side, so the text stays readable however
+   the pictures move behind it. */
+.hero::after {
+  background: linear-gradient(
+    90deg,
+    rgba(21, 18, 46, 0.92) 0%,
+    rgba(21, 18, 46, 0.7) 38%,
+    rgba(21, 18, 46, 0) 62%
+  );
   content: "";
   inset: 0;
+  pointer-events: none;
   position: absolute;
-  z-index: 1;
-}
-
-.hero__inner {
-  position: relative;
-  z-index: 2;
 }
 
 .hero__inner {
   margin: 0 auto;
   max-width: 1200px;
   padding: 5rem 1.5rem;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+/* Frosted glass: a faint white fill and border over a blur of whatever is
+   behind it. Shared by the eyebrow, the outline button, and the stats. */
+.hero__eyebrow,
+.hero__cta--ghost,
+.hero__stat {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero__eyebrow {
+  border-radius: 999px;
+  color: var(--color-text-inverse-muted);
+  display: inline-block;
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  margin: 0 0 1.5rem;
+  padding: 0.45rem 0.9rem;
+  text-transform: uppercase;
 }
 
 .hero__title {
-  font-size: 2.75rem;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  margin: 0 0 1rem;
-  max-width: 20ch;
+  font-size: clamp(2.4rem, 5.5vw, 4.6rem);
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+  margin: 0 0 1.25rem;
+  max-width: 13ch;
+}
+
+/* Gradient text. Both ends pass on the ink: light violet 6.7:1, pink 6.3:1. */
+.hero__highlight {
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-image: linear-gradient(90deg, var(--color-accent-light), var(--color-highlight));
+  color: transparent;
 }
 
 .hero__subtitle {
@@ -48,39 +83,110 @@
   font-size: 1.15rem;
   line-height: 1.6;
   margin: 0 0 2rem;
-  max-width: 55ch;
+  max-width: 44ch;
+}
+
+.hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
 .hero__cta {
-  background: var(--color-accent);
-  border-radius: 0.4rem;
-  color: var(--color-on-accent);
+  border-radius: 999px;
+  color: var(--color-text-inverse);
   display: inline-block;
   font-weight: 700;
-  padding: 0.85rem 1.5rem;
+  padding: 0.95rem 1.5rem;
   text-decoration: none;
 }
 
-.hero__cta:hover {
-  background: var(--color-accent-strong);
-  color: var(--color-text-inverse);
+.hero__cta--primary {
+  background: var(--color-accent);
+  box-shadow: 0 0 40px rgba(16, 91, 255, 0.45);
 }
 
-.hero__cta:focus-visible {
-  outline: 3px solid var(--color-text-inverse);
+.hero__cta--primary:hover {
+  background: var(--color-accent-strong);
+}
+
+.hero__cta--ghost:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.hero__cta:focus-visible,
+.hero__pause:focus-visible {
+  outline: 3px solid var(--color-highlight);
   outline-offset: 3px;
 }
 
+.hero__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  list-style: none;
+  margin: 3rem 0 0;
+  padding: 0;
+}
+
+.hero__stat {
+  border-radius: 1rem;
+  min-width: 9.5rem;
+  padding: 1rem 1.2rem;
+}
+
+.hero__stat-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.hero__stat-label {
+  color: var(--color-text-inverse-muted);
+  font-size: 0.85rem;
+}
+
+/* Anything that moves on its own for over 5 seconds needs a way to stop it. */
+.hero__pause {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  bottom: 1.25rem;
+  color: var(--color-text-inverse);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85rem;
+  min-height: 44px;
+  padding: 0.55rem 1rem;
+  position: absolute;
+  right: 1.25rem;
+  z-index: 3;
+}
+
+.hero__pause:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* Phones: the galaxy sits above the text, and the fade runs top to bottom. */
 @media (max-width: 768px) {
-  .hero__inner {
-    padding: 3rem 1rem;
+  .hero {
+    align-items: flex-end;
   }
 
-  .hero__title {
-    font-size: 2rem;
+  .hero::after {
+    background: linear-gradient(180deg, rgba(21, 18, 46, 0.3) 0%, rgba(21, 18, 46, 0.88) 55%);
+  }
+
+  .hero__inner {
+    padding: 10rem 1rem 5rem;
   }
 
   .hero__subtitle {
     font-size: 1.05rem;
+  }
+
+  .hero__stat {
+    flex: 1 1 8rem;
+    min-width: 0;
   }
 }

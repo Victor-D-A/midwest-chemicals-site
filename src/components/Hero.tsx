@@ -1,31 +1,79 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import Galaxy from "./Galaxy";
 import "./Hero.css";
 
-interface HeroProps {
-  title: string;
-  subtitle: string;
-  ctaLabel: string;
-  ctaHref: string;
-  // Optional photo behind the text. A dark overlay keeps the text readable.
-  backgroundImage?: string;
+interface HeroLink {
+  label: string;
+  href: string;
 }
 
-export default function Hero({ title, subtitle, ctaLabel, ctaHref, backgroundImage }: HeroProps) {
+interface HeroProps {
+  eyebrow: string;
+  title: string;
+  // The last words of the headline, shown in the violet-to-pink gradient.
+  titleHighlight: string;
+  subtitle: string;
+  primaryCta: HeroLink;
+  secondaryCta: HeroLink;
+  stats: { value: string; label: string }[];
+  galleryImages: string[];
+}
+
+// Visitors who turned on Reduce Motion in their settings start paused.
+function prefersReducedMotion() {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
+export default function Hero({
+  eyebrow,
+  title,
+  titleHighlight,
+  subtitle,
+  primaryCta,
+  secondaryCta,
+  stats,
+  galleryImages,
+}: HeroProps) {
+  const [paused, setPaused] = useState(prefersReducedMotion);
+
   return (
     <section className="hero" aria-labelledby="hero-title">
-      {backgroundImage && (
-        // Decorative: the headline carries the meaning, so alt is empty.
-        // fetchPriority tells the browser this is the most important image.
-        <img className="hero__image" src={backgroundImage} alt="" fetchPriority="high" />
-      )}
+      <Galaxy images={galleryImages} paused={paused} />
+
       <div className="hero__inner">
+        <p className="hero__eyebrow">{eyebrow}</p>
         <h1 className="hero__title" id="hero-title">
-          {title}
+          {title} <span className="hero__highlight">{titleHighlight}</span>
         </h1>
         <p className="hero__subtitle">{subtitle}</p>
 
-        <Link className="hero__cta" to={ctaHref}>{ctaLabel}</Link>
+        <div className="hero__ctas">
+          <Link className="hero__cta hero__cta--primary" to={primaryCta.href}>
+            {primaryCta.label}
+          </Link>
+          <Link className="hero__cta hero__cta--ghost" to={secondaryCta.href}>
+            {secondaryCta.label}
+          </Link>
+        </div>
+
+        <ul className="hero__stats">
+          {stats.map((stat) => (
+            <li className="hero__stat" key={stat.label}>
+              <span className="hero__stat-value">{stat.value}</span>
+              <span className="hero__stat-label">{stat.label}</span>
+            </li>
+          ))}
+        </ul>
       </div>
+
+      <button
+        className="hero__pause"
+        type="button"
+        onClick={() => setPaused((current) => !current)}
+      >
+        {paused ? "Play motion" : "Pause motion"}
+      </button>
     </section>
   );
 }

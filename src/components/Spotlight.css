@@ -5,16 +5,31 @@
   color: var(--color-text-inverse);
 }
 
+/* A thin violet-to-pink line across the top, so this band doesn't blend
+   into the dark hero above it. It fades out at both ends. */
+.spotlight::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-accent-light) 25%,
+    var(--color-highlight) 75%,
+    transparent
+  );
+  content: "";
+  display: block;
+  height: 2px;
+}
+
 .spotlight__inner {
   margin: 0 auto;
   max-width: 1200px;
   padding: 3rem 1.5rem;
 }
 
-/* Big, bright teal capitals with a short bar beneath, so the band reads as
-   important at a glance. Teal on the dark band is about 8:1. */
+/* Big pink capitals with a short bar beneath, so the band reads as
+   important at a glance. Pink on the ink band is 6.3:1. */
 .spotlight__title {
-  color: var(--color-accent);
+  color: var(--color-highlight);
   font-size: 1.6rem;
   letter-spacing: 0.06em;
   line-height: 1.2;
@@ -23,7 +38,7 @@
 }
 
 .spotlight__title::after {
-  background: var(--color-accent);
+  background: var(--color-highlight);
   border-radius: 2px;
   content: "";
   display: block;
@@ -89,10 +104,11 @@
 
 .spotlight__link:hover {
   background: var(--color-text-inverse);
+  color: var(--color-surface-inverse);
 }
 
 .spotlight__link:focus-visible {
-  outline: 3px solid var(--color-accent);
+  outline: 3px solid var(--color-highlight);
   outline-offset: 3px;
 }
 

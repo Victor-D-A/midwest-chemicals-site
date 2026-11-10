@@ -25,7 +25,7 @@
   max-width: 55ch;
 }
 
-/* Links inside intro text use the same teal as the "back" link. */
+/* Links inside intro text use the same violet as the "back" link. */
 .page__intro a {
   color: var(--color-accent-strong);
 }

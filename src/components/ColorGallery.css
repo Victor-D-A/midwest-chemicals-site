@@ -28,7 +28,7 @@
   padding: 1rem 1.25rem;
 }
 
-/* Dark text on the tint: the teal link color is too faint there (4.2:1). */
+/* Bold dark text on the tint, matching the other notes on the site. */
 .color-gallery__note a {
   color: var(--color-text);
   font-weight: 700;
