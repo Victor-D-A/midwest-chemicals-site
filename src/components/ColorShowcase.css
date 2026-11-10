@@ -1,4 +1,4 @@
-/* A light teal band, between the dark spotlight and the white sections. */
+/* A light gray band, between the dark spotlight and the white sections. */
 .showcase {
   background: var(--color-accent-tint);
   color: var(--color-text);
@@ -74,7 +74,7 @@
   outline-offset: 3px;
 }
 
-/* Dark text on the tint: teal there is only 4.2:1. */
+/* Dark text on the tint (15.9:1), so the color names read clearly. */
 .showcase__name {
   font-size: 0.95rem;
   font-weight: 700;

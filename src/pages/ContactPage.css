@@ -9,8 +9,8 @@
   padding: 1rem 1.25rem;
 }
 
-/* Strong teal is too light on the tint background (about 4.2:1), so the
-   link here uses the regular text color, underlined and bold. */
+/* The link here uses the regular text color, underlined and bold, to
+   match the other notes on the tint. */
 .contact-notice a {
   color: var(--color-text);
   font-weight: 700;

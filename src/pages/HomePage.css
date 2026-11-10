@@ -19,7 +19,7 @@
   margin: 0 0 1.5rem;
 }
 
-/* Links on the tint use dark text: the strong teal is only 4.2:1 there. */
+/* Links on the tint use bold dark text, matching the other notes. */
 .home-section__more a {
   color: var(--color-text);
   font-weight: 700;
@@ -101,7 +101,7 @@
   margin: 0 0 0.5rem;
 }
 
-/* The bright teal reads well on charcoal (7.1:1). */
+/* Bubblegum pink reads well on the ink band (6.3:1). */
 .home-contact__text a {
   color: var(--color-highlight);
   font-weight: 700;

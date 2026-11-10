@@ -5,7 +5,7 @@
   margin: 0 0 1rem;
 }
 
-/* Quick links: whole-card links with a teal bar and an arrow, so they read
+/* Quick links: whole-card links with a violet bar and an arrow, so they read
    as "these go somewhere" next to the plain "What sets us apart" boxes. */
 .about__quick-links {
   margin: 0 0 3.5rem;
@@ -79,7 +79,7 @@
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 }
 
-/* Industries as small pills. Linked ones get the teal outline and an arrow. */
+/* Industries as small pills. Linked ones get the violet outline and an arrow. */
 .about__industries {
   display: flex;
   flex-wrap: wrap;
@@ -168,7 +168,7 @@
 }
 
 /* The letter sits on the tint, like a sheet of paper set on the page.
-   Text stays dark there: teal on the tint is only 4.2:1. */
+   Text stays dark there (15.9:1). */
 .about__letter {
   background: var(--color-accent-tint);
   border-radius: 0.75rem;

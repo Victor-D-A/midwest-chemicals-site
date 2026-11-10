@@ -20,7 +20,7 @@
   text-transform: uppercase;
 }
 
-/* Dark text on the tint: teal there is only 4.2:1. */
+/* Dark text on the tint (15.9:1), like the rest of the featured story. */
 .story--featured .story__business {
   color: var(--color-text);
 }

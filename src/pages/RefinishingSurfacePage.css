@@ -1,4 +1,4 @@
-/* Who can buy these products: a small teal tag under the title. */
+/* Who can buy these products: a small violet label under the title. */
 .surface__audience {
   color: var(--color-accent-strong);
   font-weight: 700;
@@ -16,7 +16,7 @@
   margin: 0 0 1rem;
 }
 
-/* Numbered steps with a teal number badge. */
+/* Numbered steps with a violet number badge. */
 .surface__steps {
   counter-reset: step;
   list-style: none;

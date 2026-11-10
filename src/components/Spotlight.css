@@ -26,8 +26,8 @@
   padding: 3rem 1.5rem;
 }
 
-/* Big, bright teal capitals with a short bar beneath, so the band reads as
-   important at a glance. Teal on the dark band is about 8:1. */
+/* Big pink capitals with a short bar beneath, so the band reads as
+   important at a glance. Pink on the ink band is 6.3:1. */
 .spotlight__title {
   color: var(--color-highlight);
   font-size: 1.6rem;

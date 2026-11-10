@@ -9,7 +9,7 @@
 
 /* A fixed 4:3 frame, so cards line up whether or not they have a photo
    and the page doesn't jump while photos load. The product photos are shot
-   on black, so the frame is charcoal and the photo is fitted inside it. */
+   on black, so the frame is near-black and the photo is fitted inside it. */
 .product-card__media {
   align-items: center;
   aspect-ratio: 4 / 3;
