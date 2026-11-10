@@ -12,6 +12,7 @@
      (the reel listed the pink as #FE8500, which is orange, so this matches
      the swatch instead), plus a deep ink for text and dark bands. */
   --marshmallow-100: #f0f0f0;
+  --violet-400: #6f9bff;
   --violet-600: #105bff;
   --violet-700: #0b46cc;
   --bubblegum-400: #f45bd0;
@@ -36,6 +37,9 @@
      6.7:1 on Marshmallow; white text on it is 7.6:1. */
   --color-accent-strong: var(--violet-700);
   --color-accent-tint: var(--marshmallow-100);
+  /* A lighter violet for text on the ink bands (6.7:1), like the start of
+     the hero headline's gradient. */
+  --color-accent-light: var(--violet-400);
   --color-on-accent: var(--white);
   /* Small highlights: the New tag, the spotlight heading, quote marks, and
      links on the ink bands (6.3:1). Ink text on it is 6.3:1; white text on

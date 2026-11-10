@@ -5,6 +5,21 @@
   color: var(--color-text-inverse);
 }
 
+/* A thin violet-to-pink line across the top, so this band doesn't blend
+   into the dark hero above it. It fades out at both ends. */
+.spotlight::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-accent-light) 25%,
+    var(--color-highlight) 75%,
+    transparent
+  );
+  content: "";
+  display: block;
+  height: 2px;
+}
+
 .spotlight__inner {
   margin: 0 auto;
   max-width: 1200px;
