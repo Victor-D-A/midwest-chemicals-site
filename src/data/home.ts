@@ -8,7 +8,7 @@ export const whyPoints = [
   },
   {
     title: "Quality you can count on",
-    text: "We pride ourselves on the quality and consistency of our coatings, sold to thousands of professional bathtub refinishers across the USA, with distributors worldwide.",
+    text: "We pride ourselves on the quality and consistency of our coatings, sold to hundreds of professional bathtub refinishers across the USA, with distributors worldwide.",
   },
   {
     title: "Private labeling",
