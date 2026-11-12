@@ -8,7 +8,7 @@ export const whyPoints = [
   },
   {
     title: "Quality you can count on",
-    text: "We pride ourselves on the quality and consistency of our coatings, sold to thousands of professional bathtub refinishers across the USA, with distributors worldwide.",
+    text: "We pride ourselves on the quality and consistency of our coatings, sold to hundreds of professional bathtub refinishers across the USA, with distributors worldwide.",
   },
   {
     title: "Private labeling",
@@ -33,8 +33,8 @@ export const showcaseColorNames = [
 // Category slugs shown in "Featured"; their names and summaries come from
 // catalog.json, so they stay in sync with the Products page.
 export const featuredCategorySlugs = [
-  "multi-spec-colors",
-  "multi-spec",
+  "top-coats",
+  "metal-flake-primer-colors",
   "floor-coatings",
   "marketing-brochures",
 ];

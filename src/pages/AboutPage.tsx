@@ -59,8 +59,9 @@ export default function AboutPage() {
               ))}
             </ul>
             <p className="page__text">
-              Midwest Chemicals prides itself on becoming a leading supplier to thousands of
-              refinishing businesses around the world.
+              Midwest Chemicals prides itself on becoming a leading supplier to hundreds of
+              refinishing businesses across the USA, and on shipping
+              to customers around the world.
             </p>
           </div>
 

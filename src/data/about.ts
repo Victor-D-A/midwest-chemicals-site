@@ -83,7 +83,7 @@ export interface Strength {
 export const strengths: Strength[] = [
   {
     title: "Quality",
-    text: "We pride ourselves on the quality and consistency of our coatings, and sell to thousands of professional bathtub refinishers throughout the USA, with distributors worldwide. Price and customer service matter just as much to us: we aim to be second to none for bathtub refinishers, countertop refinishers, concrete staining companies, and truck bed liner applicators.",
+    text: "We pride ourselves on the quality and consistency of our coatings, and sell to hundreds of professional bathtub refinishers throughout the USA, with distributors worldwide. Price and customer service matter just as much to us: we aim to be second to none for bathtub refinishers, countertop refinishers, concrete staining companies, and truck bed liner applicators.",
   },
   {
     title: "Private labeling",
