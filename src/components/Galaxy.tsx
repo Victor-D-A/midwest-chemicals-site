@@ -46,9 +46,33 @@ function pull(phase: number): number {
   return 1;
 }
 
+// How far a picture has swirled around the center during this loop, in
+// turns: 0 before it falls, half a turn when it reaches the center, a whole
+// turn once it's back out. Every picture swirls the same amount per loop, so
+// the spacing you start with is the spacing you get back.
+function swirl(phase: number, k: number): number {
+  if (phase < 0.3) {
+    return 0;
+  }
+
+  const inward = (1 - k) / (1 - 0.03); // 0 in orbit → 1 at the center
+  return phase < 0.74 ? 0.5 * inward : 1 - 0.5 * inward;
+}
+
+// Where picture `i` of `count` sits in its normal orbit: `angle` in radians
+// around the center, and `home` from 0.18 (near the black hole) to 1 (far
+// out). Spread them evenly, so neighbors don't land on top of each other.
+function placeStar(i: number, count: number): { angle: number; home: number } {
+  const angle = i * 2.39996;
+  const t = Math.sqrt((i + 0.5) / count);
+  const home = 0.18 + t * (1 - 0.18);
+
+  return { angle, home };
+}
+
 interface Star {
   img: HTMLImageElement;
-  angle: number;
+  angle: number; // where it starts in its orbit
   home: number; // 0–1: how far from the center it normally drifts
   size: number;
   spin: number;
@@ -104,13 +128,13 @@ export default function Galaxy({ images, paused }: GalaxyProps) {
       return img;
     });
 
-    // Big enough to tell a tub from a shower; fewer of them so it's not crowded.
+    // Big enough to tell a tub from a shower; fewer of them so it's not
+    // crowded. On wide screens, each picture appears once.
     const narrow = width < 768;
-    const count = narrow ? 22 : 40;
+    const count = narrow ? 22 : 32;
     const stars: Star[] = Array.from({ length: count }, (_, i) => ({
       img: pictures[i % pictures.length],
-      angle: random(0, Math.PI * 2),
-      home: random(0.18, 1),
+      ...placeStar(i, count),
       size: narrow ? random(48, 90) : random(60, 120),
       spin: random(-0.3, 0.3),
       tilt: random(0, Math.PI * 2),
@@ -160,13 +184,14 @@ export default function Galaxy({ images, paused }: GalaxyProps) {
       for (const star of stars) {
         const phase = clamp01(base - star.delay + (base < star.delay ? 1 : 0));
         const k = pull(phase);
-        // Closer in means a faster orbit, like a real spiral.
-        star.angle += dt * (0.04 / Math.max(k, 0.12));
+        // A slow drift that moves everyone together, plus the swirl, which
+        // is fastest near the center, like a real spiral.
+        const angle = star.angle + clock * 0.04 + swirl(phase, k) * Math.PI * 2;
         star.tilt += dt * star.spin;
 
         const r = star.home * spread * k;
-        const x = centerX + Math.cos(star.angle) * r * 1.25;
-        const y = centerY + Math.sin(star.angle) * r * 0.7;
+        const x = centerX + Math.cos(angle) * r * 1.25;
+        const y = centerY + Math.sin(angle) * r * 0.7;
         const w = star.size * (0.35 + 0.65 * k);
         const h = w * 0.75;
 
