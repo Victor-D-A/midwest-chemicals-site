@@ -60,8 +60,8 @@ export default function AboutPage() {
             </ul>
             <p className="page__text">
               Midwest Chemicals prides itself on becoming a leading supplier to hundreds of
-              refinishing businesses across the USA, with customers as far away as Canada,
-              the Bahamas, Australia, and New Zealand.
+              refinishing businesses across the USA, and on shipping
+              to customers around the world.
             </p>
           </div>
 
