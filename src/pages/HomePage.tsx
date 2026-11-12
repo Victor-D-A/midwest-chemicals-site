@@ -30,7 +30,7 @@ export default function HomePage() {
         titleHighlight="reborn."
         subtitle="Coatings and refinishing supplies for bathtubs, showers, countertops, tile, and floors, in 53 Multi-Spec colors and every classic finish."
         primaryCta={{ label: "Explore products", href: "/products" }}
-        secondaryCta={{ label: "Find your color", href: "/products/multi-spec-colors" }}
+        secondaryCta={{ label: "See what you can refinish", href: "/refinishing" }}
         stats={heroStats}
         galleryImages={heroGalleryImages}
       />

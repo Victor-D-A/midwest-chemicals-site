@@ -73,7 +73,7 @@ export const heroGalleryImages = interleave(tubs, showers, countertops).map(
 
 // Draft copy, pending owner review.
 export const heroStats = [
-  { value: "53", label: "Multi-Spec colors" },
+  { value: "Hundreds", label: "Of refinishers across the USA" },
   { value: "Since 1991", label: "Supplying refinishing pros" },
   { value: "Pro-grade", label: "Coatings and supplies" },
 ];
