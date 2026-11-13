@@ -1,6 +1,7 @@
 import { useId, useRef, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import "./ColorGallery.css";
+import CountertopPreview from "./CountertopPreview";
 import type { ColorSwatch } from "../data/customColors";
 
 interface ColorGalleryProps {
@@ -14,7 +15,11 @@ interface ColorGalleryProps {
   // The name of the color to show first, for example from a link like
   // ?color=Bellagio. Falls back to the first color.
   initialColorName?: string | null;
+  // Adds a switch between the close-up and the color on a countertop.
+  countertopView?: boolean;
 }
+
+type PreviewView = "closeup" | "countertop";
 
 // A large preview of the selected color above (or beside) a grid of tiles.
 export default function ColorGallery({
@@ -23,12 +28,16 @@ export default function ColorGallery({
   intro,
   note,
   initialColorName,
+  countertopView = false,
 }: ColorGalleryProps) {
   const matchingColor = colors.find((color) => color.name === initialColorName);
 
   const startColor = matchingColor ?? colors[0];
 
   const [selected, setSelected] = useState<ColorSwatch | undefined>(startColor);
+  // Which picture the preview shows. Kept when the color changes, so someone
+  // comparing countertops can click through colors without switching back.
+  const [view, setView] = useState<PreviewView>("closeup");
   const previewRef = useRef<HTMLDivElement>(null);
   // A unique id for this gallery, so two galleries on one page don't share
   // a heading id or a radio group (which would let only one color be picked).
@@ -80,16 +89,43 @@ export default function ColorGallery({
         </p>
       )}
 
-      <div className="color-gallery__layout">
+      <div
+        className={`color-gallery__layout${countertopView ? " color-gallery__layout--wide" : ""}`}
+      >
         <div className="color-gallery__preview" ref={previewRef}>
-          {/* Shown at the photo's real size (300px) so it never looks blurry. */}
-          <img
-            className="color-gallery__preview-image"
-            src={selected.image}
-            width={300}
-            height={300}
-            alt={selected.imageAlt}
-          />
+          {countertopView && (
+            <div className="color-gallery__views" role="group" aria-label="Preview">
+              <button
+                type="button"
+                className="color-gallery__view"
+                aria-pressed={view === "closeup"}
+                onClick={() => setView("closeup")}
+              >
+                Close-up
+              </button>
+              <button
+                type="button"
+                className="color-gallery__view"
+                aria-pressed={view === "countertop"}
+                onClick={() => setView("countertop")}
+              >
+                On a countertop
+              </button>
+            </div>
+          )}
+
+          {countertopView && view === "countertop" ? (
+            <CountertopPreview color={selected} />
+          ) : (
+            // Shown at the photo's real size (300px) so it never looks blurry.
+            <img
+              className="color-gallery__preview-image"
+              src={selected.image}
+              width={300}
+              height={300}
+              alt={selected.imageAlt}
+            />
+          )}
           {/* Announces the new color to screen readers when it changes. */}
           <p className="color-gallery__preview-name" aria-live="polite">
             {selected.name}

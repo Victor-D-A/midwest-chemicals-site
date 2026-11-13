@@ -1,0 +1,13 @@
+.countertop-preview {
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+/* The photo's light and shadow, laid over the color: multiply darkens the
+   color only where the photo is darker than white. */
+.countertop-preview__lighting {
+  mix-blend-mode: multiply;
+}

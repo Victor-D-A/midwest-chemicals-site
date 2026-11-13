@@ -63,8 +63,8 @@ export default function MultiSpecColorsPage() {
               and turbine system and dries to the look and feel of speckled stone.
             </p>
             <p className="page__text">
-              Pick a color below to see it larger, or step through them with Previous and
-              Next.
+              Pick a color below to see it larger or on a countertop, or step through them
+              with Previous and Next.
             </p>
             <p className="page__text">
               <Link to="/products/multi-spec">See Multi-Spec products</Link> or{" "}
@@ -82,6 +82,7 @@ export default function MultiSpecColorsPage() {
             colors={multiSpecColors}
             note="Colors may look up to 10% different on screen than in person."
             initialColorName={colorName}
+            countertopView
           />
         </div>
       </div>
