@@ -188,3 +188,48 @@
   line-height: 1.3;
   margin-top: 0.4rem;
 }
+
+/* With the countertop view, the preview column is wider so the kitchen
+   isn't tiny. The close-up still stops at its real 300px. */
+@media (min-width: 768px) {
+  .color-gallery__layout--wide {
+    grid-template-columns: minmax(300px, 420px) 1fr;
+  }
+}
+
+/* "Close-up | On a countertop": two buttons joined into one control. */
+.color-gallery__views {
+  display: flex;
+  margin-bottom: 0.75rem;
+}
+
+.color-gallery__view {
+  background: var(--color-surface);
+  border: 2px solid var(--color-accent-strong);
+  color: var(--color-accent-strong);
+  cursor: pointer;
+  flex: 1;
+  font: inherit;
+  font-weight: 700;
+  padding: 0.5rem 0.75rem;
+}
+
+.color-gallery__view:first-child {
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.color-gallery__view:last-child {
+  border-left: none;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+/* The chosen view is filled in (white on violet, 7.6:1). */
+.color-gallery__view[aria-pressed="true"] {
+  background: var(--color-accent-strong);
+  color: var(--color-on-accent);
+}
+
+.color-gallery__view:focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
