@@ -17,9 +17,12 @@ interface ColorGalleryProps {
   initialColorName?: string | null;
   // Adds a switch between the close-up and the color on a countertop.
   countertopView?: boolean;
+  // Which picture the preview starts on, for example from a link like
+  // ?view=countertop. Falls back to the close-up.
+  initialView?: PreviewView;
 }
 
-type PreviewView = "closeup" | "countertop";
+export type PreviewView = "closeup" | "countertop";
 
 // A large preview of the selected color above (or beside) a grid of tiles.
 export default function ColorGallery({
@@ -29,6 +32,7 @@ export default function ColorGallery({
   note,
   initialColorName,
   countertopView = false,
+  initialView = "closeup",
 }: ColorGalleryProps) {
   const matchingColor = colors.find((color) => color.name === initialColorName);
 
@@ -37,7 +41,7 @@ export default function ColorGallery({
   const [selected, setSelected] = useState<ColorSwatch | undefined>(startColor);
   // Which picture the preview shows. Kept when the color changes, so someone
   // comparing countertops can click through colors without switching back.
-  const [view, setView] = useState<PreviewView>("closeup");
+  const [view, setView] = useState<PreviewView>(initialView);
   const previewRef = useRef<HTMLDivElement>(null);
   // A unique id for this gallery, so two galleries on one page don't share
   // a heading id or a radio group (which would let only one color be picked).

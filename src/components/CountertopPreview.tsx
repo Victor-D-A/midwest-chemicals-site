@@ -3,6 +3,12 @@ import "./CountertopPreview.css";
 import { countertopScene as scene } from "../data/countertopScene";
 import type { ColorSwatch } from "../data/customColors";
 
+// The swatch photos are 300px squares, and some have a thin dark line along
+// an edge. Mirrored tiles would put two of those lines side by side, so trim
+// this many pixels off every side before tiling.
+const SWATCH = 300;
+const TRIM = 6;
+
 // [horizontal, vertical] for each copy in a 2 × 2 block: 1 is as-is, -1 is
 // mirrored. Mirroring around the block's center puts each copy in its corner.
 const mirrors = [
@@ -49,14 +55,21 @@ export default function CountertopPreview({ color }: CountertopPreviewProps) {
               patternTransform={`scale(1 ${surface.squash})`}
             >
               {mirrors.map(([flipX, flipY]) => (
-                <image
+                <g
                   key={`${flipX}${flipY}`}
-                  href={color.image}
-                  width={tile}
-                  height={tile}
-                  preserveAspectRatio="none"
                   transform={`translate(${tile} ${tile}) scale(${flipX} ${flipY}) translate(${-tile} ${-tile})`}
-                />
+                >
+                  {/* The viewBox shows only the middle of the swatch,
+                      trimming its edges. */}
+                  <svg
+                    width={tile}
+                    height={tile}
+                    viewBox={`${TRIM} ${TRIM} ${SWATCH - TRIM * 2} ${SWATCH - TRIM * 2}`}
+                    preserveAspectRatio="none"
+                  >
+                    <image href={color.image} width={SWATCH} height={SWATCH} />
+                  </svg>
+                </g>
               ))}
             </pattern>
             <clipPath id={`${id}-clip-${i}`}>
