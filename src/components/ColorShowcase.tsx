@@ -46,6 +46,12 @@ export default function ColorShowcase() {
           <Link className="showcase__button" to={COLORS_PAGE}>
             Browse all {multiSpecColors.length} colors
           </Link>
+          <Link
+            className="showcase__button showcase__button--outline"
+            to={`${COLORS_PAGE}?view=countertop`}
+          >
+            See them on a countertop
+          </Link>
         </p>
       </div>
     </section>

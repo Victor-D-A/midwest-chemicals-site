@@ -82,6 +82,10 @@
 }
 
 .showcase__more {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
   margin: 1.5rem 0 0;
 }
 
@@ -101,6 +105,20 @@
 
 .showcase__button:hover {
   background: var(--color-text);
+}
+
+.showcase__button--outline {
+  background: transparent;
+  border: 2px solid var(--color-surface-inverse);
+  color: var(--color-text);
+  /* 2px less padding, so it's the same size as the filled button. */
+  padding: calc(0.8rem - 2px) calc(1.5rem - 2px);
+}
+
+/* Fills in on hover, like the button beside it. */
+.showcase__button--outline:hover {
+  background: var(--color-surface-inverse);
+  color: var(--color-text-inverse);
 }
 
 .showcase__button:focus-visible {

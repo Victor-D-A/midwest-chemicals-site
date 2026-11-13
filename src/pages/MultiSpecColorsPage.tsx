@@ -2,12 +2,18 @@ import { useEffect, useRef } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import "./Page.css";
 import "./MultiSpecColorsPage.css";
-import ColorGallery from "../components/ColorGallery";
+import ColorGallery, { type PreviewView } from "../components/ColorGallery";
 import { findCategory } from "../data/catalog";
 import { multiSpecColors } from "../data/multiSpecColors";
 import { formatPageTitle } from "../utils/pageTitle";
 
 const category = findCategory("multi-spec-colors");
+
+// Turns the ?view= part of the address into a starting view for the gallery.
+// Anyone can type anything there (or nothing, which gives null).
+function readView(value: string | null): PreviewView {
+  return value === "countertop" ? "countertop" : "closeup";
+}
 
 // A custom page for the full Multi-Spec color case, like the Metal Flake page:
 // this category is all about seeing the colors.
@@ -16,19 +22,20 @@ export default function MultiSpecColorsPage() {
   // that color selected. Null when the address has no ?color= part.
   const [searchParams] = useSearchParams();
   const colorName = searchParams.get("color");
+  const view = readView(searchParams.get("view"));
   const galleryRef = useRef<HTMLDivElement>(null);
 
   // When a color was chosen from a link, jump down to the gallery so the
   // visitor sees it right away instead of the page intro. Waits one frame so
   // it runs after the app moves focus to the new page.
   useEffect(() => {
-    if (!colorName) return;
+    if (!colorName && view === "closeup") return;
     const frame = requestAnimationFrame(() => {
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       galleryRef.current?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
     });
     return () => cancelAnimationFrame(frame);
-  }, [colorName]);
+  }, [colorName, view]);
 
   return (
     <section className="page" aria-labelledby="multi-spec-colors-title">
@@ -73,16 +80,17 @@ export default function MultiSpecColorsPage() {
           </div>
         </div>
 
-        {/* `key` restarts the gallery when the color in the address changes,
-            so its starting color follows the new link. */}
+        {/* `key` restarts the gallery when the color or view in the address
+            changes, so it starts where the new link says. */}
         <div ref={galleryRef}>
           <ColorGallery
-            key={colorName ?? "default"}
+            key={`${colorName ?? "default"}-${view}`}
             title="All colors"
             colors={multiSpecColors}
             note="Colors may look up to 10% different on screen than in person."
             initialColorName={colorName}
             countertopView
+            initialView={view}
           />
         </div>
       </div>
