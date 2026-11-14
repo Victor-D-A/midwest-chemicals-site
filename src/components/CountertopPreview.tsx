@@ -1,6 +1,6 @@
 import { useId } from "react";
 import "./CountertopPreview.css";
-import { countertopScene as scene } from "../data/countertopScene";
+import type { CountertopScene } from "../data/countertopScenes";
 import type { ColorSwatch } from "../data/customColors";
 
 // The swatch photos are 300px squares, and some have a thin dark line along
@@ -21,15 +21,18 @@ const FADE: [offset: number, opacity: number][] = [
 
 interface CountertopPreviewProps {
   color: ColorSwatch;
+  // Which photo to show the color in (the bathroom or the kitchen).
+  scene: CountertopScene;
 }
 
-// Shows the chosen color on the counter in a bathroom photo, in three layers:
+// Shows the chosen color on the counter in a photo, in three layers:
 //   1. the photo itself, for everything around the counter;
 //   2. each counter surface filled with the color's swatch, repeated like tiles;
-//   3. the photo again, cut to the counter and brightened, "multiplied" over
-//      the color. White parts change nothing and shadows darken it, so the
-//      color picks up the photo's lighting instead of looking pasted on.
-export default function CountertopPreview({ color }: CountertopPreviewProps) {
+//   3. the photo again, cut to the counter, blurred if the scene asks for it,
+//      and brightened, then "multiplied" over the color. White parts change
+//      nothing and shadows darken it, so the color picks up the photo's
+//      lighting instead of looking pasted on.
+export default function CountertopPreview({ color, scene }: CountertopPreviewProps) {
   // SVG ids must be unique on the page and can't contain the punctuation
   // React puts in useId values, so keep only letters, numbers, - and _.
   const id = useId().replace(/[^a-zA-Z0-9_-]/g, "");
@@ -57,7 +60,7 @@ export default function CountertopPreview({ color }: CountertopPreviewProps) {
       className="countertop-preview"
       viewBox={`0 0 ${scene.width} ${scene.height}`}
       role="img"
-      aria-label={`${color.name} on a bathroom countertop (computer-generated preview)`}
+      aria-label={`${color.name} on a ${scene.room} countertop (computer-generated preview)`}
     >
       <defs>
         {/* Fades for blending a half-shifted copy of the swatch over itself,
@@ -149,8 +152,24 @@ export default function CountertopPreview({ color }: CountertopPreviewProps) {
             )}
           </g>
         ))}
-        <filter id={`${id}-lift`}>
-          {/* Gray first: the photo's warm light would tint every color. */}
+        <filter
+          id={`${id}-lift`}
+          filterUnits="userSpaceOnUse"
+          x={0}
+          y={0}
+          width={scene.width}
+          height={scene.height}
+        >
+          {/* The photo arrives already cut to one counter surface, so a blur
+              only mixes counter with counter; the clear area around it
+              thins the edges instead of darkening them. Setting every pixel
+              back to fully solid afterward undoes that thinning, because the
+              colors are kept apart from their opacity at this step. */}
+          {scene.lightingBlur > 0 && <feGaussianBlur stdDeviation={scene.lightingBlur} />}
+          <feComponentTransfer>
+            <feFuncA type="linear" slope={0} intercept={1} />
+          </feComponentTransfer>
+          {/* Gray next: the photo's warm light would tint every color. */}
           <feColorMatrix type="saturate" values="0" />
           <feComponentTransfer>
             <feFuncR type="linear" slope={scene.lift} />
@@ -165,14 +184,19 @@ export default function CountertopPreview({ color }: CountertopPreviewProps) {
       {scene.surfaces.map((surface, i) => (
         <g key={i} mask={surface.holes ? `url(#${id}-holes-${i})` : undefined}>
           <polygon points={surface.points} fill={`url(#${id}-texture-${i})`} />
-          <image
-            className="countertop-preview__lighting"
-            href={scene.photo}
-            width={scene.width}
-            height={scene.height}
-            clipPath={`url(#${id}-clip-${i})`}
-            filter={`url(#${id}-lift)`}
-          />
+          {/* Cut to the surface before the filter (so a blur sees only
+              counter) and again after it (the filter fills the whole
+              picture). */}
+          <g className="countertop-preview__lighting" clipPath={`url(#${id}-clip-${i})`}>
+            <g filter={`url(#${id}-lift)`}>
+              <image
+                href={scene.photo}
+                width={scene.width}
+                height={scene.height}
+                clipPath={`url(#${id}-clip-${i})`}
+              />
+            </g>
+          </g>
         </g>
       ))}
     </svg>

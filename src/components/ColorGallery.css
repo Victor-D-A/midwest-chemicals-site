@@ -197,7 +197,7 @@
   }
 }
 
-/* "Close-up | On a countertop": two buttons joined into one control. */
+/* "Close-up | Bathroom | Kitchen": buttons joined into one control. */
 .color-gallery__views {
   display: flex;
   margin-bottom: 0.75rem;
@@ -211,15 +211,21 @@
   flex: 1;
   font: inherit;
   font-weight: 700;
-  padding: 0.5rem 0.75rem;
+  /* Three labels share a phone-width row, so keep each on one line. */
+  padding: 0.5rem;
+  white-space: nowrap;
 }
 
 .color-gallery__view:first-child {
   border-radius: 0.5rem 0 0 0.5rem;
 }
 
-.color-gallery__view:last-child {
+/* Neighbors share one border instead of drawing two side by side. */
+.color-gallery__view + .color-gallery__view {
   border-left: none;
+}
+
+.color-gallery__view:last-child {
   border-radius: 0 0.5rem 0.5rem 0;
 }
 
