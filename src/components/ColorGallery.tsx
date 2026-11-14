@@ -1,4 +1,4 @@
-import { useId, useRef, useState, type ReactNode } from "react";
+import { useId, useRef, useState, type KeyboardEvent, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import "./ColorGallery.css";
 import CountertopPreview from "./CountertopPreview";
@@ -43,6 +43,8 @@ export default function ColorGallery({
   // comparing countertops can click through colors without switching back.
   const [view, setView] = useState<PreviewView>(initialView);
   const previewRef = useRef<HTMLDivElement>(null);
+  // The enlarged countertop view, opened from the countertop picture.
+  const viewerRef = useRef<HTMLDialogElement>(null);
   // A unique id for this gallery, so two galleries on one page don't share
   // a heading id or a radio group (which would let only one color be picked).
   const id = useId();
@@ -69,6 +71,9 @@ export default function ColorGallery({
   function choose(color: ColorSwatch) {
     setSelected(color);
 
+    // While the enlarged view is open, the page behind it shouldn't scroll.
+    if (viewerRef.current?.open) return;
+
     // On a phone the preview sits above the grid, so after scrolling down to
     // a tile, bring the preview back into view. On wider screens it stays
     // pinned in place, so its top is never above the window and this skips.
@@ -76,6 +81,30 @@ export default function ColorGallery({
     if (!preview || preview.getBoundingClientRect().top >= 0) return;
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     preview.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+  }
+
+  function openViewer() {
+    viewerRef.current?.showModal();
+  }
+
+  function closeViewer() {
+    viewerRef.current?.close();
+  }
+
+  // Keys pressed inside the enlarged view. Escape (close) and Tab (move
+  // between its buttons) already work, because it's a <dialog>.
+  function handleViewerKeyDown(event: KeyboardEvent<HTMLDialogElement>) {
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      step(-1);
+      return;
+    }
+
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      step(1);
+      return;
+    }
   }
 
   return (
@@ -119,16 +148,39 @@ export default function ColorGallery({
           )}
 
           {countertopView && view === "countertop" ? (
-            <CountertopPreview color={selected} />
+            // Only the countertop can be enlarged: it's drawn, so it stays
+            // sharp at any size. The close-up photos are 300px and would blur.
+            <>
+              <button
+                className="color-gallery__enlarge"
+                type="button"
+                onClick={openViewer}
+                aria-label={`Enlarge ${selected.name} on a countertop`}
+              >
+                <CountertopPreview color={selected} />
+                <span className="color-gallery__enlarge-badge" aria-hidden="true">
+                  &#x2922; Enlarge
+                </span>
+              </button>
+              <p className="color-gallery__hint">Tap the countertop to see it larger.</p>
+            </>
           ) : (
-            // Shown at the photo's real size (300px) so it never looks blurry.
-            <img
-              className="color-gallery__preview-image"
-              src={selected.image}
-              width={300}
-              height={300}
-              alt={selected.imageAlt}
-            />
+            <>
+              {/* Shown at the photo's real size (300px) so it never looks blurry. */}
+              <img
+                className="color-gallery__preview-image"
+                src={selected.image}
+                width={300}
+                height={300}
+                alt={selected.imageAlt}
+              />
+              {countertopView && (
+                <p className="color-gallery__hint">
+                  For a bigger view, choose <strong>On a countertop</strong> and tap the
+                  picture.
+                </p>
+              )}
+            </>
           )}
           {/* Announces the new color to screen readers when it changes. */}
           <p className="color-gallery__preview-name" aria-live="polite">
@@ -170,6 +222,12 @@ export default function ColorGallery({
                     value={color.name}
                     checked={color.name === selected.name}
                     onChange={() => choose(color)}
+                    // Safari (and Firefox on a Mac) don't move focus to a radio
+                    // button when it's clicked, so the arrow keys would scroll
+                    // the page instead of changing colors. Focus it ourselves.
+                    // preventScroll stops this from fighting the scroll to
+                    // the preview in choose().
+                    onClick={(event) => event.currentTarget.focus({ preventScroll: true })}
                     // Starts with the visible name, then adds what the photo shows.
                     aria-label={`${color.name}: ${color.imageAlt}`}
                   />
@@ -188,6 +246,54 @@ export default function ColorGallery({
           </ul>
         </fieldset>
       </div>
+
+      {/* The enlarged countertop. A modal <dialog> keeps keyboard focus
+          inside it, closes on Escape, and returns focus to the picture that
+          opened it. Clicking the dark backdrop (the dialog itself, outside
+          its content) also closes it. */}
+      {countertopView && (
+        <dialog
+          className="color-gallery__viewer"
+          ref={viewerRef}
+          aria-labelledby={`${id}-viewer-title`}
+          onKeyDown={handleViewerKeyDown}
+          onClick={(event) => {
+            if (event.target === event.currentTarget) closeViewer();
+          }}
+        >
+          <div className="color-gallery__viewer-content">
+            <div className="color-gallery__viewer-header">
+              <h3 className="color-gallery__viewer-title" id={`${id}-viewer-title`}>
+                {selected.name}
+              </h3>
+              <button
+                className="color-gallery__viewer-close"
+                type="button"
+                onClick={closeViewer}
+                aria-label="Close"
+              >
+                &times;
+              </button>
+            </div>
+
+            <div className="color-gallery__viewer-frame">
+              <CountertopPreview color={selected} />
+            </div>
+
+            <div className="color-gallery__stepper color-gallery__viewer-nav">
+              <button className="color-gallery__step" type="button" onClick={() => step(-1)}>
+                <span aria-hidden="true">&larr; </span>Previous
+              </button>
+              <span className="color-gallery__position" aria-live="polite">
+                {selectedIndex + 1} of {colors.length}
+              </span>
+              <button className="color-gallery__step" type="button" onClick={() => step(1)}>
+                Next<span aria-hidden="true"> &rarr;</span>
+              </button>
+            </div>
+          </div>
+        </dialog>
+      )}
     </section>
   );
 }

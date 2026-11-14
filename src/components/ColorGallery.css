@@ -233,3 +233,110 @@
   outline: 3px solid var(--color-focus-ring);
   outline-offset: 2px;
 }
+
+/* The countertop picture is a button that opens the enlarged view. */
+.color-gallery__enlarge {
+  background: none;
+  border: 0;
+  border-radius: 0.5rem;
+  cursor: zoom-in;
+  display: block;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+.color-gallery__enlarge:focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 3px;
+}
+
+/* A small label in the corner, so it's clear the picture can be enlarged. */
+.color-gallery__enlarge-badge {
+  background: rgb(21 18 46 / 0.8);
+  border-radius: 999px;
+  bottom: 0.6rem;
+  color: var(--color-text-inverse);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.3rem 0.7rem;
+  position: absolute;
+  right: 0.6rem;
+}
+
+.color-gallery__enlarge:hover .color-gallery__enlarge-badge {
+  background: var(--color-surface-inverse);
+}
+
+.color-gallery__hint {
+  color: var(--color-text);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0.5rem 0 0;
+}
+
+/* The enlarged view: as wide as fits, with room for the buttons below. */
+.color-gallery__viewer {
+  background: var(--color-surface);
+  border: 0;
+  border-radius: 0.75rem;
+  color: var(--color-text);
+  max-height: 94vh;
+  max-width: min(1100px, 94vw);
+  padding: 0;
+  width: 100%;
+}
+
+.color-gallery__viewer::backdrop {
+  background: rgb(21 18 46 / 0.8);
+}
+
+.color-gallery__viewer-content {
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.color-gallery__viewer-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 0.75rem;
+}
+
+.color-gallery__viewer-title {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.color-gallery__viewer-close {
+  background: none;
+  border: 2px solid var(--color-border);
+  border-radius: 999px;
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 1.5rem;
+  height: 2.75rem;
+  line-height: 1;
+  width: 2.75rem;
+}
+
+.color-gallery__viewer-close:hover {
+  background: var(--color-accent-tint);
+}
+
+.color-gallery__viewer-close:focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 3px;
+}
+
+/* The photo is 4:3; keep it short enough that the buttons fit below. */
+.color-gallery__viewer-frame {
+  margin: 0 auto;
+  width: min(100%, calc(72vh * 4 / 3));
+}
+
+/* Centered under the picture, not stretched across the whole window. */
+.color-gallery__viewer-nav {
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}

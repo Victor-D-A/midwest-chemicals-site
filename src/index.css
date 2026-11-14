@@ -63,6 +63,12 @@ body {
   min-width: 320px;
 }
 
+/* While an enlarged view (a modal <dialog>) is open, freeze the page behind
+   it. Browsers block clicks and Tab behind a modal dialog, but not scrolling. */
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
 /* Keep the footer at the bottom of the window on short pages. */
 .app {
   display: flex;
