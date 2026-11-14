@@ -4,19 +4,20 @@ import { countertopScene as scene } from "../data/countertopScene";
 import type { ColorSwatch } from "../data/customColors";
 
 // The swatch photos are 300px squares, and some have a thin dark line along
-// an edge. Mirrored tiles would put two of those lines side by side, so trim
-// this many pixels off every side before tiling.
+// an edge, so trim this many pixels off every side before tiling.
 const SWATCH = 300;
 const TRIM = 6;
 
-// [horizontal, vertical] for each copy in a 2 × 2 block: 1 is as-is, -1 is
-// mirrored. Mirroring around the block's center puts each copy in its corner.
-const mirrors = [
-  [-1, -1],
-  [1, -1],
-  [-1, 1],
+// How strongly the half-shifted copy of the swatch covers the tile, from
+// the tile's edge (offset 0) through its middle (0.5) to the other edge (1).
+// Each entry is [offset, opacity], with opacity from 0 (hidden) to 1 (fully
+// covering). The shifted copy is what hides the seams at the edges, and its
+// own seam runs through the middle.
+const FADE: [offset: number, opacity: number][] = [
+  [0, 1],
+  [0.5, 0],
   [1, 1],
-] as const;
+];
 
 interface CountertopPreviewProps {
   color: ColorSwatch;
@@ -33,6 +34,23 @@ export default function CountertopPreview({ color }: CountertopPreviewProps) {
   // React puts in useId values, so keep only letters, numbers, - and _.
   const id = useId().replace(/[^a-zA-Z0-9_-]/g, "");
   const tile = scene.tileSize;
+  const half = tile / 2;
+
+  // One copy of the swatch with its top-left corner at (x, y). The viewBox
+  // shows only the middle of the photo, trimming its edges.
+  const swatch = (x: number, y: number) => (
+    <svg
+      key={`${x},${y}`}
+      x={x}
+      y={y}
+      width={tile}
+      height={tile}
+      viewBox={`${TRIM} ${TRIM} ${SWATCH - TRIM * 2} ${SWATCH - TRIM * 2}`}
+      preserveAspectRatio="none"
+    >
+      <image href={color.image} width={SWATCH} height={SWATCH} />
+    </svg>
+  );
 
   return (
     <svg
@@ -42,35 +60,68 @@ export default function CountertopPreview({ color }: CountertopPreviewProps) {
       aria-label={`${color.name} on a bathroom countertop (computer-generated preview)`}
     >
       <defs>
+        {/* Fades for blending a half-shifted copy of the swatch over itself,
+            one left to right and one top to bottom. Opacity, not color,
+            decides how much shows ("alpha" masks). */}
+        {(["x", "y"] as const).map((axis) => (
+          <g key={axis}>
+            <linearGradient
+              id={`${id}-fade-${axis}-gradient`}
+              x1={0}
+              y1={0}
+              x2={axis === "x" ? 1 : 0}
+              y2={axis === "y" ? 1 : 0}
+            >
+              {FADE.map(([offset, opacity]) => (
+                <stop key={offset} offset={offset} stopColor="white" stopOpacity={opacity} />
+              ))}
+            </linearGradient>
+            <mask
+              id={`${id}-fade-${axis}`}
+              maskUnits="userSpaceOnUse"
+              x={0}
+              y={0}
+              width={tile}
+              height={tile}
+              style={{ maskType: "alpha" }}
+            >
+              <rect width={tile} height={tile} fill={`url(#${id}-fade-${axis}-gradient)`} />
+            </mask>
+          </g>
+        ))}
+
         {scene.surfaces.map((surface, i) => (
           <g key={i}>
-            {/* Four copies of the swatch, three of them mirrored, so every
-                edge meets its own reflection. Swatch photos are a little
-                brighter on one side, and plain repeats would show seams. */}
+            {/* A seamless tile, repeated without mirroring (mirrored tiles
+                made symmetrical blots where four copies met). The swatch
+                is blended with copies of itself shifted half a tile: those
+                copies line up at the tile's edges, so they cover the seams,
+                and fade out toward the middle, where their own seams are.
+                First left/right, then the same again top/bottom. */}
             <pattern
               id={`${id}-texture-${i}`}
               patternUnits="userSpaceOnUse"
-              width={tile * 2}
-              height={tile * 2}
+              width={tile}
+              height={tile}
               patternTransform={`scale(1 ${surface.squash})`}
             >
-              {mirrors.map(([flipX, flipY]) => (
-                <g
-                  key={`${flipX}${flipY}`}
-                  transform={`translate(${tile} ${tile}) scale(${flipX} ${flipY}) translate(${-tile} ${-tile})`}
-                >
-                  {/* The viewBox shows only the middle of the swatch,
-                      trimming its edges. */}
-                  <svg
-                    width={tile}
-                    height={tile}
-                    viewBox={`${TRIM} ${TRIM} ${SWATCH - TRIM * 2} ${SWATCH - TRIM * 2}`}
-                    preserveAspectRatio="none"
-                  >
-                    <image href={color.image} width={SWATCH} height={SWATCH} />
-                  </svg>
+              <g>
+                {swatch(0, 0)}
+                <g mask={`url(#${id}-fade-x)`}>
+                  {swatch(-half, 0)}
+                  {swatch(half, 0)}
                 </g>
-              ))}
+              </g>
+              <g mask={`url(#${id}-fade-y)`}>
+                {swatch(0, -half)}
+                {swatch(0, half)}
+                <g mask={`url(#${id}-fade-x)`}>
+                  {swatch(-half, -half)}
+                  {swatch(half, -half)}
+                  {swatch(-half, half)}
+                  {swatch(half, half)}
+                </g>
+              </g>
             </pattern>
             <clipPath id={`${id}-clip-${i}`}>
               <polygon points={surface.points} />
