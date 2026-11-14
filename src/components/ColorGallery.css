@@ -189,7 +189,7 @@
   margin-top: 0.4rem;
 }
 
-/* With the countertop view, the preview column is wider so the kitchen
+/* With the countertop view, the preview column is wider so the counter
    isn't tiny. The close-up still stops at its real 300px. */
 @media (min-width: 768px) {
   .color-gallery__layout--wide {
@@ -335,8 +335,11 @@
 }
 
 /* Centered under the picture, not stretched across the whole window. */
+/* The small preview's stepper stops at 300px; the enlarged view has room,
+   so lift that limit or the buttons wrap onto two lines. */
 .color-gallery__viewer-nav {
   justify-content: center;
   gap: 1.5rem;
   margin-top: 1rem;
+  max-width: none;
 }
