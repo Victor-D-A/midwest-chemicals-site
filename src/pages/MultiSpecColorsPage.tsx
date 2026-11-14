@@ -9,10 +9,22 @@ import { formatPageTitle } from "../utils/pageTitle";
 
 const category = findCategory("multi-spec-colors");
 
-// Turns the ?view= part of the address into a starting view for the gallery.
-// Anyone can type anything there (or nothing, which gives null).
+// Turns the ?view= part of the address into a starting view for the gallery:
+// "closeup", "bathroom" or "kitchen". Anyone can type anything there (or
+// nothing, which gives null). Links made before the kitchen existed say
+// ?view=countertop, including the home page's "See them on a countertop".
 function readView(value: string | null): PreviewView {
-  return value === "countertop" ? "countertop" : "closeup";
+  const normalized = (value ?? "closeup").toLowerCase();
+
+  if (normalized === "kitchen") {
+    return "kitchen";
+  }
+
+  if (normalized === "bathroom" || normalized === "countertop") {
+    return "bathroom";
+  }
+
+  return "closeup";
 }
 
 // A custom page for the full Multi-Spec color case, like the Metal Flake page:

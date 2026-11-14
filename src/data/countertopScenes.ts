@@ -1,12 +1,12 @@
-// The bathroom photo in the Multi-Spec "On a countertop" preview.
+// The photos in the Multi-Spec countertop preview: a bathroom and a kitchen.
 //
-// Coordinates are in the photo's pixels (1600 × 1200). Each surface is an
+// Coordinates are in each photo's pixels (1600 × 1200). Each surface is an
 // outline, listed as "x,y x,y …" corners, that gets filled with the chosen
-// color. Holes (the sink, the faucet) are left showing the photo.
+// color. Holes (a sink, a faucet) are left showing the photo.
 //
-// To use a different photo: pick one with a plain, light counter; save it
-// in public/images/colors/; update the size and trace the counter's
-// corners; then adjust `lift` until light colors look right.
+// To add a photo: pick one with a light counter; white-balance it; save it
+// in public/images/colors/; trace the counter's corners; then adjust `lift`
+// until light colors look right.
 
 export interface CountertopSurface {
   // The corners of the area to fill with the color.
@@ -20,16 +20,22 @@ export interface CountertopSurface {
 }
 
 export interface CountertopScene {
+  // The room, for labels like "Blackstone on a kitchen countertop".
+  room: string;
   photo: string;
   width: number;
   height: number;
   // How wide one color swatch is drawn, in photo pixels. Smaller means finer
   // speckle but more visible repeats.
   tileSize: number;
-  // The counter in the photo is about 82% bright, so its shadows are
-  // brightened by this much before they're laid over the color. Without it,
+  // About 1 ÷ how bright the counter is in the photo. Its shadows are
+  // brightened by this much before they're laid over the color; without it,
   // every color would look a little darker than it is.
   lift: number;
+  // How much to blur the photo's light and shadow, in pixels (0 = sharp). A
+  // plain counter needs none; a patterned one (like granite) does, or its
+  // veins would show through every color.
+  lightingBlur: number;
   surfaces: CountertopSurface[];
 }
 
@@ -64,12 +70,16 @@ const mirroredSink =
 const mirroredFaucet =
   "1001,247 1024,247 1022,270 1040,290 1030,300 1017,325 972,325 980,295 1000,267";
 
-export const countertopScene: CountertopScene = {
+// A plain, light counter in our bathroom, with a mirror behind it.
+export const bathroomScene: CountertopScene = {
+  room: "bathroom",
   photo: "/images/colors/countertop-bathroom.jpg",
   width: 1600,
   height: 1200,
   tileSize: 480,
+  // The counter is about 82% bright.
   lift: 1.2,
+  lightingBlur: 0,
   surfaces: [
     // Edges were measured from the photo's brightness, then pushed out a
     // pixel or two. Neighboring surfaces overlap slightly on purpose: a
@@ -117,3 +127,48 @@ export const countertopScene: CountertopScene = {
     { points: "538,298 540,284 721,123 742,127 742,198 650,304", squash: 1 },
   ],
 };
+
+// A granite counter in a kitchen. The granite's dark veins would show through
+// every color, so its light and shadow are blurred until only the broad
+// shading is left.
+export const kitchenScene: CountertopScene = {
+  room: "kitchen",
+  photo: "/images/colors/countertop-kitchen.jpg",
+  width: 1600,
+  height: 1200,
+  // This counter is wider, so each inch is fewer pixels than in the bathroom.
+  tileSize: 400,
+  // The granite is about 64% bright.
+  lift: 1.55,
+  lightingBlur: 40,
+  surfaces: [
+    // The top.
+    {
+      points:
+        "357,396 1329,375 1453,600 1465,624 1472,642 1462,649 56,627 51,619",
+      squash: 0.4,
+    },
+    // The front edge, from the left end around the rounded right corner.
+    {
+      points:
+        "54,620 1460,645 1473,640 1473,652 1469,668 1461,679 1452,683 1430,686 " +
+        "1320,684 1220,680 1120,676 1020,674 920,670 820,668 720,664 620,662 " +
+        "520,659 420,656 320,655 220,650 120,648 66,646 63,642 54,628",
+      squash: 1,
+    },
+    // The backsplash, with its thin top and both ends.
+    {
+      points:
+        "341,325 520,318 820,308 1060,298 1260,289 1331,288 1328,379 357,399",
+      squash: 1,
+    },
+  ],
+};
+
+// Every countertop view, by the name used in buttons and links.
+export const countertopScenes = {
+  bathroom: bathroomScene,
+  kitchen: kitchenScene,
+};
+
+export type CountertopRoom = keyof typeof countertopScenes;

@@ -2,6 +2,7 @@ import { useId, useRef, useState, type KeyboardEvent, type ReactNode } from "rea
 import { Link } from "react-router-dom";
 import "./ColorGallery.css";
 import CountertopPreview from "./CountertopPreview";
+import { countertopScenes, type CountertopRoom } from "../data/countertopScenes";
 import type { ColorSwatch } from "../data/customColors";
 
 interface ColorGalleryProps {
@@ -15,14 +16,18 @@ interface ColorGalleryProps {
   // The name of the color to show first, for example from a link like
   // ?color=Bellagio. Falls back to the first color.
   initialColorName?: string | null;
-  // Adds a switch between the close-up and the color on a countertop.
+  // Adds a switch between the close-up and the color on a countertop, in a
+  // bathroom or a kitchen.
   countertopView?: boolean;
   // Which picture the preview starts on, for example from a link like
-  // ?view=countertop. Falls back to the close-up.
+  // ?view=kitchen. Falls back to the close-up.
   initialView?: PreviewView;
 }
 
-export type PreviewView = "closeup" | "countertop";
+export type PreviewView = "closeup" | CountertopRoom;
+
+// The countertop rooms, in button order.
+const rooms = Object.keys(countertopScenes) as CountertopRoom[];
 
 // A large preview of the selected color above (or beside) a grid of tiles.
 export default function ColorGallery({
@@ -136,18 +141,21 @@ export default function ColorGallery({
               >
                 Close-up
               </button>
-              <button
-                type="button"
-                className="color-gallery__view"
-                aria-pressed={view === "countertop"}
-                onClick={() => setView("countertop")}
-              >
-                On a countertop
-              </button>
+              {rooms.map((room) => (
+                <button
+                  key={room}
+                  type="button"
+                  className="color-gallery__view"
+                  aria-pressed={view === room}
+                  onClick={() => setView(room)}
+                >
+                  {room[0].toUpperCase() + room.slice(1)}
+                </button>
+              ))}
             </div>
           )}
 
-          {countertopView && view === "countertop" ? (
+          {countertopView && view !== "closeup" ? (
             // Only the countertop can be enlarged: it's drawn, so it stays
             // sharp at any size. The close-up photos are 300px and would blur.
             <>
@@ -155,9 +163,9 @@ export default function ColorGallery({
                 className="color-gallery__enlarge"
                 type="button"
                 onClick={openViewer}
-                aria-label={`Enlarge ${selected.name} on a countertop`}
+                aria-label={`Enlarge ${selected.name} on a ${view} countertop`}
               >
-                <CountertopPreview color={selected} />
+                <CountertopPreview color={selected} scene={countertopScenes[view]} />
                 <span className="color-gallery__enlarge-badge" aria-hidden="true">
                   &#x2922; Enlarge
                 </span>
@@ -176,8 +184,8 @@ export default function ColorGallery({
               />
               {countertopView && (
                 <p className="color-gallery__hint">
-                  For a bigger view, choose <strong>On a countertop</strong> and tap the
-                  picture.
+                  For a bigger view, choose <strong>Bathroom</strong> or{" "}
+                  <strong>Kitchen</strong> and tap the picture.
                 </p>
               )}
             </>
@@ -276,9 +284,12 @@ export default function ColorGallery({
               </button>
             </div>
 
-            <div className="color-gallery__viewer-frame">
-              <CountertopPreview color={selected} />
-            </div>
+            {/* Only opened from a countertop picture, so view is a room. */}
+            {view !== "closeup" && (
+              <div className="color-gallery__viewer-frame">
+                <CountertopPreview color={selected} scene={countertopScenes[view]} />
+              </div>
+            )}
 
             <div className="color-gallery__stepper color-gallery__viewer-nav">
               <button className="color-gallery__step" type="button" onClick={() => step(-1)}>
