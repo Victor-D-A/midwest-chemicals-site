@@ -22,7 +22,7 @@ interface CountertopPreviewProps {
   color: ColorSwatch;
 }
 
-// Shows the chosen color on the counter in a kitchen photo, in three layers:
+// Shows the chosen color on the counter in a bathroom photo, in three layers:
 //   1. the photo itself, for everything around the counter;
 //   2. each counter surface filled with the color's swatch, repeated like tiles;
 //   3. the photo again, cut to the counter and brightened, "multiplied" over
@@ -39,7 +39,7 @@ export default function CountertopPreview({ color }: CountertopPreviewProps) {
       className="countertop-preview"
       viewBox={`0 0 ${scene.width} ${scene.height}`}
       role="img"
-      aria-label={`${color.name} on a kitchen countertop (computer-generated preview)`}
+      aria-label={`${color.name} on a bathroom countertop (computer-generated preview)`}
     >
       <defs>
         {scene.surfaces.map((surface, i) => (
@@ -75,9 +75,32 @@ export default function CountertopPreview({ color }: CountertopPreviewProps) {
             <clipPath id={`${id}-clip-${i}`}>
               <polygon points={surface.points} />
             </clipPath>
+            {/* A mask keeps what's white and hides what's black, so each
+                hole (sink, faucet) shows the photo instead of the color. */}
+            {surface.holes && (
+              <mask
+                id={`${id}-holes-${i}`}
+                maskUnits="userSpaceOnUse"
+                x={0}
+                y={0}
+                width={scene.width}
+                height={scene.height}
+              >
+                <rect width={scene.width} height={scene.height} fill="white" />
+                {surface.holes.map((hole) => (
+                  <polygon
+                    key={hole}
+                    points={hole}
+                    fill="black"
+                  />
+                ))}
+              </mask>
+            )}
           </g>
         ))}
         <filter id={`${id}-lift`}>
+          {/* Gray first: the photo's warm light would tint every color. */}
+          <feColorMatrix type="saturate" values="0" />
           <feComponentTransfer>
             <feFuncR type="linear" slope={scene.lift} />
             <feFuncG type="linear" slope={scene.lift} />
@@ -89,7 +112,7 @@ export default function CountertopPreview({ color }: CountertopPreviewProps) {
       <image href={scene.photo} width={scene.width} height={scene.height} />
 
       {scene.surfaces.map((surface, i) => (
-        <g key={i}>
+        <g key={i} mask={surface.holes ? `url(#${id}-holes-${i})` : undefined}>
           <polygon points={surface.points} fill={`url(#${id}-texture-${i})`} />
           <image
             className="countertop-preview__lighting"
