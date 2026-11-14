@@ -1,8 +1,7 @@
 // The kitchen photo in the Multi-Spec "On a countertop" preview.
 //
-// Coordinates are in the original photo's pixels (1448 × 1086), even though
-// the saved file is smaller: the SVG stretches the file to fill that size.
-// Each surface is an outline, listed as "x,y x,y …" corners, that gets
+// Coordinates are in the photo's pixels (1448 × 1086). The file is saved at
+// full size so the enlarged view stays sharp. Each surface is an outline, listed as "x,y x,y …" corners, that gets
 // filled with the chosen color.
 //
 // To use a different photo: pick one with a plain, light, untextured
