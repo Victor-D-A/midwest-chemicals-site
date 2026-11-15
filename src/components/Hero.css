@@ -21,9 +21,9 @@
 .hero::after {
   background: linear-gradient(
     90deg,
-    rgba(21, 18, 46, 0.92) 0%,
-    rgba(21, 18, 46, 0.7) 38%,
-    rgba(21, 18, 46, 0) 62%
+    rgba(7, 8, 12, 0.92) 0%,
+    rgba(7, 8, 12, 0.7) 38%,
+    rgba(7, 8, 12, 0) 62%
   );
   content: "";
   inset: 0;
@@ -40,15 +40,16 @@
   z-index: 2;
 }
 
-/* Frosted glass: a faint white fill and border over a blur of whatever is
-   behind it. Shared by the eyebrow, the outline button, and the stats. */
+/* Dark glass over a blur of whatever is behind it, so these sit calmly on
+   the galaxy instead of competing with it. Shared by the eyebrow, the
+   outline button, and the stats. */
 .hero__eyebrow,
 .hero__cta--ghost,
 .hero__stat {
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(7, 8, 12, 0.4);
+  border: 1px solid rgba(255, 246, 224, 0.2);
 }
 
 .hero__eyebrow {
@@ -70,11 +71,12 @@
   max-width: 13ch;
 }
 
-/* Gradient text. Both ends pass on the ink: light violet 6.7:1, pink 6.3:1. */
+/* Gradient text, like the galaxy's core. Both ends pass on the dark: gold
+   12.9:1, amber 7.3:1. */
 .hero__highlight {
   -webkit-background-clip: text;
   background-clip: text;
-  background-image: linear-gradient(90deg, var(--color-accent-light), var(--color-highlight));
+  background-image: linear-gradient(90deg, var(--color-accent-light), var(--color-highlight-warm));
   color: transparent;
 }
 
@@ -97,17 +99,38 @@
   color: var(--color-text-inverse);
   display: inline-block;
   font-weight: 700;
+  /* An invisible ring, so a hover can fade it in. */
+  outline: 2px solid transparent;
+  outline-offset: 3px;
   padding: 0.95rem 1.5rem;
   text-decoration: none;
+  /* Eases hover changes in over 0.15s, so nothing snaps or flashes. */
+  transition:
+    background-color 0.15s ease,
+    box-shadow 0.15s ease,
+    outline-color 0.15s ease;
 }
 
+/* Visitors who turn on "Reduce motion" get the change instantly. */
+@media (prefers-reduced-motion: reduce) {
+  .hero__cta {
+    transition: none;
+  }
+}
+
+/* A soft rust halo: enough to mark the main action, not enough to compete
+   with the galaxy. */
 .hero__cta--primary {
   background: var(--color-accent);
-  box-shadow: 0 0 40px rgba(16, 91, 255, 0.45);
+  box-shadow: 0 0 24px rgba(168, 79, 48, 0.3);
 }
 
+/* Hovering says "you can click this": the button brightens and a ring
+   appears around it. */
 .hero__cta--primary:hover {
-  background: var(--color-accent-strong);
+  background: var(--color-accent-hover);
+  outline-color: var(--color-text-inverse);
+  box-shadow: 0 0 28px rgba(168, 79, 48, 0.45);
 }
 
 .hero__cta--ghost:hover {
@@ -174,7 +197,7 @@
   }
 
   .hero::after {
-    background: linear-gradient(180deg, rgba(21, 18, 46, 0.3) 0%, rgba(21, 18, 46, 0.88) 55%);
+    background: linear-gradient(180deg, rgba(7, 8, 12, 0.3) 0%, rgba(7, 8, 12, 0.88) 55%);
   }
 
   .hero__inner {

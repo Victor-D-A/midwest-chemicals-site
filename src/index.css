@@ -5,49 +5,74 @@
   -webkit-font-smoothing: antialiased;
 }
 
-/* Layer 1: the palette. Raw colors, named by what they look like. */
+/* Layer 1: the palette. Raw colors, named by what they look like.
+   An older spiral galaxy as Hubble photographs show it: a neutral black
+   sky, a white-to-gold core, amber and rust dust. Buttons and links are
+   rust: part of the galaxy, but bright and solid enough to read as
+   something to click.
+   Hex values are matched to the photos; NASA doesn't publish color codes. */
 :root {
   --white: #ffffff;
-  /* Preview palette: Marshmallow White, Galactic Violet, and Bubblegum Pink
-     (the reel listed the pink as #FE8500, which is orange, so this matches
-     the swatch instead), plus a deep ink for text and dark bands. */
-  --marshmallow-100: #f0f0f0;
-  --violet-400: #6f9bff;
-  --violet-600: #105bff;
-  --violet-700: #0b46cc;
-  --bubblegum-400: #f45bd0;
-  --ink-900: #15122e;
-  --gray-200: #dce3e7;
+  /* The sky. */
+  --void-950: #07080c; /* Void black */
+  /* The galaxy core, from its bright center outward. */
+  --core-50: #fff6e0; /* Core white */
+  --starlight-200: #e6e2d6; /* Warm starlight */
+  --gold-300: #f4c97a; /* Bulge gold */
+  --amber-500: #d98a3c; /* Aged amber */
+  /* The actions: buttons and links. */
+  --rust-300: #e07a50; /* Light rust, for links on the dark bands */
+  --rust-400: #b4532f; /* Bright rust, for button hovers */
+  --rust-500: #a84f30; /* Ember rust, for buttons */
+  --rust-700: #8c3b2b; /* Dust rust, for links on white */
+  --rust-800: #6b2a1f; /* Deep rust, for links on hover */
+  /* The light pages. */
+  --indigo-900: #101c3d; /* Deep Indigo, for body text */
+  --offwhite-50: #f5f7fc; /* Off-white */
+  --gray-200: #dce2ee;
 }
 
 /* Layer 2: roles. What each color is FOR, pointing at a palette color.
-   The CSS files only use these names, never the palette directly. */
+   The CSS files only use these names, never the palette directly.
+   Contrast needed: 4.5:1 for text, 3:1 for large text and control edges.
+   The gold and amber only pass on the dark bands, never as text on white. */
 :root {
   --color-surface: var(--white);
-  /* Dark bands: spotlight, footer, hero overlay. White text is 18:1. */
-  --color-surface-inverse: var(--ink-900);
-  /* 18:1 on white, 15.9:1 on Marshmallow. */
-  --color-text: var(--ink-900);
-  --color-text-inverse: var(--white);
-  --color-text-inverse-muted: var(--marshmallow-100);
-  /* Buttons and badges, with white text on top (5.3:1). Too dark for text
-     on the ink bands (3.4:1); the highlight pink does that job there. */
-  --color-accent: var(--violet-600);
-  /* Links, borders, bars, label text, and button hovers: 7.6:1 on white,
-     6.7:1 on Marshmallow; white text on it is 7.6:1. */
-  --color-accent-strong: var(--violet-700);
-  --color-accent-tint: var(--marshmallow-100);
-  /* A lighter violet for text on the ink bands (6.7:1), like the start of
-     the hero headline's gradient. */
-  --color-accent-light: var(--violet-400);
+  /* Dark bands: hero, spotlight, footer. Core white text is 18.6:1. */
+  --color-surface-inverse: var(--void-950);
+  /* 16.7:1 on white, 15.6:1 on Off-white. */
+  --color-text: var(--indigo-900);
+  --color-text-inverse: var(--core-50);
+  /* 15.5:1 on the dark bands. */
+  --color-text-inverse-muted: var(--starlight-200);
+  /* Buttons, with white text on top (5.5:1). Its edge is 3.7:1 against the
+     dark bands, so a button stands out from the sky as a solid shape. */
+  --color-accent: var(--rust-500);
+  /* Filled buttons brighten to this on hover: white text 5.0:1, edge 4.0:1
+     on the dark bands. Brighter, not darker, because darker would blend
+     into the dark bands. */
+  --color-accent-hover: var(--rust-400);
+  /* Links, borders, bars, and label text on white: 7.6:1 on white, 7.1:1 on
+     Off-white; white text on it is 7.6:1. Only 2.2:1 from the body text, so
+     links keep their underline. */
+  --color-accent-strong: var(--rust-700);
+  --color-accent-tint: var(--offwhite-50);
+  /* Bulge gold for text on the dark bands (12.9:1), and the start of the
+     hero headline's gradient. */
+  --color-accent-light: var(--gold-300);
   --color-on-accent: var(--white);
   /* Small highlights: the New tag, the spotlight heading, quote marks, and
-     links on the ink bands (6.3:1). Ink text on it is 6.3:1; white text on
-     it is too faint (2.9:1). */
-  --color-highlight: var(--bubblegum-400);
-  --color-on-highlight: var(--ink-900);
-  --color-link-hover: var(--ink-900);
-  --color-focus-ring: var(--ink-900);
+     links on the dark bands (12.9:1). Dark text on it is 12.9:1; as text on
+     white it is too faint (1.6:1). */
+  --color-highlight: var(--gold-300);
+  /* The warm end of the gold-to-amber gradients (7.3:1 on the dark bands). */
+  --color-highlight-warm: var(--amber-500);
+  --color-on-highlight: var(--void-950);
+  /* Rust links darken one step on hover (10.6:1 on white). */
+  --color-link-hover: var(--rust-800);
+  /* Links on the dark bands (6.7:1). Plain rust is too dark to read there. */
+  --color-link-inverse: var(--rust-300);
+  --color-focus-ring: var(--indigo-900);
   --color-border: var(--gray-200);
 }
 
@@ -67,6 +92,13 @@ body {
    it. Browsers block clicks and Tab behind a modal dialog, but not scrolling. */
 html:has(dialog[open]) {
   overflow: hidden;
+}
+
+/* Text links: the underline thickens on hover. Nothing moves, because a
+   link sits inside a sentence and moving words is hard on sensitive eyes.
+   Links styled as buttons or cards have no underline, so this skips them. */
+a:hover {
+  text-decoration-thickness: 2px;
 }
 
 /* Keep the footer at the bottom of the window on short pages. */

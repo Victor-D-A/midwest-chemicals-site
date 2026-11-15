@@ -5,7 +5,7 @@
   margin: 0 0 1rem;
 }
 
-/* Quick links: whole-card links with a violet bar and an arrow, so they read
+/* Quick links: whole-card links with a rust bar and an arrow, so they read
    as "these go somewhere" next to the plain "What sets us apart" boxes. */
 .about__quick-links {
   margin: 0 0 3.5rem;
@@ -52,8 +52,16 @@
   margin: 0 0 0.35rem;
 }
 
+/* inline-block, so the arrow can step forward on its own. */
 .about__quick-title::after {
-  content: " \2192";
+  content: "\2192";
+  display: inline-block;
+  margin-left: 0.3em;
+  transition: transform 0.15s ease;
+}
+
+.about__quick-card:hover .about__quick-title::after {
+  transform: translateX(4px);
 }
 
 .about__quick-text {
@@ -69,6 +77,14 @@
   .about__quick-card:hover {
     transform: none;
   }
+
+  .about__quick-title::after {
+    transition: none;
+  }
+
+  .about__quick-card:hover .about__quick-title::after {
+    transform: none;
+  }
 }
 
 /* Who we are: two columns on wide screens, stacked on phones. */
@@ -79,7 +95,7 @@
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 }
 
-/* Industries as small pills. Linked ones get the violet outline and an arrow. */
+/* Industries as small pills. Linked ones get the rust outline and an arrow. */
 .about__industries {
   display: flex;
   flex-wrap: wrap;
@@ -94,6 +110,19 @@
   border-radius: 999px;
   font-weight: 700;
   padding: 0.4rem 0.9rem;
+}
+
+/* A linked pill lifts 2px with a soft shadow on hover, like the quick
+   links. The pill's border is on the list item, so the whole item moves. */
+.about__industries li:has(.about__industry-link) {
+  transition:
+    box-shadow 0.15s ease,
+    transform 0.15s ease;
+}
+
+.about__industries li:has(.about__industry-link:hover) {
+  box-shadow: 0 4px 10px rgb(0 0 0 / 0.08);
+  transform: translateY(-2px);
 }
 
 /* A link fills its pill, so the whole pill is clickable. */
@@ -111,12 +140,32 @@
 }
 
 .about__industry-link::after {
-  content: " \2192";
+  content: "\2192";
+  display: inline-block;
+  margin-left: 0.3em;
+  transition: transform 0.15s ease;
 }
 
 .about__industry-link:hover {
   background: var(--color-accent-tint);
   color: var(--color-text);
+}
+
+.about__industry-link:hover::after {
+  transform: translateX(4px);
+}
+
+/* No lift, arrow step, or easing for visitors who turn on "Reduce motion". */
+@media (prefers-reduced-motion: reduce) {
+  .about__industries li:has(.about__industry-link),
+  .about__industry-link::after {
+    transition: none;
+  }
+
+  .about__industries li:has(.about__industry-link:hover),
+  .about__industry-link:hover::after {
+    transform: none;
+  }
 }
 
 /* Photos in two columns, each at its own shape so nothing is cropped

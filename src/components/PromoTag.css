@@ -1,4 +1,4 @@
-/* Bubblegum pink with ink text (6.3:1), so it catches the eye on white
+/* Bulge gold with dark text (12.9:1), so it catches the eye on white
    cards and on the dark spotlight band. */
 .promo-tag {
   background: var(--color-highlight);
@@ -15,7 +15,7 @@
   vertical-align: middle;
 }
 
-/* Pink on the light gray tint would look faded, so it turns dark there. */
+/* Gold on the light tint would look faded, so it turns dark there. */
 .home-section--tinted .promo-tag {
   background: var(--color-surface-inverse);
   color: var(--color-text-inverse);

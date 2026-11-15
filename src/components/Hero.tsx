@@ -11,7 +11,7 @@ interface HeroLink {
 interface HeroProps {
   eyebrow: string;
   title: string;
-  // The last words of the headline, shown in the violet-to-pink gradient.
+  // The last words of the headline, shown in the gold-to-amber gradient.
   titleHighlight: string;
   subtitle: string;
   primaryCta: HeroLink;

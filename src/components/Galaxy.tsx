@@ -155,7 +155,8 @@ export default function Galaxy({ images, paused }: GalaxyProps) {
       clock += dt;
       ctx!.clearRect(0, 0, width, height);
 
-      ctx!.fillStyle = "#fff";
+      // Core white, from the site palette: older stars glow slightly warm.
+      ctx!.fillStyle = "#fff6e0";
       for (const d of dust) {
         ctx!.globalAlpha = d.alpha;
         ctx!.beginPath();
@@ -170,11 +171,18 @@ export default function Galaxy({ images, paused }: GalaxyProps) {
 
       const glowRadius = spread * (0.35 + swallow * 0.25);
       const glow = ctx!.createRadialGradient(centerX, centerY, 0, centerX, centerY, glowRadius);
-      glow.addColorStop(0, "rgba(21, 18, 46, 1)");
-      glow.addColorStop(0.12, "rgba(21, 18, 46, 1)");
-      glow.addColorStop(0.16, `rgba(244, 91, 208, ${0.55 + swallow * 0.4})`);
-      glow.addColorStop(0.35, `rgba(16, 91, 255, ${0.25 + swallow * 0.3})`);
-      glow.addColorStop(1, "rgba(16, 91, 255, 0)");
+      // A dark center ringed by an older galaxy's core, as Hubble photos show
+      // it: core white, bulge gold, aged amber, then dust rust and umber
+      // fading into the dark. Kept soft so the pictures stay the focus; it
+      // brightens while they're swallowed.
+      glow.addColorStop(0, "rgba(7, 8, 12, 1)");
+      glow.addColorStop(0.12, "rgba(7, 8, 12, 1)");
+      glow.addColorStop(0.15, `rgba(255, 246, 224, ${0.5 + swallow * 0.4})`);
+      glow.addColorStop(0.2, `rgba(244, 201, 122, ${0.42 + swallow * 0.35})`);
+      glow.addColorStop(0.28, `rgba(217, 138, 60, ${0.3 + swallow * 0.3})`);
+      glow.addColorStop(0.4, `rgba(140, 59, 43, ${0.2 + swallow * 0.2})`);
+      glow.addColorStop(0.6, `rgba(74, 32, 27, ${0.12 + swallow * 0.12})`);
+      glow.addColorStop(1, "rgba(74, 32, 27, 0)");
       ctx!.globalAlpha = 1;
       ctx!.fillStyle = glow;
       ctx!.beginPath();
