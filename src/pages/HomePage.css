@@ -122,3 +122,81 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* What are you refinishing? Two cards share the row (instead of leaving
+   empty columns), capped so they don't stretch too wide. */
+.home-refinish__intro {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: -0.75rem 0 1.5rem;
+  max-width: 60ch;
+}
+
+.home-refinish__grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  list-style: none;
+  margin: 0;
+  max-width: 820px;
+  padding: 0;
+}
+
+/* Each card fills its row, so a short summary doesn't leave it shorter
+   than its neighbor. */
+.home-refinish__grid li {
+  display: grid;
+}
+
+.home-refinish__more {
+  margin: 1.75rem 0 0;
+}
+
+/* A filled rust button, like the other main actions: on hover it brightens,
+   a dust-rust ring fades in, and the arrow steps forward. */
+.home-refinish__button {
+  background: var(--color-accent);
+  border-radius: 999px;
+  color: var(--color-on-accent);
+  display: inline-block;
+  font-weight: 700;
+  outline: 2px solid transparent;
+  outline-offset: 3px;
+  padding: 0.85rem 1.5rem;
+  text-decoration: none;
+  transition:
+    background-color 0.15s ease,
+    outline-color 0.15s ease;
+}
+
+.home-refinish__button::after {
+  content: "\2192";
+  display: inline-block;
+  margin-left: 0.4em;
+  transition: transform 0.15s ease;
+}
+
+.home-refinish__button:hover {
+  background: var(--color-accent-hover);
+  outline-color: var(--color-accent-strong);
+}
+
+.home-refinish__button:hover::after {
+  transform: translateX(4px);
+}
+
+.home-refinish__button:focus-visible {
+  outline: 3px solid var(--color-focus-ring);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-refinish__button,
+  .home-refinish__button::after {
+    transition: none;
+  }
+
+  .home-refinish__button:hover::after {
+    transform: none;
+  }
+}

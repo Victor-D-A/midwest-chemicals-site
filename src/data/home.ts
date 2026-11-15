@@ -38,3 +38,9 @@ export const featuredCategorySlugs = [
   "floor-coatings",
   "marketing-brochures",
 ];
+
+// Surfaces shown in "What are you refinishing?", each linking to its own
+// refinishing page. Everything else is one click away on /refinishing.
+// Bathtubs is the most popular line; countertops are left out because the
+// Multi-Spec colors section already leads there.
+export const homeSurfaceSlugs = ["bathtub", "cabinets"];

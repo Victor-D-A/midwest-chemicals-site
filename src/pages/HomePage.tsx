@@ -5,10 +5,12 @@ import CategoryCard from "../components/CategoryCard";
 import Hero from "../components/Hero";
 import ColorShowcase from "../components/ColorShowcase";
 import Spotlight from "../components/Spotlight";
+import SurfaceCard from "../components/SurfaceCard";
 import { findCategory } from "../data/catalog";
 import { contact } from "../data/contact";
-import { featuredCategorySlugs, whyPoints } from "../data/home";
+import { featuredCategorySlugs, homeSurfaceSlugs, whyPoints } from "../data/home";
 import { heroGalleryImages, heroStats } from "../data/heroGallery";
+import { findSurface } from "../data/refinishing";
 import { HOME_DESCRIPTION } from "../data/pageDescriptions";
 import { formatPageTitle } from "../utils/pageTitle";
 import { callHref, textHref } from "../utils/phone";
@@ -17,6 +19,11 @@ import { callHref, textHref } from "../utils/phone";
 const featuredCategories = featuredCategorySlugs
   .map((slug) => findCategory(slug))
   .filter((category) => category !== undefined);
+
+// The same for the surfaces in "What are you refinishing?".
+const homeSurfaces = homeSurfaceSlugs
+  .map((slug) => findSurface(slug))
+  .filter((surface) => surface !== undefined);
 
 export default function HomePage() {
   return (
@@ -36,6 +43,31 @@ export default function HomePage() {
       />
 
       <Spotlight />
+
+      {/* A fast path for pros: two popular surfaces, then everything else. */}
+      <section className="home-section" aria-labelledby="home-refinish">
+        <div className="home-section__inner">
+          <h2 className="home-section__title" id="home-refinish">
+            What are you refinishing?
+          </h2>
+          <p className="home-refinish__intro">
+            Pick a surface to see which products to use and how they go on.
+          </p>
+          <ul className="home-refinish__grid">
+            {homeSurfaces.map((surface) => (
+              <li key={surface.slug}>
+                {/* h3: these sit under the section's h2. */}
+                <SurfaceCard surface={surface} headingLevel={3} />
+              </li>
+            ))}
+          </ul>
+          <p className="home-refinish__more">
+            <Link className="home-refinish__button" to="/refinishing">
+              See everything you can refinish
+            </Link>
+          </p>
+        </div>
+      </section>
 
       <ColorShowcase />
 
