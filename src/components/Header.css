@@ -52,8 +52,8 @@
   color: var(--color-link-hover);
 }
 
-/* The current page: a bar under the link (not color alone). It uses the strong
-   violet (7.6:1) so the bar itself passes the 3:1 needed for UI shapes. */
+/* The current page: a bar under the link (not color alone). It uses dust
+   rust (7.6:1) so the bar itself passes the 3:1 needed for UI shapes. */
 .site-header__nav-link--active {
   box-shadow: inset 0 -3px 0 var(--color-accent-strong);
 }
@@ -63,7 +63,7 @@
   margin-left: auto;
 }
 
-/* Order: a filled violet pill with white text (5.3:1), at least 44px tall. */
+/* Order: a filled rust pill with white text (5.5:1), at least 44px tall. */
 .site-header__order {
   align-items: center;
   background: var(--color-accent);
@@ -73,13 +73,27 @@
   flex-shrink: 0;
   font-weight: 700;
   min-height: 2.75rem;
+  /* An invisible ring that hovering fades in. */
+  outline: 2px solid transparent;
+  outline-offset: 3px;
   padding: 0 1.25rem;
   text-decoration: none;
+  transition:
+    background-color 0.15s ease,
+    outline-color 0.15s ease;
 }
 
+/* Brighter with a rust ring, like the other filled buttons. The header is
+   white, so the ring is dust rust (7.6:1) instead of core white. */
 .site-header__order:hover {
-  background: var(--color-accent-strong);
-  color: var(--color-text-inverse);
+  background: var(--color-accent-hover);
+  outline-color: var(--color-accent-strong);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header__order {
+    transition: none;
+  }
 }
 
 .site-header__brand:focus-visible,

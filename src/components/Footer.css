@@ -3,14 +3,14 @@
   color: var(--color-text-inverse);
 }
 
-/* The same violet-to-pink line as above In the Spotlight, so the footer
+/* The same gold-to-amber line as above In the Spotlight, so the footer
    reads as its own section after the dark "Ready to order?" band. */
 .site-footer::before {
   background: linear-gradient(
     90deg,
     transparent,
     var(--color-accent-light) 25%,
-    var(--color-highlight) 75%,
+    var(--color-highlight-warm) 75%,
     transparent
   );
   content: "";
@@ -56,7 +56,8 @@
   max-width: 32ch;
 }
 
-/* Small pink capitals, like the In the Spotlight heading (6.3:1 on ink). */
+/* Small gold capitals, like the In the Spotlight heading (12.9:1 on the
+   dark band). */
 .site-footer__heading {
   color: var(--color-highlight);
   font-size: 0.8rem;
@@ -79,7 +80,7 @@
 }
 
 .site-footer__link:hover {
-  color: var(--color-highlight);
+  color: var(--color-link-inverse);
   text-decoration: underline;
 }
 
@@ -107,7 +108,7 @@
 }
 
 .site-footer__contact-link:hover {
-  color: var(--color-highlight);
+  color: var(--color-link-inverse);
 }
 
 .site-footer__muted {

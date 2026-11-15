@@ -25,7 +25,7 @@
   max-width: 55ch;
 }
 
-/* Links inside intro text use the same violet as the "back" link. */
+/* Links inside intro text use the same rust as the "back" link. */
 .page__intro a {
   color: var(--color-accent-strong);
 }
@@ -86,4 +86,11 @@
   .page__title {
     font-size: 1.85rem;
   }
+}
+
+/* Rust links in sentences darken one step on hover, along with the thicker
+   underline every text link gets. */
+.page__intro a:hover,
+.page__text a:hover {
+  color: var(--color-link-hover);
 }

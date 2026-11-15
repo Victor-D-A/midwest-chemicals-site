@@ -101,9 +101,9 @@
   margin: 0 0 0.5rem;
 }
 
-/* Bubblegum pink reads well on the ink band (6.3:1). */
+/* Light rust, like every link, but bright enough for the dark band (6.7:1). */
 .home-contact__text a {
-  color: var(--color-highlight);
+  color: var(--color-link-inverse);
   font-weight: 700;
 }
 

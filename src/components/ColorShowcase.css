@@ -99,8 +99,26 @@
   text-decoration: none;
 }
 
+/* inline-block, so the arrow can step forward on hover. */
 .showcase__button::after {
-  content: " \2192";
+  content: "\2192";
+  display: inline-block;
+  margin-left: 0.3em;
+  transition: transform 0.15s ease;
+}
+
+.showcase__button:hover::after {
+  transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .showcase__button::after {
+    transition: none;
+  }
+
+  .showcase__button:hover::after {
+    transform: none;
+  }
 }
 
 .showcase__button:hover {

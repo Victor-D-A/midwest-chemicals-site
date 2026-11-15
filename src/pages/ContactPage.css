@@ -64,6 +64,11 @@ a[href^="sms:"] {
   font-weight: 700;
 }
 
+.contact-card a:hover,
+.contact-order a:hover {
+  color: var(--color-link-hover);
+}
+
 .contact-order {
   margin-top: 3rem;
   max-width: 70ch;
