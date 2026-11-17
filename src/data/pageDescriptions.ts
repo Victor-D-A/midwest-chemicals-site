@@ -26,3 +26,6 @@ export const FLOOR_COATINGS_DESCRIPTION =
 
 export const CONTACT_DESCRIPTION =
   "Call, text, or email Midwest Chemicals to place an order or set up an account. Open Monday to Friday, 8 a.m. to 4:30 p.m. Eastern. Se habla español.";
+
+export const MULTI_SPEC_INSTRUCTIONS_DESCRIPTION =
+  "How professional refinishers apply Multi-Spec: cleaning, sanding, priming, spraying, and clear coating, plus the spray equipment you need.";

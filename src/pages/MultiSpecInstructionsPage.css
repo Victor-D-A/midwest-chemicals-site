@@ -1,0 +1,148 @@
+/* Steps on the left, equipment and products beside them on wide screens;
+   stacked on phones, steps first. */
+.instructions__layout {
+  align-items: start;
+  display: grid;
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 900px) {
+  .instructions__layout {
+    grid-template-columns: minmax(0, 1fr) 320px;
+  }
+}
+
+.instructions__heading {
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.25rem;
+}
+
+/* Numbered steps with a rust number badge, like the surface pages. */
+.instructions__steps {
+  counter-reset: step;
+  list-style: none;
+  margin: 0;
+  max-width: 65ch;
+  padding: 0;
+}
+
+.instructions__steps li {
+  counter-increment: step;
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+  min-height: 2rem;
+  padding-left: 3rem;
+  position: relative;
+}
+
+.instructions__steps li::before {
+  align-items: center;
+  background: var(--color-accent);
+  border-radius: 50%;
+  color: var(--color-on-accent);
+  content: counter(step);
+  display: flex;
+  font-weight: 700;
+  height: 2rem;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: -0.1rem;
+  width: 2rem;
+}
+
+.instructions__step-title {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+/* Sits right under the step's title. */
+.instructions__step-text {
+  margin: 0.25rem 0 0;
+}
+
+/* "Optional" in words, not just a color, so everyone can tell. Dust rust on
+   the light tint is 7.1:1. */
+.instructions__optional {
+  background: var(--color-accent-tint);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  color: var(--color-accent-strong);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-left: 0.5rem;
+  padding: 0.15rem 0.55rem;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.instructions__note {
+  background: var(--color-accent-tint);
+  border-left: 4px solid var(--color-accent-strong);
+  border-radius: 0.4rem;
+  line-height: 1.6;
+  margin: 0.5rem 0 0;
+  max-width: 65ch;
+  padding: 1rem 1.25rem;
+}
+
+/* The side panel: what a refinisher gathers before starting. */
+.instructions__aside {
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+
+.instructions__aside-title {
+  font-size: 1.05rem;
+  margin: 0 0 0.5rem;
+}
+
+.instructions__aside-text {
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+}
+
+.instructions__products {
+  display: grid;
+  gap: 0.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.instructions__product-link {
+  color: var(--color-accent-strong);
+  font-weight: 700;
+}
+
+.instructions__product-link:hover {
+  color: var(--color-link-hover);
+}
+
+.instructions__product-detail {
+  display: block;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.instructions__help {
+  border-top: 1px solid var(--color-border);
+  line-height: 1.6;
+  margin: 3rem 0 0;
+  max-width: 65ch;
+  padding-top: 1.5rem;
+}
+
+.instructions__help a {
+  color: var(--color-accent-strong);
+  font-weight: 700;
+}
+
+.instructions__help a:hover {
+  color: var(--color-link-hover);
+}

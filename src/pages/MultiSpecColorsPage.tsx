@@ -89,6 +89,9 @@ export default function MultiSpecColorsPage() {
               <Link to="/products/multi-spec">See Multi-Spec products</Link> or{" "}
               <Link to="/contact">contact us</Link> to order.
             </p>
+            <p className="page__text">
+              <Link to="/refinishing/multi-spec-instructions">How to apply Multi-Spec</Link>
+            </p>
           </div>
         </div>
 

@@ -6,6 +6,7 @@ import ContactPage from "./pages/ContactPage";
 import FloorCoatingsPage from "./pages/FloorCoatingsPage";
 import MetalFlakePage from "./pages/MetalFlakePage";
 import MultiSpecColorsPage from "./pages/MultiSpecColorsPage";
+import MultiSpecInstructionsPage from "./pages/MultiSpecInstructionsPage";
 import RefinishingPage from "./pages/RefinishingPage";
 import RefinishingSurfacePage from "./pages/RefinishingSurfacePage";
 import Footer from "./components/Footer";
@@ -71,6 +72,10 @@ export default function App() {
           <Route path="/products/multi-spec-colors" element={<MultiSpecColorsPage />} />
           <Route path="/products/:slug" element={<CategoryPage />} />
           <Route path="/refinishing" element={<RefinishingPage />} />
+          {/* React Router ranks a fixed address above :slug, so this page wins
+              wherever it's listed; it sits here to keep the refinishing routes
+              together. */}
+          <Route path="/refinishing/multi-spec-instructions" element={<MultiSpecInstructionsPage />} />
           <Route path="/refinishing/:slug" element={<RefinishingSurfacePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/about/warranty" element={<WarrantyPage />} />
