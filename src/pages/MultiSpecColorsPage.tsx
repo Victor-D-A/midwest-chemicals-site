@@ -5,6 +5,7 @@ import "./MultiSpecColorsPage.css";
 import ColorGallery, { type PreviewView } from "../components/ColorGallery";
 import { findCategory } from "../data/catalog";
 import { multiSpecColors } from "../data/multiSpecColors";
+import { multiSpecExamples } from "../data/multiSpecExamples";
 import { formatPageTitle } from "../utils/pageTitle";
 
 const category = findCategory("multi-spec-colors");
@@ -94,6 +95,35 @@ export default function MultiSpecColorsPage() {
             </p>
           </div>
         </div>
+
+        {/* Finished jobs: one strong photo as proof, leading to the full
+            gallery, so the colors below stay uncluttered. */}
+        <section className="multi-spec-teaser" aria-labelledby="multi-spec-teaser-title">
+          <img
+            className="multi-spec-teaser__image"
+            src={multiSpecExamples[0].src}
+            width={multiSpecExamples[0].width}
+            height={multiSpecExamples[0].height}
+            loading="lazy"
+            alt={multiSpecExamples[0].alt}
+          />
+          <div className="multi-spec-teaser__body">
+            <h2 className="multi-spec-teaser__title" id="multi-spec-teaser-title">
+              See Multi-Spec on real jobs
+            </h2>
+            {/* Draft copy: pending owner review. */}
+            <p className="multi-spec-teaser__text">
+              Tubs, countertops, vanities, and shower tile finished by refinishers using
+              Multi-Spec.
+            </p>
+            <Link
+              className="multi-spec-teaser__button"
+              to="/refinishing/countertops/multi-spec-examples"
+            >
+              See all {multiSpecExamples.length} examples
+            </Link>
+          </div>
+        </section>
 
         {/* `key` restarts the gallery when the color or view in the address
             changes, so it starts where the new link says. */}

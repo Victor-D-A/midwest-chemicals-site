@@ -6,6 +6,7 @@ import ContactPage from "./pages/ContactPage";
 import FloorCoatingsPage from "./pages/FloorCoatingsPage";
 import MetalFlakePage from "./pages/MetalFlakePage";
 import MultiSpecColorsPage from "./pages/MultiSpecColorsPage";
+import MultiSpecExamplesPage from "./pages/MultiSpecExamplesPage";
 import MultiSpecInstructionsPage from "./pages/MultiSpecInstructionsPage";
 import RefinishingPage from "./pages/RefinishingPage";
 import RefinishingSurfacePage from "./pages/RefinishingSurfacePage";
@@ -76,6 +77,10 @@ export default function App() {
               wherever it's listed; it sits here to keep the refinishing routes
               together. */}
           <Route path="/refinishing/multi-spec-instructions" element={<MultiSpecInstructionsPage />} />
+          <Route
+            path="/refinishing/countertops/multi-spec-examples"
+            element={<MultiSpecExamplesPage />}
+          />
           <Route path="/refinishing/:slug" element={<RefinishingSurfacePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/about/warranty" element={<WarrantyPage />} />
