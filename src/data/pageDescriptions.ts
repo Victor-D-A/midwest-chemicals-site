@@ -29,3 +29,6 @@ export const CONTACT_DESCRIPTION =
 
 export const MULTI_SPEC_INSTRUCTIONS_DESCRIPTION =
   "How professional refinishers apply Multi-Spec: cleaning, sanding, priming, spraying, and clear coating, plus the spray equipment you need.";
+
+export const MULTI_SPEC_EXAMPLES_DESCRIPTION =
+  "Photos of real jobs finished with Multi-Spec: tubs, countertops, vanities, and shower tile, refinished in speckled stone finishes.";

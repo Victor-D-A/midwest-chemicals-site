@@ -1,0 +1,57 @@
+/* The lead photo spans the whole row; the rest share it, four across on
+   wide screens and fewer as it narrows. */
+.examples__grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  list-style: none;
+  margin: 2rem 0 0;
+  padding: 0;
+}
+
+.examples__item--lead {
+  grid-column: 1 / -1;
+}
+
+.examples__figure {
+  margin: 0;
+}
+
+/* Every photo in the same 4:3 frame, so the grid lines up whatever each
+   photo's real size. */
+.examples__image {
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--color-border);
+  border-radius: 0.6rem;
+  display: block;
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* The lead photo is wider and shorter, so it doesn't fill the screen. */
+.examples__item--lead .examples__image {
+  aspect-ratio: 16 / 9;
+}
+
+.examples__caption {
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+.examples__help {
+  border-top: 1px solid var(--color-border);
+  line-height: 1.6;
+  margin: 3rem 0 0;
+  max-width: 65ch;
+  padding-top: 1.5rem;
+}
+
+.examples__help a {
+  color: var(--color-accent-strong);
+  font-weight: 700;
+}
+
+.examples__help a:hover {
+  color: var(--color-link-hover);
+}
